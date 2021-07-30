@@ -13,10 +13,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(windowScene: winScene)
+        
+        let firstVC = MenuViewController()
+        let secondVC = SalesViewController()
+        let thirdVC = OrdersViewController()
+        let fourthVC = BasketViewController()
+        
+        let firstNav = UINavigationController(rootViewController: firstVC)
+        let secondNav = UINavigationController(rootViewController: secondVC)
+        let thirdNav = UINavigationController(rootViewController: thirdVC)
+        let fourthNav = UINavigationController(rootViewController: fourthVC)
+        
+        firstVC.navigationController?.navigationBar.barTintColor = .black
+        secondVC.navigationController?.navigationBar.barTintColor = .black
+        thirdVC.navigationController?.navigationBar.barTintColor = .black
+        fourthVC.navigationController?.navigationBar.barTintColor = .black
+        
+        firstNav.title = "Меню"
+        secondVC.title = "Акции"
+        thirdVC.title = "Мои заказы"
+        fourthVC.title = "Корзина"
+        
+        let tabBar = UITabBarController()
+
+//        tabBar.tabBar.isTranslucent = false;
+        tabBar.tabBar.tintColor = .white
+//        tabBar.tabBar.barTintColor = .white
+        tabBar.setViewControllers([firstNav, secondNav, thirdNav, fourthNav], animated: true)
+        tabBar.tabBar.barTintColor = .black
+        
+        guard let items = tabBar.tabBar.items else { return }
+        items.last?.badgeValue = "1"
+        let images = ["folder", "percent", "arrow.counterclockwise", "cart"]
+        
+        for icon in 0..<items.count {
+            items[icon].image = UIImage(systemName: images[icon])
+        }
+        
+        self.window?.rootViewController = tabBar
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

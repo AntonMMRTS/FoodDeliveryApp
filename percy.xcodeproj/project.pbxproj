@@ -3,27 +3,52 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */; };
 		F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */; };
-		F33DD37F26B2FAAB00CFEF56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37E26B2FAAB00CFEF56 /* ViewController.swift */; };
+		F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */; };
 		F33DD38226B2FAAB00CFEF56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F33DD38026B2FAAB00CFEF56 /* Main.storyboard */; };
 		F33DD38426B2FAAC00CFEF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F33DD38326B2FAAC00CFEF56 /* Assets.xcassets */; };
 		F33DD38726B2FAAC00CFEF56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F33DD38526B2FAAC00CFEF56 /* LaunchScreen.storyboard */; };
+		F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD39226B2FB3900CFEF56 /* SalesViewController.swift */; };
+		F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */; };
+		F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */; };
+		F33DD39C26B2FBBC00CFEF56 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */; };
+		F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD3A026B2FBF000CFEF56 /* String.swift */; };
+		F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */; };
+		F33DD3AD26B3025A00CFEF56 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AC26B3025A00CFEF56 /* FirebaseStorage */; };
+		F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */; };
+		F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */; };
+		F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */; };
+		F365B4B226B38E87008C9DED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F365B4B126B38E87008C9DED /* RealmSwift */; };
+		F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B426B38EBE008C9DED /* MenuModel.swift */; };
+		F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B926B38F6D008C9DED /* FirebaseManager.swift */; };
+		F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BC26B394F2008C9DED /* ProductModel.swift */; };
+		F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F33DD37726B2FAAB00CFEF56 /* percy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = percy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F33DD37E26B2FAAB00CFEF56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		F33DD38126B2FAAB00CFEF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F33DD38326B2FAAC00CFEF56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F33DD38626B2FAAC00CFEF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F33DD38826B2FAAC00CFEF56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F33DD39226B2FB3900CFEF56 /* SalesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SalesViewController.swift; sourceTree = "<group>"; };
+		F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
+		F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		F33DD3A026B2FBF000CFEF56 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusBar+NavigationBar.swift"; sourceTree = "<group>"; };
+		F365B4B426B38EBE008C9DED /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		F365B4B926B38F6D008C9DED /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		F365B4BC26B394F2008C9DED /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +56,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F33DD3AD26B3025A00CFEF56 /* FirebaseStorage in Frameworks */,
+				F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */,
+				F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */,
+				F365B4B226B38E87008C9DED /* RealmSwift in Frameworks */,
+				F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +86,65 @@
 		F33DD37926B2FAAB00CFEF56 /* percy */ = {
 			isa = PBXGroup;
 			children = (
-				F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */,
-				F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */,
-				F33DD37E26B2FAAB00CFEF56 /* ViewController.swift */,
+				F33DD3A826B2FCC500CFEF56 /* Supportings files */,
+				F33DD3A326B2FBF800CFEF56 /* Extension */,
+				F33DD39E26B2FBCC00CFEF56 /* Cells */,
+				F33DD39026B2FB1100CFEF56 /* Controllers */,
+				F365B4B726B38EC2008C9DED /* Models */,
 				F33DD38026B2FAAB00CFEF56 /* Main.storyboard */,
-				F33DD38326B2FAAC00CFEF56 /* Assets.xcassets */,
-				F33DD38526B2FAAC00CFEF56 /* LaunchScreen.storyboard */,
+				F365B4B926B38F6D008C9DED /* FirebaseManager.swift */,
 				F33DD38826B2FAAC00CFEF56 /* Info.plist */,
 			);
 			path = percy;
+			sourceTree = "<group>";
+		};
+		F33DD39026B2FB1100CFEF56 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */,
+				F33DD39226B2FB3900CFEF56 /* SalesViewController.swift */,
+				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
+				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F33DD39E26B2FBCC00CFEF56 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F33DD3A326B2FBF800CFEF56 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				F33DD3A026B2FBF000CFEF56 /* String.swift */,
+				F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		F33DD3A826B2FCC500CFEF56 /* Supportings files */ = {
+			isa = PBXGroup;
+			children = (
+				F33DD38526B2FAAC00CFEF56 /* LaunchScreen.storyboard */,
+				F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */,
+				F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */,
+				F33DD38326B2FAAC00CFEF56 /* Assets.xcassets */,
+			);
+			path = "Supportings files";
+			sourceTree = "<group>";
+		};
+		F365B4B726B38EC2008C9DED /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F365B4B426B38EBE008C9DED /* MenuModel.swift */,
+				F365B4BC26B394F2008C9DED /* ProductModel.swift */,
+				F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +163,13 @@
 			dependencies = (
 			);
 			name = percy;
+			packageProductDependencies = (
+				F33DD3AC26B3025A00CFEF56 /* FirebaseStorage */,
+				F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */,
+				F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */,
+				F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */,
+				F365B4B126B38E87008C9DED /* RealmSwift */,
+			);
 			productName = percy;
 			productReference = F33DD37726B2FAAB00CFEF56 /* percy.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +197,10 @@
 				Base,
 			);
 			mainGroup = F33DD36E26B2FAAB00CFEF56;
+			packageReferences = (
+				F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F365B4B026B38E87008C9DED /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = F33DD37826B2FAAB00CFEF56 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,9 +228,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F33DD37F26B2FAAB00CFEF56 /* ViewController.swift in Sources */,
+				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
+				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
+				F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */,
+				F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */,
+				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
+				F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */,
+				F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */,
+				F33DD39C26B2FBBC00CFEF56 /* CategoryCell.swift in Sources */,
+				F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */,
 				F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */,
 				F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */,
+				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
+				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +442,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.4.0;
+			};
+		};
+		F365B4B026B38E87008C9DED /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.11.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F33DD3AC26B3025A00CFEF56 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		F365B4B126B38E87008C9DED /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F365B4B026B38E87008C9DED /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F33DD36F26B2FAAB00CFEF56 /* Project object */;
 }
