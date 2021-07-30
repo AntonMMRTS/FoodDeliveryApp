@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F32A33BB26B3E18C007BD253 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A33BA26B3E18C007BD253 /* StorageManager.swift */; };
 		F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */; };
 		F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */; };
 		F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */; };
@@ -28,9 +29,12 @@
 		F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B926B38F6D008C9DED /* FirebaseManager.swift */; };
 		F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BC26B394F2008C9DED /* ProductModel.swift */; };
 		F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */; };
+		F365B4C526B3995C008C9DED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F365B4C426B3995C008C9DED /* GoogleService-Info.plist */; };
+		F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4C726B3A42A008C9DED /* MenuCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F32A33BA26B3E18C007BD253 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F33DD37726B2FAAB00CFEF56 /* percy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = percy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		F365B4B926B38F6D008C9DED /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F365B4BC26B394F2008C9DED /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryModel.swift; sourceTree = "<group>"; };
+		F365B4C426B3995C008C9DED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F365B4C726B3A42A008C9DED /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F32A33B826B3E14E007BD253 /* FirebaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				F365B4B926B38F6D008C9DED /* FirebaseManager.swift */,
+				F32A33BA26B3E18C007BD253 /* StorageManager.swift */,
+			);
+			path = FirebaseManager;
+			sourceTree = "<group>";
+		};
 		F33DD36E26B2FAAB00CFEF56 = {
 			isa = PBXGroup;
 			children = (
@@ -92,7 +107,8 @@
 				F33DD39026B2FB1100CFEF56 /* Controllers */,
 				F365B4B726B38EC2008C9DED /* Models */,
 				F33DD38026B2FAAB00CFEF56 /* Main.storyboard */,
-				F365B4B926B38F6D008C9DED /* FirebaseManager.swift */,
+				F32A33B826B3E14E007BD253 /* FirebaseManager */,
+				F365B4C426B3995C008C9DED /* GoogleService-Info.plist */,
 				F33DD38826B2FAAC00CFEF56 /* Info.plist */,
 			);
 			path = percy;
@@ -113,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */,
+				F365B4C726B3A42A008C9DED /* MenuCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -216,6 +233,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F33DD38726B2FAAC00CFEF56 /* LaunchScreen.storyboard in Resources */,
+				F365B4C526B3995C008C9DED /* GoogleService-Info.plist in Resources */,
 				F33DD38426B2FAAC00CFEF56 /* Assets.xcassets in Resources */,
 				F33DD38226B2FAAB00CFEF56 /* Main.storyboard in Resources */,
 			);
@@ -228,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
 				F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */,
@@ -239,6 +258,7 @@
 				F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */,
 				F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */,
 				F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */,
+				F32A33BB26B3E18C007BD253 /* StorageManager.swift in Sources */,
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
 			);
@@ -394,7 +414,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Anton-Usov.percy";
+				PRODUCT_BUNDLE_IDENTIFIER = "Anton-Usov.LaunchScreen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -413,7 +433,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Anton-Usov.percy";
+				PRODUCT_BUNDLE_IDENTIFIER = "Anton-Usov.LaunchScreen";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
