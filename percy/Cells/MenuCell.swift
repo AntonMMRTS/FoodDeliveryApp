@@ -13,18 +13,7 @@ class MenuCell: UICollectionViewCell {
         }
     }
     
-//    func setupCell(product: Product) {
-//
-////            storageManager.getImage(picName: product.imageName, categorie: product.category ) { (newImage) in
-////                self.productImage.image = newImage
-////            }
-////            self.productImage.image = newImage
-//            self.nameLabel.text = product.name
-//            self.definitionLabel.text = product.definition
-//            self.priceLabel.text = "\(product.price) ₽"
-//        }
-    
-    var productImage: UIImageView = {
+    private var productImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -55,10 +44,13 @@ class MenuCell: UICollectionViewCell {
 
     private var priceLabel: UILabel = {
         let label = UILabel()
+        label.layer.cornerRadius = 10
+        label.clipsToBounds = true
         label.backgroundColor = UIColor(red: 64/255, green: 63/255, blue: 70/255, alpha: 1)
         label.textColor = .white
         label.font = UIFont(name: "HelveticaNeue", size: 17)
         label.textAlignment = .center
+        
        
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -69,6 +61,7 @@ class MenuCell: UICollectionViewCell {
         button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
        
         button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 15
         button.setTitleColor(.black, for: .selected)
         button.setTitle("Заказать", for: .normal)
         button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 17)
@@ -76,6 +69,25 @@ class MenuCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        contentView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
+        contentView.layer.cornerRadius = 15
+        
+        contentView.addSubview(productImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(definitionLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(orderButton)
+        
+        addConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private func addConstraints() {
         var constraints = [NSLayoutConstraint]()
@@ -108,29 +120,5 @@ class MenuCell: UICollectionViewCell {
         
         NSLayoutConstraint.activate(constraints)
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        contentView.addSubview(productImage)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(definitionLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(orderButton)
-        addConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        backgroundColor = .red
-//    }
-    
-    
 
-   
-    
 }

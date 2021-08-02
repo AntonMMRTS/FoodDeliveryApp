@@ -18,6 +18,7 @@ class MenuViewController: UIViewController {
         menu = Menu()
 
         navigationController?.navigationBar.barStyle = .black
+        
         setupCategoryCollectionView()
         setupMenuCollectionView()
 
@@ -58,7 +59,7 @@ class MenuViewController: UIViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-
+        
         categoryCollectionView = UICollectionView(
             frame: CGRect(x: 0,
                           y: navigationBarHeight + statusBarHeight,
@@ -91,7 +92,7 @@ class MenuViewController: UIViewController {
                           height: view.frame.height - navigationBarHeight - statusBarHeight - categoryCollectionView.frame.height - tabBarHeight),
             collectionViewLayout: layout)
         
-        menuCollectionView.backgroundColor = .orange
+        menuCollectionView.backgroundColor = .black
         
         menuCollectionView.register(MenuCell.self,
                                         forCellWithReuseIdentifier: MenuCell.identifier)

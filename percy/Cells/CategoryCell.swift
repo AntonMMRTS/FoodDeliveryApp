@@ -1,10 +1,3 @@
-//
-//  CategoryCell.swift
-//  percy
-//
-//  Created by Антон Усов on 29.07.2021.
-//
-
 import UIKit
 
 class CategoryCell: UICollectionViewCell {
@@ -34,11 +27,6 @@ class CategoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
     func setupCell(category: String) {
         categoryFoodLabel.text = category
     }
