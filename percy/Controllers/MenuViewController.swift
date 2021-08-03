@@ -4,36 +4,34 @@ class MenuViewController: UIViewController {
   
     var menu: Menu!
     
-    var categoryCollectionView: UICollectionView!
-    var menuCollectionView: UICollectionView!
-    
     var selectedGroupIndex = 0
+    
+    var menuView = MenuView()
     
     let storageManager = StorageManager()
     let firebaseManager = FirebaseManager()
+    
+    override func loadView() {
+       self.view = menuView
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         menu = Menu()
-
-        navigationController?.navigationBar.barStyle = .black
+        menuView.categoryCollectionView.reloadData()
+        menuView.menuCollectionView.reloadData()
+        menuView.setupCategoryCollectionView()
         
-        setupCategoryCollectionView()
-        setupMenuCollectionView()
-
-        self.firebaseManager.getData(collection: "hot") { (newProducts) in
-            let hot = ProductCategory(name: "Горячее", products: newProducts)
-            
-            for i in newProducts {
-                self.storageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
-                    i.image = newImage
-                    self.menuCollectionView.reloadData()
-                }
-            }
-            self.menu.products.append(hot)
-            self.categoryCollectionView.reloadData()
-        }
+        navigationItemSettings()
+        
+        menuView.categoryCollectionView.dataSource = self
+        menuView.categoryCollectionView.delegate = self
+        
+        menuView.menuCollectionView.dataSource = self
+        menuView.menuCollectionView.delegate = self
         
         firebaseManager.getData(collection: "soup") { (newProducts) in
             let soup = ProductCategory(name: "Супы", products: newProducts)
@@ -41,61 +39,43 @@ class MenuViewController: UIViewController {
             for i in newProducts {
                 self.storageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
                     i.image = newImage
-                    self.menuCollectionView.reloadData()
+                    self.menuView.menuCollectionView.reloadData()
                 }
             }
             self.menu.products.append(soup)
-            self.categoryCollectionView.reloadData()
+            self.menuView.categoryCollectionView.reloadData()
         }
         
+        self.firebaseManager.getData(collection: "hot") { (newProducts) in
+            let hot = ProductCategory(name: "Горячее", products: newProducts)
+            
+            for i in newProducts {
+                self.storageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
+                    i.image = newImage
+                    self.menuView.menuCollectionView.reloadData()
+                }
+            }
+            self.menu.products.append(hot)
+            self.menuView.categoryCollectionView.reloadData()
+        }
     }
     
-    private func setupCategoryCollectionView() {
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        
-        categoryCollectionView = UICollectionView(
-            frame: CGRect(x: 0,
-                          y: navigationBarHeight + statusBarHeight,
-                          width: view.frame.width,
-                          height: 55),
-            collectionViewLayout: layout)
-        
-        categoryCollectionView.backgroundColor = .black
-        
-        categoryCollectionView.register(CategoryCell.self,
-                                        forCellWithReuseIdentifier: CategoryCell.identifier)
-        
-        categoryCollectionView.dataSource = self
-        categoryCollectionView.delegate = self
-        
-        view.addSubview(categoryCollectionView)
-    }
-    
-    private func setupMenuCollectionView() {
-        
-        let tabBarHeight = self.tabBarController?.tabBar.frame.size.height ?? 0
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .vertical
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-        menuCollectionView = UICollectionView(
-            frame: CGRect(x: 0,
-                          y: navigationBarHeight + statusBarHeight + categoryCollectionView.frame.height,
-                          width: view.frame.width,
-                          height: view.frame.height - navigationBarHeight - statusBarHeight - categoryCollectionView.frame.height - tabBarHeight),
-            collectionViewLayout: layout)
+    }
+    
+    private func navigationItemSettings() {
+ 
+        let imageView = UIImageView(image: UIImage(named: "percy"))
+//        imageView.frame = CGRect(x: 0, y: 0, width: 112, height: 24)
+        imageView.contentMode = .scaleAspectFill
         
-        menuCollectionView.backgroundColor = .black
-        
-        menuCollectionView.register(MenuCell.self,
-                                        forCellWithReuseIdentifier: MenuCell.identifier)
-        
-        menuCollectionView.dataSource = self
-        menuCollectionView.delegate = self
-        
-        view.addSubview(menuCollectionView)
+        navigationItem.titleView = imageView
+  
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
 }
@@ -104,7 +84,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if collectionView == categoryCollectionView {
+        if collectionView == menuView.categoryCollectionView {
             return menu.products.count
         } else {
             guard menu.products.count != 0 else { return 0 }
@@ -115,7 +95,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if collectionView == categoryCollectionView {
+        if collectionView == menuView.categoryCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.identifier,
                                                           for: indexPath) as! CategoryCell
             
@@ -138,18 +118,16 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == categoryCollectionView {
+        if collectionView == menuView.categoryCollectionView {
             self.selectedGroupIndex = indexPath.item
-            
+            print(selectedGroupIndex)
             // при переходи скролим с первой картинки
-//            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
-//                                             at: .left,
-//                                             animated: false)
-//            self.collectionView.reloadData()
+            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+                                             at: .left,
+                                             animated: false)
+            menuView.menuCollectionView.reloadData()
         } else {
             let vc = ProductDetailViewController()
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            guard let vc = storyboard.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else { return }
             let newProduct = menu.products[selectedGroupIndex].products[indexPath.item]
             vc.product = newProduct
             navigationController?.pushViewController(vc, animated: true)
@@ -163,7 +141,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     // задаем размеры нашей ячейки
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if collectionView == categoryCollectionView {
+        if collectionView == menuView.categoryCollectionView {
             let categoryName = menu.products[indexPath.row].name
            
             let width = categoryName.widthOfString(
@@ -173,19 +151,18 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
                           height: collectionView.frame.height)
         } else {
             return CGSize(width: UIScreen.main.bounds.width/2 - 10,
-//                          height: view.safeAreaLayoutGuide.layoutFrame.height/2 - 50)
                           height: (UIScreen.main.bounds.width/2 - 10) * 7 / 4)
         }
     }
     
     // уберем отступ между ячейками
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return 5
+//    }
     
     // делаем отступы между ячейками, не нарушая центровки
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+//    }
     
 }

@@ -11,7 +11,9 @@ class ProductDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
+        
         navigationControllerSettings()
         currentProductSetup()
     }
@@ -24,16 +26,11 @@ class ProductDetailViewController: UIViewController {
     private func navigationControllerSettings() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         
-        navigationController?.navigationBar.prefersLargeTitles = true
-
-        title = product.name
-        
         navigationController?.navigationBar.tintColor = .white
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 253/255, green: 253/255, blue: 253/255, alpha: 1)]
     }
     
     private func currentProductSetup() {
+        customView.nameLabel.text = product.name
         customView.productImage.image = product.image
         customView.weightLabel.text = product.weight
         customView.priceLabel.text = "\(product.price) ₽"

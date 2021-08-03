@@ -4,6 +4,17 @@ class ProductDetailView: UIView {
     
     var scrollView: UIScrollView!
     
+    var nameLabel: UILabel = {
+        let label = UILabel()
+
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 27)
+       
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     var productImage: UIImageView = {
         let image = UIImageView()
         
@@ -14,12 +25,9 @@ class ProductDetailView: UIView {
     var priceLabel: UILabel = {
         let label = UILabel()
     
-        label.layer.cornerRadius = 10
-        label.clipsToBounds = true
-        label.backgroundColor = UIColor(red: 64/255, green: 63/255, blue: 70/255, alpha: 1)
         label.textColor = .white
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 27)
-        label.textAlignment = .center
+//        label.textAlignment = .center
         
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -136,9 +144,10 @@ class ProductDetailView: UIView {
         
         scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
        
+        scrollView.addSubview(nameLabel)
         scrollView.addSubview(productImage)
         scrollView.addSubview(priceLabel)
         scrollView.addSubview(orderButton)
@@ -150,28 +159,33 @@ class ProductDetailView: UIView {
         scrollView.addSubview(bguLabel)
         scrollView.addSubview(bguValueLabel)
         
+        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
+        nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 33).isActive = true
+        
         productImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         productImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        productImage.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        productImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
         productImage.heightAnchor.constraint(equalTo: productImage.widthAnchor ).isActive = true
 
         priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 26).isActive = true
+        priceLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor).isActive = true
         priceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
         priceLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
 
         orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
         orderButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
         orderButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        orderButton.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 20).isActive = true
+        orderButton.topAnchor.constraint(equalTo: productImage.bottomAnchor).isActive = true
       
         weightLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        weightLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 30).isActive = true
+        weightLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10).isActive = true
         weightLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
         weightLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
 
         compositionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        compositionLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 20).isActive = true
+        compositionLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 10).isActive = true
         compositionLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
 
         definitionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
@@ -181,7 +195,7 @@ class ProductDetailView: UIView {
 
         energyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         energyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        energyLabel.topAnchor.constraint(equalTo: definitionLabel.bottomAnchor, constant: 20).isActive = true
+        energyLabel.topAnchor.constraint(equalTo: definitionLabel.bottomAnchor, constant: 15).isActive = true
         energyLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
 
         energyValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
@@ -191,7 +205,7 @@ class ProductDetailView: UIView {
 
         bguLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         bguLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        bguLabel.topAnchor.constraint(equalTo: energyValueLabel.bottomAnchor, constant: 20).isActive = true
+        bguLabel.topAnchor.constraint(equalTo: energyValueLabel.bottomAnchor, constant: 15).isActive = true
         bguLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
 
         bguValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
