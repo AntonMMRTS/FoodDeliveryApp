@@ -24,7 +24,7 @@ class MenuCell: UICollectionViewCell {
         label.numberOfLines = 0
         label.text = "Anton"
         label.textColor = .white
-        label.font = UIFont(name: "HelveticaNeue", size: 17)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         label.textAlignment = .left
 
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,7 @@ class MenuCell: UICollectionViewCell {
         label.clipsToBounds = true
         label.backgroundColor = UIColor(red: 64/255, green: 63/255, blue: 70/255, alpha: 1)
         label.textColor = .white
-        label.font = UIFont(name: "HelveticaNeue", size: 17)
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         label.textAlignment = .center
         
        
@@ -64,7 +64,7 @@ class MenuCell: UICollectionViewCell {
         button.layer.cornerRadius = 15
         button.setTitleColor(.black, for: .selected)
         button.setTitle("Заказать", for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 17)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
        
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

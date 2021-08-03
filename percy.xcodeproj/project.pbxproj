@@ -24,6 +24,7 @@
 		F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */; };
 		F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */; };
 		F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */; };
+		F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */; };
 		F365B4B226B38E87008C9DED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F365B4B126B38E87008C9DED /* RealmSwift */; };
 		F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B426B38EBE008C9DED /* MenuModel.swift */; };
 		F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B926B38F6D008C9DED /* FirebaseManager.swift */; };
@@ -31,6 +32,7 @@
 		F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */; };
 		F365B4C526B3995C008C9DED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F365B4C426B3995C008C9DED /* GoogleService-Info.plist */; };
 		F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4C726B3A42A008C9DED /* MenuCell.swift */; };
+		F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,12 +51,14 @@
 		F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F33DD3A026B2FBF000CFEF56 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusBar+NavigationBar.swift"; sourceTree = "<group>"; };
+		F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F365B4B426B38EBE008C9DED /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		F365B4B926B38F6D008C9DED /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		F365B4BC26B394F2008C9DED /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryModel.swift; sourceTree = "<group>"; };
 		F365B4C426B3995C008C9DED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F365B4C726B3A42A008C9DED /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 		F33DD37926B2FAAB00CFEF56 /* percy */ = {
 			isa = PBXGroup;
 			children = (
+				F34DF95D26B8EA2A00F3AD1C /* View */,
 				F33DD3A826B2FCC500CFEF56 /* Supportings files */,
 				F33DD3A326B2FBF800CFEF56 /* Extension */,
 				F33DD39E26B2FBCC00CFEF56 /* Cells */,
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */,
+				F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */,
 				F33DD39226B2FB3900CFEF56 /* SalesViewController.swift */,
 				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
@@ -152,6 +158,14 @@
 				F33DD38326B2FAAC00CFEF56 /* Assets.xcassets */,
 			);
 			path = "Supportings files";
+			sourceTree = "<group>";
+		};
+		F34DF95D26B8EA2A00F3AD1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F365B4B726B38EC2008C9DED /* Models */ = {
@@ -249,6 +263,7 @@
 				F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
+				F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */,
 				F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */,
 				F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */,
 				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
@@ -259,6 +274,7 @@
 				F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */,
 				F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */,
 				F32A33BB26B3E18C007BD253 /* StorageManager.swift in Sources */,
+				F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */,
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
 			);

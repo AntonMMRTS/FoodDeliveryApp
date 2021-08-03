@@ -50,11 +50,6 @@ class MenuViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     private func setupCategoryCollectionView() {
         
         let layout = UICollectionViewFlowLayout()
@@ -140,6 +135,25 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
            
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == categoryCollectionView {
+            self.selectedGroupIndex = indexPath.item
+            
+            // при переходи скролим с первой картинки
+//            self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+//                                             at: .left,
+//                                             animated: false)
+//            self.collectionView.reloadData()
+        } else {
+            let vc = ProductDetailViewController()
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            guard let vc = storyboard.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else { return }
+            let newProduct = menu.products[selectedGroupIndex].products[indexPath.item]
+            vc.product = newProduct
+            navigationController?.pushViewController(vc, animated: true)
+                }
     }
 
 }
