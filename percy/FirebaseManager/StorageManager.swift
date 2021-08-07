@@ -14,16 +14,17 @@ class StorageManager {
         let storage = Storage.storage()
         let reference = storage.reference()
         let pathRef = reference.child(categorie)
-
+        
         var image: UIImage = UIImage(named: "default")!
-
+        
         let fileRef = pathRef.child(picName + ".jpg")
-
+        
         fileRef.getData(maxSize: 1024*1024) { (data, error) in
             guard error == nil else { completion(image);
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 return }
             image = UIImage(data: data!)!
+            print(picName)
             completion(image)
         }
     }

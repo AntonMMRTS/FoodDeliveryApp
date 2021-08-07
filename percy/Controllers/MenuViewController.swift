@@ -1,70 +1,43 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-  
+
     var menu: Menu!
+    
+    let categoryNames = ["soup" : "Супы", "pizza" : "Пицца", "hot" : "Горячее", "lasagna" : "Лазанья", "pasta" : "Паста", "salad" : "Салаты"]
+   
+    let categories = ["pizza", "pasta", "lasagna", "salad", "hot", "soup"]
+    
+    var indexCounter = 0
     
     var selectedGroupIndex = 0
     
     var menuView = MenuView()
     
-    let storageManager = StorageManager()
     let firebaseManager = FirebaseManager()
     
     override func loadView() {
        self.view = menuView
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         menu = Menu()
-        menuView.categoryCollectionView.reloadData()
-        menuView.menuCollectionView.reloadData()
+
         menuView.setupCategoryCollectionView()
         
         navigationItemSettings()
+        
+        fetchMenu(index: indexCounter)
         
         menuView.categoryCollectionView.dataSource = self
         menuView.categoryCollectionView.delegate = self
         
         menuView.menuCollectionView.dataSource = self
         menuView.menuCollectionView.delegate = self
-        
-        firebaseManager.getData(collection: "soup") { (newProducts) in
-            let soup = ProductCategory(name: "Супы", products: newProducts)
-            
-            for i in newProducts {
-                self.storageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
-                    i.image = newImage
-                    self.menuView.menuCollectionView.reloadData()
-                }
-            }
-            self.menu.products.append(soup)
-            self.menuView.categoryCollectionView.reloadData()
-        }
-        
-        self.firebaseManager.getData(collection: "hot") { (newProducts) in
-            let hot = ProductCategory(name: "Горячее", products: newProducts)
-            
-            for i in newProducts {
-                self.storageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
-                    i.image = newImage
-                    self.menuView.menuCollectionView.reloadData()
-                }
-            }
-            self.menu.products.append(hot)
-            self.menuView.categoryCollectionView.reloadData()
-        }
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
 
-    }
-    
     private func navigationItemSettings() {
  
         let imageView = UIImageView(image: UIImage(named: "percy"))
@@ -86,6 +59,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         if collectionView == menuView.categoryCollectionView {
             return menu.products.count
+           
         } else {
             guard menu.products.count != 0 else { return 0 }
             let group = menu.products[selectedGroupIndex]
@@ -100,6 +74,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
                                                           for: indexPath) as! CategoryCell
             
             let categoryName = menu.products[indexPath.item].name
+            
 
             cell.setupCell(category: categoryName)
             
@@ -119,12 +94,15 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == menuView.categoryCollectionView {
+        
             self.selectedGroupIndex = indexPath.item
             print(selectedGroupIndex)
+            
             // при переходи скролим с первой картинки
-            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
-                                             at: .left,
-                                             animated: false)
+//            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+//                                             at: .left,
+//                                             animated: false)
+            
             menuView.menuCollectionView.reloadData()
         } else {
             let vc = ProductDetailViewController()
@@ -144,6 +122,7 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == menuView.categoryCollectionView {
             let categoryName = menu.products[indexPath.row].name
            
+            
             let width = categoryName.widthOfString(
                 usingFont: UIFont(name: "HelveticaNeue-Medium", size: 23) ??  UIFont.systemFont(ofSize: 23))
             
