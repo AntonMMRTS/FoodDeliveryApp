@@ -24,6 +24,8 @@
 		F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */; };
 		F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */; };
 		F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */; };
+		F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343583026C23D0500D02B49 /* SaleDetailViewController.swift */; };
+		F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343583326C23D1D00D02B49 /* SaleDetailView.swift */; };
 		F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */; };
 		F34DF96026B8EB1D00F3AD1C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DF95F26B8EB1D00F3AD1C /* MenuView.swift */; };
 		F3533A8D26BA2EE2006D9185 /* Extension + getMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3533A8C26BA2EE2006D9185 /* Extension + getMenu.swift */; };
@@ -55,6 +57,8 @@
 		F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F33DD3A026B2FBF000CFEF56 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusBar+NavigationBar.swift"; sourceTree = "<group>"; };
+		F343583026C23D0500D02B49 /* SaleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailViewController.swift; sourceTree = "<group>"; };
+		F343583326C23D1D00D02B49 /* SaleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailView.swift; sourceTree = "<group>"; };
 		F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
 		F34DF95F26B8EB1D00F3AD1C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F3533A8C26BA2EE2006D9185 /* Extension + getMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + getMenu.swift"; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				F3533A8C26BA2EE2006D9185 /* Extension + getMenu.swift */,
 				F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */,
 				F33DD39226B2FB3900CFEF56 /* SalesViewController.swift */,
+				F343583026C23D0500D02B49 /* SaleDetailViewController.swift */,
 				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
 			);
@@ -175,6 +180,7 @@
 			children = (
 				F34DF95F26B8EB1D00F3AD1C /* MenuView.swift */,
 				F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */,
+				F343583326C23D1D00D02B49 /* SaleDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -292,6 +298,8 @@
 				F3D9DDEE26C0F5110079D9A0 /* SaleModel.swift in Sources */,
 				F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */,
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
+				F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */,
+				F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,7 @@ class SalesViewController: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = .black
         tableView.register(SaleCell.self, forCellReuseIdentifier: SaleCell.identifier)
+
         return tableView
     }()
     
@@ -32,11 +33,11 @@ class SalesViewController: UIViewController {
     }
     
     private func configure() {
-        view.backgroundColor = .black
-        
+
         self.tabBarItem = UITabBarItem(title: "Акции", image: UIImage(systemName: "cart"), tag: 0)
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
@@ -60,6 +61,14 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.sale = sales[indexPath.row]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = SaleDetailViewController()
+        
+        vc.sale = sales[indexPath.row]
+//        navigationController?.pushViewController(vc, animated: true)
+        present(vc, animated: true, completion: nil)
     }
     
 }

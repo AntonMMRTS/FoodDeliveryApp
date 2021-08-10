@@ -27,6 +27,7 @@ class ProductDetailViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         
         navigationController?.navigationBar.tintColor = .white
+//        title = product.name
     }
     
     private func currentProductSetup() {

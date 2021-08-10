@@ -7,17 +7,8 @@
 
 import UIKit
 
-class Sale: Equatable {
-    static func == (lhs: Sale, rhs: Sale) -> Bool {
-        if lhs.image == rhs.image &&
-            lhs.shortDefinition == rhs.shortDefinition &&
-            lhs.imageName == rhs.imageName &&
-            lhs.longDefinition == rhs.longDefinition {
-            return true
-        }
-        return false
-    }
-    
+class Sale {
+
     var image = UIImage()
     var shortDefinition: String = ""
     var longDefinition: String = ""
