@@ -19,4 +19,19 @@ extension MenuViewController {
             self?.fetchMenu(index: self!.indexCounter)
         }
     }
+    
+    func getMenu() {
+        //        let currentTime = CFAbsoluteTimeGetCurrent()
+        let categoryNames = ["soup" : "Супы", "pizza" : "Пицца", "hot" : "Горячее", "lasagna" : "Лазанья", "pasta" : "Паста", "salad" : "Салаты"]
+        
+        let categories = ["pizza", "pasta", "lasagna", "salad", "hot", "soup"]
+        
+        for i in categories {
+            self.firebaseManager.getSubMenu(category: i, name: categoryNames[i]!, collectionView: self.menuView.menuCollectionView) { (newCategory) in
+                self.menu.products.append(newCategory)
+                self.menuView.categoryCollectionView.reloadData()
+            }
+        }
+        //        print(currentTime - CFAbsoluteTimeGetCurrent())
+    }
 }

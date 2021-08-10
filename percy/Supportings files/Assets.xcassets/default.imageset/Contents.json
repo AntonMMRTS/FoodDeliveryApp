@@ -1,7 +1,6 @@
 {
   "images" : [
     {
-      "filename" : "Снимок экрана 2021-07-14 в 15.45 1.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -11,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Снимок экрана 2021-07-14 в 15.45 1-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

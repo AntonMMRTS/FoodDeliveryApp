@@ -22,14 +22,18 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         menu = Menu()
+      
 
         menuView.setupCategoryCollectionView()
         
         navigationItemSettings()
         
-        fetchMenu(index: indexCounter)
+//        fetchMenu(index: indexCounter)
+//        getMenu()
         
         menuView.categoryCollectionView.dataSource = self
         menuView.categoryCollectionView.delegate = self

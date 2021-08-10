@@ -6,19 +6,99 @@ class FirebaseManager {
     private var db = Firestore.firestore()
     
     func getSubMenu(category: String, name: String, collectionView: UICollectionView, completion: @escaping (ProductCategory) -> Void) {
-        
+//        let time = CFAbsoluteTimeGetCurrent()
         self.getData(collection: category) { (newProducts) in
             let newCategory = ProductCategory(name: name, products: newProducts)
             
             for i in newProducts {
+                i.image = UIImage(named: "default")!
                 self.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
                     i.image = newImage
                     collectionView.reloadData()
+//                    print(time - CFAbsoluteTimeGetCurrent())
+//                    print(i.imageName)
                 }
             }
             completion(newCategory)
         }
     }
+    
+//    func getSales(tableView: UITableView, completion: @escaping ([Sale]) -> Void) {
+//
+//        var allSales: [Sale] = []
+//
+//        self.db.collection("sales").getDocuments { (snapshot, error) in
+//            if let err = error {
+//                debugPrint("Error fetching docs: \(err)")
+//            } else {
+//                guard let sales = snapshot else { return }
+//
+//                for sale in sales.documents {
+//                    let shortDefinition = sale["shortDefinition"] as! String
+//                    let longDefinition = sale["longDefinition"] as! String
+//                    let imageName = sale["imageName"] as! String
+//
+//                    var newSale = Sale(shortDefinition: shortDefinition, longDefinition: longDefinition)
+//
+//                    self.getImage(picName: imageName, categorie: "sales") { (newImage) in
+//                        newSale.image = newImage
+//
+//                        print(imageName)
+//                        print(newImage)
+//                        allSales.append(newSale)
+//                        tableView.reloadData()
+//                    }
+//                }
+//            }
+//            completion(allSales)
+//        }
+//    }
+    
+    func sales(tableView: UITableView, completion: @escaping ([Sale]) -> Void) {
+        
+        getSales { sales in
+            for i in sales {
+                i.image = UIImage(named: "default")!
+                self.getImage(picName: i.imageName, categorie: "sales") { (newImage) in
+                    i.image = newImage
+//                    if i == sales.last {
+                        tableView.reloadData()
+//                    }
+                }
+            }
+            completion(sales)
+        }
+    }
+    
+    func getSales(completion: @escaping ([Sale]) -> Void) {
+        
+        var allSales: [Sale] = []
+        
+        self.db.collection("sales").getDocuments { (snapshot, error) in
+            if let err = error {
+                debugPrint("Error fetching docs: \(err)")
+            } else {
+                guard let sales = snapshot else { return }
+                
+                for sale in sales.documents {
+                    let shortDefinition = sale["shortDefinition"] as! String
+                    let longDefinition = sale["longDefinition"] as! String
+                    let imageName = sale["imageName"] as! String
+                    
+                    let newSale = Sale()
+                    newSale.longDefinition = longDefinition
+                    newSale.shortDefinition = shortDefinition
+                    newSale.imageName = imageName
+                    newSale.image = UIImage(named: "default")!
+                    
+                    allSales.append(newSale)
+                }
+            }
+            completion(allSales)
+        }
+    }
+    
+    
     
     private func getData(collection: String, completion: @escaping ([Product]) -> Void) {
         

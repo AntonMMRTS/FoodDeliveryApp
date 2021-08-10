@@ -13,8 +13,9 @@ class MenuCell: UICollectionViewCell {
         }
     }
     
-    private var productImage: UIImageView = {
+    var productImage: UIImageView = {
         let image = UIImageView()
+//        image.image = UIImage(named: "default")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
