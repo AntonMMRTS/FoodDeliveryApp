@@ -22,11 +22,8 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         menu = Menu()
-      
 
         menuView.setupCategoryCollectionView()
         
@@ -91,6 +88,11 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             let product = group.products[indexPath.item]
 
             cell.product = product
+            
+            let databaseManager: DatabaseManagerProtocol = RealmManager()
+            cell.closure = {
+                self.tabBarController?.tabBar.items?.last?.badgeValue = "\(databaseManager.obtainProducts().count)"
+            }
            
             return cell
         }

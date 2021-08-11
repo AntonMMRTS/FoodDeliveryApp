@@ -13,7 +13,9 @@ class MenuCell: UICollectionViewCell {
         }
     }
     
-    var productImage: UIImageView = {
+    private let databaseManager: DatabaseManagerProtocol = RealmManager()
+    
+    private var productImage: UIImageView = {
         let image = UIImageView()
 //        image.image = UIImage(named: "default")
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -120,6 +122,24 @@ class MenuCell: UICollectionViewCell {
         constraints.append(orderButton.topAnchor.constraint(greaterThanOrEqualTo: definitionLabel.bottomAnchor, constant: 5))
         
         NSLayoutConstraint.activate(constraints)
+        
+        orderButton.addTarget(self, action: #selector(start), for: .touchUpInside)
+    }
+    
+    var basket = 0 {
+        didSet {
+            basket = databaseManager.obtainProducts().count
+            
+        }
+    }
+    var closure: (() -> Void)?
+    
+    @objc func start() {
+//        databaseManager.deleteAll()
+        databaseManager.addNewProduct(product: product)
+        closure?()
+        
+//        print(products)
     }
 
 }

@@ -10,8 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)
@@ -44,8 +43,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tabBar.setViewControllers([firstNav, secondNav, thirdNav, fourthNav], animated: true)
         tabBar.tabBar.barTintColor = .black
         
+        let databaseManager: DatabaseManagerProtocol = RealmManager()
+        let products = databaseManager.obtainProducts()
+        
         guard let items = tabBar.tabBar.items else { return }
-        items.last?.badgeValue = "1"
+        if products.count == 0 {
+            items.last?.badgeValue = nil
+        } else {
+            items.last?.badgeValue = "\(products.count)"
+        }
+
         let images = ["folder", "percent", "arrow.counterclockwise", "cart"]
         
         for icon in 0..<items.count {

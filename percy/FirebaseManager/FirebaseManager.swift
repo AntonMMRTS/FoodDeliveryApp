@@ -7,12 +7,12 @@ class FirebaseManager {
     
     func getSubMenu(category: String, name: String, collectionView: UICollectionView, completion: @escaping (ProductCategory) -> Void) {
 //        let time = CFAbsoluteTimeGetCurrent()
-        self.getData(collection: category) { (newProducts) in
+        self.getData(collection: category) { [weak self] newProducts in
             let newCategory = ProductCategory(name: name, products: newProducts)
             
             for i in newProducts {
                 i.image = UIImage(named: "default")!.jpegData(compressionQuality: 1)!
-                self.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
+                self?.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
                     i.image = newImage.jpegData(compressionQuality: 1)!
                     collectionView.reloadData()
 //                    print(time - CFAbsoluteTimeGetCurrent())
@@ -25,14 +25,12 @@ class FirebaseManager {
     
     func sales(tableView: UITableView, completion: @escaping ([Sale]) -> Void) {
         
-        getSales { sales in
+        getSales { [weak self] sales in
             for i in sales {
                 i.image = UIImage(named: "default")!
-                self.getImage(picName: i.imageName, categorie: "sales") { (newImage) in
+                self?.getImage(picName: i.imageName, categorie: "sales") { newImage in
                     i.image = newImage
-//                    if i == sales.last {
-                        tableView.reloadData()
-//                    }
+                    tableView.reloadData()
                 }
             }
             completion(sales)
