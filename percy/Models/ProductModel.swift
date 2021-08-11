@@ -23,5 +23,5 @@ class Product {
     var energyValue: String = ""
     var category: String = ""
     var quantity: Int = 1
-    var image: UIImage = UIImage()
+    var image: Data = Data()
 }

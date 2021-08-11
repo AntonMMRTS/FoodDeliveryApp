@@ -6,7 +6,7 @@ class MenuCell: UICollectionViewCell {
     
     var product: Product! {
         didSet {
-            self.productImage.image = product.image
+            self.productImage.image = UIImage(data: product.image) 
             self.nameLabel.text = product.name
             self.definitionLabel.text = product.definition
             self.priceLabel.text = "\(product.price) ₽"

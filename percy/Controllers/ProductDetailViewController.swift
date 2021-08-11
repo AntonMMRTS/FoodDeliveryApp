@@ -32,7 +32,7 @@ class ProductDetailViewController: UIViewController {
     
     private func currentProductSetup() {
         customView.nameLabel.text = product.name
-        customView.productImage.image = product.image
+        customView.productImage.image = UIImage(data: product.image) 
         customView.weightLabel.text = product.weight
         customView.priceLabel.text = "\(product.price) ₽"
         customView.energyValueLabel.text = product.halories

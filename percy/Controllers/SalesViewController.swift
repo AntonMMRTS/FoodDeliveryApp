@@ -26,9 +26,9 @@ class SalesViewController: UIViewController {
 
         configure()
        
-        firebaseManager.sales(tableView: tableView) { (newSales) in
-            self.sales = newSales
-            self.tableView.reloadData()
+        firebaseManager.sales(tableView: tableView) { [weak self] newSales in
+            self?.sales = newSales
+            self?.tableView.reloadData()
         }
     }
     
@@ -51,6 +51,7 @@ class SalesViewController: UIViewController {
 }
 
 extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sales.count
     }
