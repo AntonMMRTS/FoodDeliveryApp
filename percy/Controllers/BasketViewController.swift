@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class BasketViewController: UIViewController {
     
@@ -36,6 +37,8 @@ class BasketViewController: UIViewController {
         basketView.setupView()
         
         navigationControllerSetup()
+        
+        goAuth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +60,18 @@ class BasketViewController: UIViewController {
         total = 0
         for i in  basketView.products {
             total += i.price * i.quantity
+        }
+    }
+    
+    private func goAuth() {
+        basketView.orderButton.addTarget(self, action: #selector(authtorization), for: .touchUpInside)
+    }
+    
+    @objc private func authtorization() {
+        if Auth.auth().currentUser?.uid == nil {
+            let vc = AuthViewController()
+            let navVC = UINavigationController(rootViewController: vc)
+            present(navVC, animated: true, completion: nil)
         }
     }
 
@@ -98,6 +113,9 @@ extension BasketViewController: UITableViewDataSource, UITableViewDelegate {
             totalMoney()
             
             tabBarController?.tabBar.items?.last?.badgeValue = "\(basketView.products.count)"
+            if basketView.products.count == 0 {
+                tabBarController?.tabBar.items?.last?.badgeValue = nil
+            }
         }
     }
  

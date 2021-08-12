@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class BasketView: UIView {
     
@@ -88,6 +89,17 @@ class BasketView: UIView {
         sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         sumLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         sumLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        
+//        orderButton.addTarget(self, action: #selector(authtorization), for: .touchUpInside)
     }
+    
+//    @objc func authtorization() {
+//        if Auth.auth().currentUser?.uid == nil {
+//            let vc = AuthNavViewController()
+//
+//
+//
+//        }
+//    }
 
 }

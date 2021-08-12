@@ -37,6 +37,8 @@
 		F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */; };
 		F365B4C526B3995C008C9DED /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F365B4C426B3995C008C9DED /* GoogleService-Info.plist */; };
 		F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4C726B3A42A008C9DED /* MenuCell.swift */; };
+		F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */; };
+		F3664CCF26C4C49F00B997ED /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CCE26C4C49F00B997ED /* AuthView.swift */; };
 		F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */; };
 		F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */; };
 		F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB826C39265005FD8E1 /* BasketCell.swift */; };
@@ -72,6 +74,8 @@
 		F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryModel.swift; sourceTree = "<group>"; };
 		F365B4C426B3995C008C9DED /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F365B4C726B3A42A008C9DED /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		F3664CCE26C4C49F00B997ED /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		F3D2FDB826C39265005FD8E1 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
@@ -148,6 +152,7 @@
 				F343583026C23D0500D02B49 /* SaleDetailViewController.swift */,
 				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
+				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			children = (
 				F34DF95F26B8EB1D00F3AD1C /* MenuView.swift */,
 				F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */,
+				F3664CCE26C4C49F00B997ED /* AuthView.swift */,
 				F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */,
 				F343583326C23D1D00D02B49 /* SaleDetailView.swift */,
 			);
@@ -309,6 +315,7 @@
 				F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */,
 				F33DD39C26B2FBBC00CFEF56 /* CategoryCell.swift in Sources */,
 				F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */,
+				F3664CCF26C4C49F00B997ED /* AuthView.swift in Sources */,
 				F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */,
 				F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */,
 				F34DF96026B8EB1D00F3AD1C /* MenuView.swift in Sources */,
@@ -318,6 +325,7 @@
 				F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */,
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
 				F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */,
+				F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */,
 				F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */,
 				F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
