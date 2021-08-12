@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9E63DD896303B7AF3EABB7 /* Pods_percy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E324E477B4F0AA1EC9F95077 /* Pods_percy.framework */; };
 		F32A33BB26B3E18C007BD253 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A33BA26B3E18C007BD253 /* StorageManager.swift */; };
 		F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */; };
 		F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */; };
@@ -39,6 +40,8 @@
 		F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4C726B3A42A008C9DED /* MenuCell.swift */; };
 		F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */; };
 		F3664CCF26C4C49F00B997ED /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CCE26C4C49F00B997ED /* AuthView.swift */; };
+		F3664CD826C4D86500B997ED /* SMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CD726C4D86500B997ED /* SMSViewController.swift */; };
+		F3664CDB26C4E15100B997ED /* SMSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CDA26C4E15100B997ED /* SMSView.swift */; };
 		F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */; };
 		F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */; };
 		F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB826C39265005FD8E1 /* BasketCell.swift */; };
@@ -47,6 +50,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		057C6C4EE18B5ABAE011BBE5 /* Pods-percy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-percy.release.xcconfig"; path = "Target Support Files/Pods-percy/Pods-percy.release.xcconfig"; sourceTree = "<group>"; };
+		E324E477B4F0AA1EC9F95077 /* Pods_percy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_percy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2D787C6AAF548DB9092DF69 /* Pods-percy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-percy.debug.xcconfig"; path = "Target Support Files/Pods-percy/Pods-percy.debug.xcconfig"; sourceTree = "<group>"; };
 		F32A33BA26B3E18C007BD253 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F33DD37726B2FAAB00CFEF56 /* percy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = percy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +82,8 @@
 		F365B4C726B3A42A008C9DED /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		F3664CCE26C4C49F00B997ED /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		F3664CD726C4D86500B997ED /* SMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewController.swift; sourceTree = "<group>"; };
+		F3664CDA26C4E15100B997ED /* SMSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSView.swift; sourceTree = "<group>"; };
 		F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		F3D2FDB826C39265005FD8E1 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
@@ -93,12 +101,30 @@
 				F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */,
 				F365B4B226B38E87008C9DED /* RealmSwift in Frameworks */,
 				F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */,
+				5B9E63DD896303B7AF3EABB7 /* Pods_percy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D8E4144F9B239A2F5D6BA83 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E324E477B4F0AA1EC9F95077 /* Pods_percy.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2AB1A675F41EDD836E36D73A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2D787C6AAF548DB9092DF69 /* Pods-percy.debug.xcconfig */,
+				057C6C4EE18B5ABAE011BBE5 /* Pods-percy.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F32A33B826B3E14E007BD253 /* FirebaseManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +139,8 @@
 			children = (
 				F33DD37926B2FAAB00CFEF56 /* percy */,
 				F33DD37826B2FAAB00CFEF56 /* Products */,
+				2AB1A675F41EDD836E36D73A /* Pods */,
+				1D8E4144F9B239A2F5D6BA83 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +181,7 @@
 				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
 				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
+				F3664CD726C4D86500B997ED /* SMSViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -202,6 +231,7 @@
 				F34DF95F26B8EB1D00F3AD1C /* MenuView.swift */,
 				F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */,
 				F3664CCE26C4C49F00B997ED /* AuthView.swift */,
+				F3664CDA26C4E15100B997ED /* SMSView.swift */,
 				F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */,
 				F343583326C23D1D00D02B49 /* SaleDetailView.swift */,
 			);
@@ -226,9 +256,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F33DD38B26B2FAAC00CFEF56 /* Build configuration list for PBXNativeTarget "percy" */;
 			buildPhases = (
+				BE494A3DBA1B559E50E12787 /* [CP] Check Pods Manifest.lock */,
 				F33DD37326B2FAAB00CFEF56 /* Sources */,
 				F33DD37426B2FAAB00CFEF56 /* Frameworks */,
 				F33DD37526B2FAAB00CFEF56 /* Resources */,
+				2AE740299D9AF349AAACEE01 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,6 +328,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2AE740299D9AF349AAACEE01 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE494A3DBA1B559E50E12787 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-percy-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F33DD37326B2FAAB00CFEF56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -309,6 +383,7 @@
 				F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */,
 				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
 				F3D9DDF126C109980079D9A0 /* SaleCell.swift in Sources */,
+				F3664CDB26C4E15100B997ED /* SMSView.swift in Sources */,
 				F3533A8D26BA2EE2006D9185 /* Extension + getMenu.swift in Sources */,
 				F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */,
 				F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */,
@@ -328,6 +403,7 @@
 				F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */,
 				F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */,
 				F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */,
+				F3664CD826C4D86500B997ED /* SMSViewController.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +548,7 @@
 		};
 		F33DD38C26B2FAAC00CFEF56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2D787C6AAF548DB9092DF69 /* Pods-percy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -491,6 +568,7 @@
 		};
 		F33DD38D26B2FAAC00CFEF56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 057C6C4EE18B5ABAE011BBE5 /* Pods-percy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

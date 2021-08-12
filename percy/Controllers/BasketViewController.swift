@@ -68,10 +68,13 @@ class BasketViewController: UIViewController {
     }
     
     @objc private func authtorization() {
+//        do {
+//            try Auth.auth().signOut()
+//        } catch {
+//        }
         if Auth.auth().currentUser?.uid == nil {
             let vc = AuthViewController()
-            let navVC = UINavigationController(rootViewController: vc)
-            present(navVC, animated: true, completion: nil)
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 
