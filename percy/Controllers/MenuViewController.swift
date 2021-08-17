@@ -29,7 +29,7 @@ class MenuViewController: UIViewController {
         
         navigationItemSettings()
         
-        fetchMenu(index: indexCounter)
+//        fetchMenu(index: indexCounter)
 //        getMenu()
         
         menuView.categoryCollectionView.dataSource = self

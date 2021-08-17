@@ -72,15 +72,15 @@ class BasketViewController: UIViewController {
         //            try Auth.auth().signOut()
         //        } catch {
         //        }
-        if Auth.auth().currentUser?.uid == nil {
-            let vc = AuthViewController()
-            navigationController?.pushViewController(vc, animated: true)
-        } else {
+//        if Auth.auth().currentUser?.uid == nil {
+//            let vc = AuthViewController()
+//            navigationController?.pushViewController(vc, animated: true)
+//        } else {
             let vc = OrderDetailsViewController()
             vc.products = basketView.products
             vc.totalSum = total
             navigationController?.pushViewController(vc, animated: true)
-        }
+//        }
     }
 }
 

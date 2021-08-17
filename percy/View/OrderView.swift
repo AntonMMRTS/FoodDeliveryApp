@@ -92,6 +92,7 @@ class OrderView: UIView {
         addSubview(addressTetxField)
         addSubview(commentTetxField)
         
+        
         tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
@@ -99,12 +100,13 @@ class OrderView: UIView {
 
         addressTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         addressTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-        addressTetxField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+//        addressTetxField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         addressTetxField.heightAnchor.constraint(equalToConstant: 34).isActive = true
+        addressTetxField.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor, constant: -15).isActive = true
         
         commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-        commentTetxField.topAnchor.constraint(equalTo: addressTetxField.bottomAnchor, constant: 55).isActive = true
+        commentTetxField.bottomAnchor.constraint(equalTo: totalLabel.topAnchor, constant: -15).isActive = true
         commentTetxField.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
         orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true

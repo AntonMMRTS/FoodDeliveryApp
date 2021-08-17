@@ -11,6 +11,8 @@ import FirebaseDatabase
 
 class OrderDetailsViewController: UIViewController {
     
+    var activeTextField: UITextField!
+    
     var products: [Product]!
     
     var totalSum: Int!
@@ -30,6 +32,12 @@ class OrderDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(showkb), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hidekb), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        orderView.addressTetxField.delegate = self
+        orderView.commentTetxField.delegate = self
+        
         configure()
         
         initializeHideKeyboard()
@@ -37,6 +45,42 @@ class OrderDetailsViewController: UIViewController {
         orderView.setupView()
       
         doOrder()
+    }
+    
+    @objc func showkb(_ notification: Notification) {
+        let userInfo = notification.userInfo
+        let keyboardSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        
+        let keyboardY = self.view.frame.height - keyboardSize.height
+        let editingTetxFieldY = activeTextField.convert(activeTextField.bounds, to: self.view).minY
+        
+        if self.view.frame.minY >= 0 {
+            if editingTetxFieldY > keyboardY {
+                UIView.animate(withDuration: 0.25,
+                                        delay: 0,
+                                        options: UIView.AnimationOptions.curveEaseIn,
+                                        animations: {
+                                            self.view.frame = CGRect(x: 0,
+                                                                     y: self.view.frame.origin.y - (editingTetxFieldY - (keyboardY - 50)),
+                                                                     width: self.view.bounds.width,
+                                                                     height: self.view.bounds.height)
+                                            print("editingTextField - \(editingTetxFieldY)")
+                                           
+                                        }, completion: nil)
+            }
+        }
+    }
+    
+    @objc func hidekb(_ notification: Notification) {
+        UIView.animate(withDuration: 0.25,
+                                delay: 0,
+                                options: UIView.AnimationOptions.curveEaseIn,
+                                animations: {
+                                    self.view.frame = CGRect(x: 0,
+                                                             y: 0,
+                                                             width: self.view.bounds.width,
+                                                             height: self.view.bounds.height)
+                                }, completion: nil)
     }
     
     private func configure() {
@@ -144,6 +188,10 @@ extension OrderDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
     }
     
 }
