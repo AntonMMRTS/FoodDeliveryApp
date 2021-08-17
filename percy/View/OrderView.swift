@@ -10,8 +10,6 @@ import FirebaseAuth
 
 class OrderView: UIView {
     
-   
-    
     let tableView : UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .black
@@ -22,10 +20,8 @@ class OrderView: UIView {
 
     let addressTetxField: UITextField = {
         let textField = UITextField()
-        
         textField.backgroundColor = .white
         textField.font = UIFont(name: "Helvetica Neue", size: 17)
-//        textField.textColor = .white
         textField.placeholder = "Введите адресс"
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -36,7 +32,6 @@ class OrderView: UIView {
         textField.placeholder = "Комментарии"
         textField.backgroundColor = .white
         textField.font = UIFont(name: "Helvetica Neue", size: 17)
-//        textField.textColor = .white
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -92,39 +87,49 @@ class OrderView: UIView {
         addSubview(addressTetxField)
         addSubview(commentTetxField)
         
-        
         tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: addressTetxField.topAnchor, constant: -15).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: addressTetxField.topAnchor,
+                                          constant: -15).isActive = true
 
-        addressTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        addressTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-//        addressTetxField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        addressTetxField.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                                  constant: 12).isActive = true
+        addressTetxField.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                   constant: -12).isActive = true
         addressTetxField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-        addressTetxField.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor, constant: -15).isActive = true
+        addressTetxField.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor,
+                                                 constant: -15).isActive = true
         
-        commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-        commentTetxField.bottomAnchor.constraint(equalTo: totalLabel.topAnchor, constant: -15).isActive = true
+        commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                                  constant: 12).isActive = true
+        commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                                   constant: -12).isActive = true
+        commentTetxField.bottomAnchor.constraint(equalTo: totalLabel.topAnchor,
+                                                 constant: -15).isActive = true
         commentTetxField.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
-        orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        orderButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
+        orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
+                                            constant: -10).isActive = true
+        orderButton.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                             constant: 5).isActive = true
+        orderButton.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                              constant: -5).isActive = true
         orderButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
         
-        totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15).isActive = true
-        totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor,
+                                           constant: -15).isActive = true
+        totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
+                                            constant: 12).isActive = true
         totalLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
         totalLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
-        sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15).isActive = true
-        sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
+        sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor,
+                                         constant: -15).isActive = true
+        sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
+                                           constant: -12).isActive = true
         sumLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         sumLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
     
-
-
 }

@@ -46,6 +46,8 @@
 		F3664CD826C4D86500B997ED /* SMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CD726C4D86500B997ED /* SMSViewController.swift */; };
 		F3664CDB26C4E15100B997ED /* SMSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3664CDA26C4E15100B997ED /* SMSView.swift */; };
 		F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */; };
+		F3B2AFE226CBF1B900F502A4 /* Extension+textfieldMoveUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2AFE126CBF1B900F502A4 /* Extension+textfieldMoveUp.swift */; };
+		F3B2AFE526CBF2E900F502A4 /* Extension+addOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */; };
 		F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */; };
 		F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB826C39265005FD8E1 /* BasketCell.swift */; };
 		F3D9DDEE26C0F5110079D9A0 /* SaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */; };
@@ -91,6 +93,8 @@
 		F3664CD726C4D86500B997ED /* SMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSViewController.swift; sourceTree = "<group>"; };
 		F3664CDA26C4E15100B997ED /* SMSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSView.swift; sourceTree = "<group>"; };
 		F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		F3B2AFE126CBF1B900F502A4 /* Extension+textfieldMoveUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+textfieldMoveUp.swift"; sourceTree = "<group>"; };
+		F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+addOrder.swift"; sourceTree = "<group>"; };
 		F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
 		F3D2FDB826C39265005FD8E1 /* BasketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCell.swift; sourceTree = "<group>"; };
 		F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleModel.swift; sourceTree = "<group>"; };
@@ -179,14 +183,13 @@
 		F33DD39026B2FB1100CFEF56 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */,
-				F3533A8C26BA2EE2006D9185 /* Extension + getMenu.swift */,
+				F3B2AFE926CBF4E200F502A4 /* MenuViewController */,
 				F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */,
 				F33DD39226B2FB3900CFEF56 /* SalesViewController.swift */,
 				F343583026C23D0500D02B49 /* SaleDetailViewController.swift */,
 				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
-				F35335C526C62675007E55E1 /* OrderDetailsViewController.swift */,
+				F3B2AFE726CBF4B300F502A4 /* OrderDetailsViewController */,
 				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
 				F3664CD726C4D86500B997ED /* SMSViewController.swift */,
 			);
@@ -256,6 +259,25 @@
 				F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F3B2AFE726CBF4B300F502A4 /* OrderDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F35335C526C62675007E55E1 /* OrderDetailsViewController.swift */,
+				F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */,
+				F3B2AFE126CBF1B900F502A4 /* Extension+textfieldMoveUp.swift */,
+			);
+			path = OrderDetailsViewController;
+			sourceTree = "<group>";
+		};
+		F3B2AFE926CBF4E200F502A4 /* MenuViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F33DD37E26B2FAAB00CFEF56 /* MenuViewController.swift */,
+				F3533A8C26BA2EE2006D9185 /* Extension + getMenu.swift */,
+			);
+			path = MenuViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +411,7 @@
 				F35335C926C6268A007E55E1 /* OrderView.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
+				F3B2AFE226CBF1B900F502A4 /* Extension+textfieldMoveUp.swift in Sources */,
 				F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */,
 				F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */,
 				F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */,
@@ -413,6 +436,7 @@
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
 				F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */,
 				F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */,
+				F3B2AFE526CBF2E900F502A4 /* Extension+addOrder.swift in Sources */,
 				F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */,
 				F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */,
 				F3664CD826C4D86500B997ED /* SMSViewController.swift in Sources */,
