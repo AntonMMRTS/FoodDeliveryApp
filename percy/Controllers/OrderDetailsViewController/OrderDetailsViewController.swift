@@ -25,6 +25,8 @@ class OrderDetailsViewController: UIViewController {
     
     let databaseManager: DatabaseManagerProtocol = RealmManager()
     
+    let myOrderManager = MyOrderRealmManager()
+    
     override func loadView() {
         self.view = orderView
     }

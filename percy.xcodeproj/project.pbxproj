@@ -25,6 +25,10 @@
 		F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */; };
 		F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */; };
 		F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */; };
+		F340526B26CCE261003A09A3 /* MyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340526A26CCE261003A09A3 /* MyOrderModel.swift */; };
+		F340526E26CCE4D5003A09A3 /* MyOrderRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */; };
+		F340527126CCF11B003A09A3 /* MyOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340527026CCF11B003A09A3 /* MyOrdersView.swift */; };
+		F340527426CCF5ED003A09A3 /* MyOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */; };
 		F340AD5026C3726800A37E5E /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340AD4F26C3726800A37E5E /* RealmManager.swift */; };
 		F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343583026C23D0500D02B49 /* SaleDetailViewController.swift */; };
 		F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343583326C23D1D00D02B49 /* SaleDetailView.swift */; };
@@ -73,6 +77,10 @@
 		F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F33DD3A026B2FBF000CFEF56 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusBar+NavigationBar.swift"; sourceTree = "<group>"; };
+		F340526A26CCE261003A09A3 /* MyOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderModel.swift; sourceTree = "<group>"; };
+		F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderRealmManager.swift; sourceTree = "<group>"; };
+		F340527026CCF11B003A09A3 /* MyOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersView.swift; sourceTree = "<group>"; };
+		F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCell.swift; sourceTree = "<group>"; };
 		F340AD4F26C3726800A37E5E /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		F343583026C23D0500D02B49 /* SaleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailViewController.swift; sourceTree = "<group>"; };
 		F343583326C23D1D00D02B49 /* SaleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailView.swift; sourceTree = "<group>"; };
@@ -204,6 +212,7 @@
 				F3D9DDF026C109980079D9A0 /* SaleCell.swift */,
 				F3D2FDB826C39265005FD8E1 /* BasketCell.swift */,
 				F35335CB26C626FF007E55E1 /* OrderCell.swift */,
+				F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -232,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				F340AD4F26C3726800A37E5E /* RealmManager.swift */,
+				F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -242,6 +252,7 @@
 				F34DF95F26B8EB1D00F3AD1C /* MenuView.swift */,
 				F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */,
 				F35335C826C6268A007E55E1 /* OrderView.swift */,
+				F340527026CCF11B003A09A3 /* MyOrdersView.swift */,
 				F3664CCE26C4C49F00B997ED /* AuthView.swift */,
 				F3664CDA26C4E15100B997ED /* SMSView.swift */,
 				F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */,
@@ -255,6 +266,7 @@
 			children = (
 				F365B4B426B38EBE008C9DED /* MenuModel.swift */,
 				F365B4BC26B394F2008C9DED /* ProductModel.swift */,
+				F340526A26CCE261003A09A3 /* MyOrderModel.swift */,
 				F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */,
 				F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */,
 			);
@@ -407,12 +419,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F365B4C926B3A42A008C9DED /* MenuCell.swift in Sources */,
+				F340526E26CCE4D5003A09A3 /* MyOrderRealmManager.swift in Sources */,
 				F35335CC26C626FF007E55E1 /* OrderCell.swift in Sources */,
 				F35335C926C6268A007E55E1 /* OrderView.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
 				F3B2AFE226CBF1B900F502A4 /* Extension+textfieldMoveUp.swift in Sources */,
 				F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */,
+				F340527426CCF5ED003A09A3 /* MyOrdersCell.swift in Sources */,
 				F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */,
 				F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */,
 				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
@@ -422,6 +436,7 @@
 				F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */,
 				F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */,
 				F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */,
+				F340526B26CCE261003A09A3 /* MyOrderModel.swift in Sources */,
 				F33DD39C26B2FBBC00CFEF56 /* CategoryCell.swift in Sources */,
 				F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */,
 				F3664CCF26C4C49F00B997ED /* AuthView.swift in Sources */,
@@ -441,6 +456,7 @@
 				F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */,
 				F3664CD826C4D86500B997ED /* SMSViewController.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,
+				F340527126CCF11B003A09A3 /* MyOrdersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
