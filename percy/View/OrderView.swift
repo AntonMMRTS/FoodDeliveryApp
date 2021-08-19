@@ -129,7 +129,7 @@ class OrderView: UIView {
         sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
                                            constant: -12).isActive = true
         sumLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        sumLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        sumLabel.heightAnchor.constraint(equalToConstant: 31).isActive = true
     }
     
 }

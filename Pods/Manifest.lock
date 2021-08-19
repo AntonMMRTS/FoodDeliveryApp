@@ -1,0 +1,18 @@
+PODS:
+  - FlagPhoneNumber (0.8.0):
+    - FlagPhoneNumber/libPhoneNumberiOS (= 0.8.0)
+  - FlagPhoneNumber/libPhoneNumberiOS (0.8.0)
+
+DEPENDENCIES:
+  - FlagPhoneNumber
+
+SPEC REPOS:
+  trunk:
+    - FlagPhoneNumber
+
+SPEC CHECKSUMS:
+  FlagPhoneNumber: 3712455b95f66cb0f2016fef7d9e34cddf8c7f9a
+
+PODFILE CHECKSUM: 18c7dbccb455f515694cb69a50043622afd927f6
+
+COCOAPODS: 1.8.4
