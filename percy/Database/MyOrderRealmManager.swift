@@ -13,11 +13,8 @@ class MyOrderRealmManager {
     fileprivate lazy var realm = try! Realm(configuration: .defaultConfiguration)
     
     func addNewOrder (products: [Product], sumPrice: Int) {
-        let myOrder = MyOrder()
         
-        myOrder.sumPrice = sumPrice
-        
-        var myProducts: [MyProduct] = []
+        let myProducts = List<MyProduct>()
         
         for i in products {
             let myProduct = MyProduct()
@@ -26,6 +23,11 @@ class MyOrderRealmManager {
             myProduct.quantity = i.quantity
             myProducts.append(myProduct)
         }
+        
+        let myOrder = MyOrder()
+        
+        myOrder.sumPrice = sumPrice
+        myOrder.products = myProducts
         
         try! realm.write {
             realm.add(myOrder)

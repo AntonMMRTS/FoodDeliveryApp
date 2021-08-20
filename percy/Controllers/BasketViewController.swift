@@ -34,7 +34,7 @@ class BasketViewController: UIViewController {
         basketView.tableView.dataSource = self
         basketView.tableView.delegate = self
         
-        basketView.setupView()
+//        basketView.setupView()
         
         navigationControllerSetup()
         

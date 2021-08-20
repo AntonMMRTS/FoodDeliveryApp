@@ -12,9 +12,9 @@ class OrdersViewController: UIViewController {
     
     let myOrder = MyOrdersView()
     
-    let myOrderManager = MyOrderRealmManager()
+    private let myOrderManager = MyOrderRealmManager()
     
-    var orders: Results<MyOrder>!
+    private var orders: Results<MyOrder>!
     
     override func loadView() {
        self.view = myOrder
@@ -28,6 +28,8 @@ class OrdersViewController: UIViewController {
         myOrder.myOrdersCollectionView.dataSource = self
         myOrder.myOrdersCollectionView.delegate = self
         
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 
 }
@@ -41,7 +43,6 @@ extension OrdersViewController: UICollectionViewDataSource, UICollectionViewDele
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyOrdersCell.identifier, for: indexPath) as! MyOrdersCell
         let order = orders[indexPath.item]
         cell.configure(order: order)
-        print(orders.first?.products)
         return cell
     }
     
@@ -51,7 +52,10 @@ extension OrdersViewController: UICollectionViewDelegateFlowLayout {
     
     // задаем размеры нашей ячейки
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: view.frame.width, height: 100)
+        return CGSize(width: view.frame.width, height: 140)
+        }
+    
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+            return 15
         }
 }
