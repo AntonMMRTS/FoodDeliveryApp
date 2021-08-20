@@ -37,12 +37,12 @@ class OrderView: UIView {
     }()
     
     var orderButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.setTitleColor(.black, for: .selected)
-        button.setTitle("К оформлению", for: .normal)
+        button.setTitle("Заказать", for: .normal)
         button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 27)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

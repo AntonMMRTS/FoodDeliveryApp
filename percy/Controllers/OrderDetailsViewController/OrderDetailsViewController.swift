@@ -38,7 +38,7 @@ class OrderDetailsViewController: UIViewController {
         
         initializeHideKeyboard()
         
-        orderView.setupView()
+//        orderView.setupView()
       
         doOrder()
         

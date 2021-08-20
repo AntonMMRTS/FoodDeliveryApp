@@ -29,7 +29,7 @@ class SMSViewController: UIViewController {
         
         checkCode()
         
-        smsView.setupView()
+//        smsView.setupView()
         
         setupConfig()
     }

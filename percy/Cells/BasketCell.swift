@@ -71,7 +71,7 @@ class BasketCell: UITableViewCell {
     }()
 
     private var minusButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
@@ -83,7 +83,7 @@ class BasketCell: UITableViewCell {
     }()
     
     private var plusButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15

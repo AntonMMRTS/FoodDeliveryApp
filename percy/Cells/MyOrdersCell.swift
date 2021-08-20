@@ -81,7 +81,7 @@ class MyOrdersCell: UICollectionViewCell {
     }
     
     private func setup() {
-        contentView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
+        contentView.backgroundColor = .black
         
         contentView.addSubview(dateLabel)
         contentView.addSubview(priceLabel)

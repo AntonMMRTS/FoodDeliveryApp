@@ -27,7 +27,7 @@ class AuthViewController: UIViewController {
         getSMSAction()
         setupConfig()
         
-        authView.setupView()
+//        authView.setupView()
         navigationControllerSetup()
     }
     

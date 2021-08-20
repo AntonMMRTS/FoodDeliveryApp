@@ -25,11 +25,11 @@ class MenuViewController: UIViewController {
 
         menu = Menu()
 
-        menuView.setupCategoryCollectionView()
+//        menuView.setupCategoryCollectionView()
         
         navigationItemSettings()
         
-//        fetchMenu(index: indexCounter)
+        fetchMenu(index: indexCounter)
 //        getMenu()
         
         menuView.categoryCollectionView.dataSource = self
@@ -102,7 +102,6 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == menuView.categoryCollectionView {
         
             self.selectedGroupIndex = indexPath.item
-            print(selectedGroupIndex)
             
             // при переходи скролим с первой картинки
 //            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
@@ -115,7 +114,11 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             let newProduct = menu.products[selectedGroupIndex].products[indexPath.item]
             vc.product = newProduct
             navigationController?.pushViewController(vc, animated: true)
-                }
+            
+            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+                                        at: .left,
+                                        animated: false)
+        }
     }
 
 }
