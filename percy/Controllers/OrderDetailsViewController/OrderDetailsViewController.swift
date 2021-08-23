@@ -37,12 +37,18 @@ class OrderDetailsViewController: UIViewController {
         configure()
         
         initializeHideKeyboard()
-        
-//        orderView.setupView()
       
         doOrder()
-        
-        textFieldMoveUp()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardSubscription()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancelKeyboardSubscription()
     }
 
     private func configure() {
