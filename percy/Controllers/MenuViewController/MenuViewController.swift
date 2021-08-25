@@ -25,11 +25,11 @@ class MenuViewController: UIViewController {
 
         menu = Menu()
 
-//        menuView.setupCategoryCollectionView()
-        
         navigationItemSettings()
         
-        fetchMenu(index: indexCounter)
+        signinButton()
+        
+//        fetchMenu(index: indexCounter)
 //        getMenu()
         
         menuView.categoryCollectionView.dataSource = self
@@ -50,6 +50,17 @@ class MenuViewController: UIViewController {
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+    }
+    
+    private func signinButton() {
+        let signInButton = UIBarButtonItem(title: "SignIn", style: .done, target: self, action: #selector(showAdminMenu))
+        signInButton.tintColor = .white
+        self.navigationItem.rightBarButtonItem = signInButton
+    }
+    
+    @objc private func showAdminMenu() {
+        let vc = AdminViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -104,7 +115,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             self.selectedGroupIndex = indexPath.item
             
             // при переходи скролим с первой картинки
-//            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+//            menuView.menuCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
 //                                             at: .left,
 //                                             animated: false)
             
@@ -115,9 +126,9 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             vc.product = newProduct
             navigationController?.pushViewController(vc, animated: true)
             
-            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
-                                        at: .left,
-                                        animated: false)
+//            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
+//                                        at: .left,
+//                                        animated: false)
         }
     }
 

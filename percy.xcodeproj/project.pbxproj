@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5B9E63DD896303B7AF3EABB7 /* Pods_percy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E324E477B4F0AA1EC9F95077 /* Pods_percy.framework */; };
+		F30A1BBC26D5F1AD008300CD /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A1BBB26D5F1AD008300CD /* AdminViewController.swift */; };
+		F30A1BBF26D5F3C3008300CD /* AdminOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A1BBE26D5F3C3008300CD /* AdminOrderModel.swift */; };
+		F30A1BC226D5F776008300CD /* FirebaseSaleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A1BC126D5F776008300CD /* FirebaseSaleManager.swift */; };
+		F30A1BC526D5FD2E008300CD /* AdminOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A1BC426D5FD2E008300CD /* AdminOrderCell.swift */; };
+		F30A1BC926D5FE06008300CD /* AdminOrderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30A1BC826D5FE06008300CD /* AdminOrderManager.swift */; };
 		F32A33BB26B3E18C007BD253 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F32A33BA26B3E18C007BD253 /* StorageManager.swift */; };
 		F33DD37B26B2FAAB00CFEF56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */; };
 		F33DD37D26B2FAAB00CFEF56 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD37C26B2FAAB00CFEF56 /* SceneDelegate.swift */; };
@@ -62,6 +67,11 @@
 		057C6C4EE18B5ABAE011BBE5 /* Pods-percy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-percy.release.xcconfig"; path = "Target Support Files/Pods-percy/Pods-percy.release.xcconfig"; sourceTree = "<group>"; };
 		E324E477B4F0AA1EC9F95077 /* Pods_percy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_percy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2D787C6AAF548DB9092DF69 /* Pods-percy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-percy.debug.xcconfig"; path = "Target Support Files/Pods-percy/Pods-percy.debug.xcconfig"; sourceTree = "<group>"; };
+		F30A1BBB26D5F1AD008300CD /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
+		F30A1BBE26D5F3C3008300CD /* AdminOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrderModel.swift; sourceTree = "<group>"; };
+		F30A1BC126D5F776008300CD /* FirebaseSaleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSaleManager.swift; sourceTree = "<group>"; };
+		F30A1BC426D5FD2E008300CD /* AdminOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrderCell.swift; sourceTree = "<group>"; };
+		F30A1BC826D5FE06008300CD /* AdminOrderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminOrderManager.swift; sourceTree = "<group>"; };
 		F32A33BA26B3E18C007BD253 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		F33DD37726B2FAAB00CFEF56 /* percy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = percy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F33DD37A26B2FAAB00CFEF56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				F365B4B926B38F6D008C9DED /* FirebaseManager.swift */,
+				F30A1BC126D5F776008300CD /* FirebaseSaleManager.swift */,
+				F30A1BC826D5FE06008300CD /* AdminOrderManager.swift */,
 				F32A33BA26B3E18C007BD253 /* StorageManager.swift */,
 			);
 			path = FirebaseManager;
@@ -200,6 +212,7 @@
 				F3B2AFE726CBF4B300F502A4 /* OrderDetailsViewController */,
 				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
 				F3664CD726C4D86500B997ED /* SMSViewController.swift */,
+				F30A1BBB26D5F1AD008300CD /* AdminViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -213,6 +226,7 @@
 				F3D2FDB826C39265005FD8E1 /* BasketCell.swift */,
 				F35335CB26C626FF007E55E1 /* OrderCell.swift */,
 				F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */,
+				F30A1BC426D5FD2E008300CD /* AdminOrderCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -269,6 +283,7 @@
 				F340526A26CCE261003A09A3 /* MyOrderModel.swift */,
 				F365B4BF26B39555008C9DED /* ProductCategoryModel.swift */,
 				F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */,
+				F30A1BBE26D5F3C3008300CD /* AdminOrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -424,16 +439,20 @@
 				F35335C926C6268A007E55E1 /* OrderView.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
+				F30A1BC926D5FE06008300CD /* AdminOrderManager.swift in Sources */,
 				F3B2AFE226CBF1B900F502A4 /* Extension+keyboardSubscription.swift in Sources */,
 				F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */,
 				F340527426CCF5ED003A09A3 /* MyOrdersCell.swift in Sources */,
 				F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */,
 				F33DD39626B2FB4B00CFEF56 /* OrdersViewController.swift in Sources */,
 				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
+				F30A1BC526D5FD2E008300CD /* AdminOrderCell.swift in Sources */,
 				F3D9DDF126C109980079D9A0 /* SaleCell.swift in Sources */,
 				F3664CDB26C4E15100B997ED /* SMSView.swift in Sources */,
+				F30A1BBF26D5F3C3008300CD /* AdminOrderModel.swift in Sources */,
 				F3533A8D26BA2EE2006D9185 /* Extension + getMenu.swift in Sources */,
 				F365B4C026B39555008C9DED /* ProductCategoryModel.swift in Sources */,
+				F30A1BC226D5F776008300CD /* FirebaseSaleManager.swift in Sources */,
 				F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */,
 				F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */,
 				F340526B26CCE261003A09A3 /* MyOrderModel.swift in Sources */,
@@ -446,6 +465,7 @@
 				F34DF96026B8EB1D00F3AD1C /* MenuView.swift in Sources */,
 				F32A33BB26B3E18C007BD253 /* StorageManager.swift in Sources */,
 				F340AD5026C3726800A37E5E /* RealmManager.swift in Sources */,
+				F30A1BBC26D5F1AD008300CD /* AdminViewController.swift in Sources */,
 				F3D9DDEE26C0F5110079D9A0 /* SaleModel.swift in Sources */,
 				F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */,
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,

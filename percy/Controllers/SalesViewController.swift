@@ -11,13 +11,12 @@ class SalesViewController: UIViewController {
     
     private var sales: [Sale] = []
     
-    private var firebaseManager = FirebaseManager()
+    private var firebaseManager = FirebaseSaleManager()
     
     private let tableView : UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .black
         tableView.register(SaleCell.self, forCellReuseIdentifier: SaleCell.identifier)
-
         return tableView
     }()
     
@@ -26,7 +25,7 @@ class SalesViewController: UIViewController {
 
         configure()
        
-        firebaseManager.sales(tableView: tableView) { [weak self] newSales in
+        firebaseManager.getSales(tableView: tableView) { [weak self] newSales in
             self?.sales = newSales
             self?.tableView.reloadData()
         }
