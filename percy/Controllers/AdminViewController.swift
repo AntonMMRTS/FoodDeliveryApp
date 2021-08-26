@@ -15,7 +15,7 @@ class AdminViewController: UIViewController {
     
     private let tableView : UITableView = {
         let tableView = UITableView()
-        tableView.backgroundColor = .orange
+        tableView.backgroundColor = .black
         tableView.register(AdminOrderCell.self, forCellReuseIdentifier: AdminOrderCell.identifier)
         return tableView
     }()
@@ -35,6 +35,7 @@ class AdminViewController: UIViewController {
 
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = .white
 
         tableView.frame = view.bounds
         tableView.dataSource = self
@@ -54,9 +55,9 @@ extension AdminViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: AdminOrderCell.identifier,
                                                  for: indexPath) as! AdminOrderCell
-//        let address = orders[indexPath.row].order.first?.name
-        let address = orders[indexPath.row].address
-        cell.textLabel?.text = address
+
+        let order = orders[indexPath.row]
+        cell.configure(order: order)
         return cell
     }
     
