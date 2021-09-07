@@ -7,4 +7,5 @@ target 'percy' do
 
   # Pods for percy
 pod "FlagPhoneNumber"
+pod 'SDWebImage'
 end

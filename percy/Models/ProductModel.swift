@@ -12,6 +12,7 @@ class Product: Object {
     @objc dynamic var category: String = ""
     @objc dynamic var quantity: Int = 1
     @objc dynamic var image:  Data = Data()
+    var productURL: String = ""
 }
 //class Product {
 //    var name: String = ""

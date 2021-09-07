@@ -13,4 +13,5 @@ class Sale {
     var shortDefinition: String = ""
     var longDefinition: String = ""
     var imageName = ""
+    var saleURL: String = ""
 }
