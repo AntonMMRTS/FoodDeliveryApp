@@ -8,7 +8,7 @@
 import UIKit
 
 class OrderCell: UITableViewCell {
-
+    
     static let identifier = "OrderCell"
     
     var product: Product! {
@@ -49,13 +49,6 @@ class OrderCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        contentView.backgroundColor = .black
-        
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(quantityLabel)
-        
         setup()
     }
     
@@ -64,25 +57,29 @@ class OrderCell: UITableViewCell {
     }
     
     private func setup() {
+        contentView.backgroundColor = .black
         
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                           constant: 10).isActive = true
-        nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
-        nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(quantityLabel)
         
-        priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                           constant: -10).isActive = true
-        priceLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 46).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        quantityLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        quantityLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor,
-                                           constant: -10).isActive = true
-        quantityLabel.widthAnchor.constraint(equalToConstant: 46).isActive = true
-        quantityLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        quantityLabel.leadingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor,
-                                           constant: 10).isActive = true
-        
+        NSLayoutConstraint.activate([
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            priceLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 46),
+            priceLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            quantityLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            quantityLabel.trailingAnchor.constraint(equalTo: priceLabel.leadingAnchor, constant: -10),
+            quantityLabel.widthAnchor.constraint(equalToConstant: 46),
+            quantityLabel.heightAnchor.constraint(equalToConstant: 20),
+            quantityLabel.leadingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor,
+                                                   constant: 10)
+        ])
     }
+    
 }

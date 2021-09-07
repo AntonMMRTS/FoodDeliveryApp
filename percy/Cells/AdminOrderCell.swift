@@ -10,7 +10,7 @@ import UIKit
 class AdminOrderCell: UITableViewCell {
     
     static let identifier = "AdminOrderCell"
-
+    
     private let imageLabel: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "perec")
@@ -57,7 +57,7 @@ class AdminOrderCell: UITableViewCell {
     }
     
     func configure(order: AdminOrder) {
-       
+        
         var allProducts = ""
         
         for (index,value) in order.order.enumerated() {
@@ -77,39 +77,36 @@ class AdminOrderCell: UITableViewCell {
         
         contentView.backgroundColor = .black
         
+        imageLabel.layer.cornerRadius = 13
+        imageLabel.clipsToBounds = true
+        
         contentView.addSubview(addressLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(productsLabel)
         contentView.addSubview(imageLabel)
-
-        imageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        imageLabel.widthAnchor.constraint(equalToConstant: 26).isActive = true
-        imageLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
-        imageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         
-        imageLabel.layer.cornerRadius = 13
-        imageLabel.clipsToBounds = true
-        
-        addressLabel.leadingAnchor.constraint(equalTo: imageLabel.trailingAnchor,
-                                           constant: 20).isActive = true
-        addressLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        addressLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        addressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        
-        priceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                             constant: -10).isActive = true
-        priceLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 46).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        
-        productsLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                constant: -10).isActive = true
-        productsLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 10).isActive = true
-        productsLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
-        productsLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                               constant: 10).isActive = true
-        productsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15).isActive = true
+        NSLayoutConstraint.activate([
+            imageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            imageLabel.widthAnchor.constraint(equalToConstant: 26),
+            imageLabel.heightAnchor.constraint(equalToConstant: 26),
+            imageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            
+            addressLabel.leadingAnchor.constraint(equalTo: imageLabel.trailingAnchor, constant: 20),
+            addressLabel.heightAnchor.constraint(equalToConstant: 25),
+            addressLabel.widthAnchor.constraint(equalToConstant: 160),
+            addressLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            
+            priceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            priceLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 46),
+            priceLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            productsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            productsLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 10),
+            productsLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            productsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            productsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+        ])
     }
-
+    
 }

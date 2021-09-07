@@ -136,45 +136,37 @@ class BasketCell: UITableViewCell {
         plusButton.addTarget(self, action: #selector(increaseQuantity), for: .touchUpInside)
         minusButton.addTarget(self, action: #selector(decreaseQuantity), for: .touchUpInside)
         
-        productImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        productImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
-        productImage.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        productImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,
-                                          constant: 5).isActive = true
-        productImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
-                                             constant: -5).isActive = true
-        
-        nameLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor,
-                                           constant: 10).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: minusButton.leadingAnchor,
-                                           constant: 10).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,
-                                           constant: 15).isActive = true
-
-        priceLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor,
-                                           constant: 10).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        priceLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        priceLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
-                                           constant: -15).isActive = true
-        
-        plusButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        plusButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        plusButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        plusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
-                                             constant: -10).isActive = true
-        
-        sumLabel.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        sumLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        sumLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        sumLabel.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor,
-                                             constant: -5).isActive = true
-        
-        minusButton.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        minusButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        minusButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        minusButton.trailingAnchor.constraint(equalTo: sumLabel.leadingAnchor,
-                                             constant: -5).isActive = true
+        NSLayoutConstraint.activate([
+            productImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            productImage.widthAnchor.constraint(equalToConstant: 90),
+            productImage.heightAnchor.constraint(equalToConstant: 90),
+            productImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            productImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -5),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: minusButton.leadingAnchor, constant: 10),
+            nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+            
+            priceLabel.leadingAnchor.constraint(equalTo: productImage.trailingAnchor, constant: 10),
+            priceLabel.heightAnchor.constraint(equalToConstant: 20),
+            priceLabel.widthAnchor.constraint(equalToConstant: 60),
+            priceLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            
+            plusButton.widthAnchor.constraint(equalToConstant: 30),
+            plusButton.heightAnchor.constraint(equalToConstant: 30),
+            plusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            plusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            
+            sumLabel.widthAnchor.constraint(equalToConstant: 40),
+            sumLabel.heightAnchor.constraint(equalToConstant: 30),
+            sumLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            sumLabel.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor, constant: -5),
+            
+            minusButton.widthAnchor.constraint(equalToConstant: 30),
+            minusButton.heightAnchor.constraint(equalToConstant: 30),
+            minusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            minusButton.trailingAnchor.constraint(equalTo: sumLabel.leadingAnchor, constant: -5)
+        ])
     }
 
 }

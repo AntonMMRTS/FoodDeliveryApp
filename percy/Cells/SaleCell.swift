@@ -41,7 +41,7 @@ class SaleCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     private func setupLayout() {
         contentView.addSubview(nameLabel)
         contentView.addSubview(saleImage)
@@ -51,15 +51,17 @@ class SaleCell: UITableViewCell {
         saleImage.contentMode = .scaleAspectFit
         saleImage.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         
-        saleImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        saleImage.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        saleImage.heightAnchor.constraint(equalTo: saleImage.widthAnchor, multiplier: 0.52).isActive = true
-        
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: saleImage.bottomAnchor).isActive = true
-        nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 33).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
+        NSLayoutConstraint.activate([
+            saleImage.topAnchor.constraint(equalTo: contentView.topAnchor),
+            saleImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
+            saleImage.heightAnchor.constraint(equalTo: saleImage.widthAnchor, multiplier: 0.52),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            nameLabel.topAnchor.constraint(equalTo: saleImage.bottomAnchor),
+            nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 33),
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30)
+        ])
     }
     
 }

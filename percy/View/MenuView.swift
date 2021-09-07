@@ -16,35 +16,24 @@ class MenuView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupCategoryCollectionView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-       
         setupCategoryCollectionView()
     }
     
-    func setupCategoryCollectionView() {
+    private func setupCategoryCollectionView() {
 
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
 
         categoryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-
         categoryCollectionView.translatesAutoresizingMaskIntoConstraints = false
         categoryCollectionView.backgroundColor = .black
-
         categoryCollectionView.register(CategoryCell.self,
                                         forCellWithReuseIdentifier: CategoryCell.identifier)
-
-        addSubview(categoryCollectionView)
-        
-        categoryCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        categoryCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        categoryCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-        categoryCollectionView.heightAnchor.constraint(equalToConstant: 55).isActive = true
 
         let layout1 = UICollectionViewFlowLayout()
         layout1.scrollDirection = .vertical
@@ -56,11 +45,19 @@ class MenuView: UIView {
         menuCollectionView.register(MenuCell.self,
                                         forCellWithReuseIdentifier: MenuCell.identifier)
 
-
+        addSubview(categoryCollectionView)
         addSubview(menuCollectionView)
-        menuCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor).isActive = true
-        menuCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        menuCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-        menuCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
+        
+        NSLayoutConstraint.activate([
+        categoryCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+        categoryCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+        categoryCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+        categoryCollectionView.heightAnchor.constraint(equalToConstant: 55),
+        
+        menuCollectionView.topAnchor.constraint(equalTo: categoryCollectionView.bottomAnchor),
+        menuCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+        menuCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+        menuCollectionView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }

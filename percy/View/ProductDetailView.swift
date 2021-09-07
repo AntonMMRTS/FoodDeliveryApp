@@ -113,18 +113,13 @@ class ProductDetailView: UIView {
     }
     
     private func configure() {
-      
+        
         scrollView = UIScrollView()
         scrollView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-    
+        
         addSubview(scrollView)
         
-        scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor).isActive = true
-       
         scrollView.addSubview(nameLabel)
         scrollView.addSubview(productImage)
         scrollView.addSubview(priceLabel)
@@ -137,64 +132,67 @@ class ProductDetailView: UIView {
         scrollView.addSubview(bguLabel)
         scrollView.addSubview(bguValueLabel)
         
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0).isActive = true
-        nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 33).isActive = true
-        
-        productImage.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        productImage.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        productImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor).isActive = true
-        productImage.heightAnchor.constraint(equalTo: productImage.widthAnchor ).isActive = true
-
-        priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor).isActive = true
-        priceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
-
-        orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        orderButton.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        orderButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
-        orderButton.topAnchor.constraint(equalTo: productImage.bottomAnchor).isActive = true
-      
-        weightLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        weightLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10)
-            .isActive = true
-        weightLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        weightLabel.heightAnchor.constraint(equalToConstant: 33).isActive = true
-
-        compositionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        compositionLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 10)
-            .isActive = true
-        compositionLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
-
-        definitionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        definitionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        definitionLabel.topAnchor.constraint(equalTo: compositionLabel.bottomAnchor, constant: 5)
-            .isActive = true
-        definitionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21).isActive = true
-
-        energyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        energyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        energyLabel.topAnchor.constraint(equalTo: definitionLabel.bottomAnchor, constant: 15).isActive = true
-        energyLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
-
-        energyValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        energyValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        energyValueLabel.topAnchor.constraint(equalTo: energyLabel.bottomAnchor, constant: 5).isActive = true
-        energyValueLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21).isActive = true
-
-        bguLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        bguLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        bguLabel.topAnchor.constraint(equalTo: energyValueLabel.bottomAnchor, constant: 15).isActive = true
-        bguLabel.heightAnchor.constraint(equalToConstant: 23).isActive = true
-
-        bguValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        bguValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        bguValueLabel.topAnchor.constraint(equalTo: bguLabel.bottomAnchor, constant: 5).isActive = true
-        bguValueLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21).isActive = true
-        bguValueLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50)
-            .isActive = true
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            nameLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
+            nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 33),
+            
+            productImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            productImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            productImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
+            productImage.heightAnchor.constraint(equalTo: productImage.widthAnchor),
+            
+            priceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            priceLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor),
+            priceLabel.widthAnchor.constraint(equalToConstant: 80),
+            priceLabel.heightAnchor.constraint(equalToConstant: 33),
+            
+            orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            orderButton.widthAnchor.constraint(equalToConstant: 160),
+            orderButton.heightAnchor.constraint(equalToConstant: 45),
+            orderButton.topAnchor.constraint(equalTo: productImage.bottomAnchor),
+            
+            weightLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            weightLabel.topAnchor.constraint(equalTo: priceLabel.bottomAnchor, constant: 10),
+            weightLabel.widthAnchor.constraint(equalToConstant: 80),
+            weightLabel.heightAnchor.constraint(equalToConstant: 33),
+            
+            compositionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            compositionLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 10),
+            compositionLabel.heightAnchor.constraint(equalToConstant: 23),
+            
+            definitionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            definitionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            definitionLabel.topAnchor.constraint(equalTo: compositionLabel.bottomAnchor, constant: 5),
+            definitionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21),
+            
+            energyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            energyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            energyLabel.topAnchor.constraint(equalTo: definitionLabel.bottomAnchor, constant: 15),
+            energyLabel.heightAnchor.constraint(equalToConstant: 23),
+            
+            energyValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            energyValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            energyValueLabel.topAnchor.constraint(equalTo: energyLabel.bottomAnchor, constant: 5),
+            energyValueLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21),
+            
+            bguLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            bguLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            bguLabel.topAnchor.constraint(equalTo: energyValueLabel.bottomAnchor, constant: 15),
+            bguLabel.heightAnchor.constraint(equalToConstant: 23),
+            
+            bguValueLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            bguValueLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            bguValueLabel.topAnchor.constraint(equalTo: bguLabel.bottomAnchor, constant: 5),
+            bguValueLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21),
+            bguValueLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50)
+        ])
     }
 
 }

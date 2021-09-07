@@ -88,33 +88,31 @@ class MyOrdersCell: UITableViewCell {
         contentView.addSubview(productsLabel)
         contentView.addSubview(imageLabel)
         
-        imageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        imageLabel.widthAnchor.constraint(equalToConstant: 26).isActive = true
-        imageLabel.heightAnchor.constraint(equalToConstant: 26).isActive = true
-        imageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        
         imageLabel.layer.cornerRadius = 13
         imageLabel.clipsToBounds = true
         
-        dateLabel.leadingAnchor.constraint(equalTo: imageLabel.trailingAnchor,
-                                           constant: 20).isActive = true
-        dateLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        dateLabel.widthAnchor.constraint(equalToConstant: 160).isActive = true
-        dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        
-        priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                             constant: -10).isActive = true
-        priceLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 46).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        priceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
-        
-        productsLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                constant: -12).isActive = true
-        productsLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10).isActive = true
-        productsLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
-        productsLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                               constant: 12).isActive = true
-        productsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15).isActive = true
+        NSLayoutConstraint.activate([
+            imageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            imageLabel.widthAnchor.constraint(equalToConstant: 26),
+            imageLabel.heightAnchor.constraint(equalToConstant: 26),
+            imageLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            
+            dateLabel.leadingAnchor.constraint(equalTo: imageLabel.trailingAnchor, constant: 20),
+            dateLabel.heightAnchor.constraint(equalToConstant: 25),
+            dateLabel.widthAnchor.constraint(equalToConstant: 160),
+            dateLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            priceLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 46),
+            priceLabel.heightAnchor.constraint(equalToConstant: 30),
+            priceLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            
+            productsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            productsLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10),
+            productsLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            productsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            productsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
+        ])
     }
     
 }

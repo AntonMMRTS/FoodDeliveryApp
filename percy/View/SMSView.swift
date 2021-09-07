@@ -52,27 +52,28 @@ class SMSView: UIView {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
         
         addSubview(justLabel)
         addSubview(checkCodeButton)
         addSubview(codeTetxView)
         
-        justLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        justLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20).isActive = true
-        justLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        justLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20) .isActive = true
-        
-        checkCodeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        checkCodeButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        checkCodeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        checkCodeButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        codeTetxView.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        codeTetxView.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        codeTetxView.centerXAnchor.constraint(equalTo:centerXAnchor).isActive = true
-        codeTetxView.bottomAnchor.constraint(equalTo: checkCodeButton.topAnchor,
-                                             constant: -50).isActive = true
+        NSLayoutConstraint.activate([
+            justLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            justLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
+            justLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            justLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            
+            checkCodeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            checkCodeButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            checkCodeButton.heightAnchor.constraint(equalToConstant: 50),
+            checkCodeButton.widthAnchor.constraint(equalToConstant: 200),
+            
+            codeTetxView.heightAnchor.constraint(equalToConstant: 52),
+            codeTetxView.widthAnchor.constraint(equalToConstant: 250),
+            codeTetxView.centerXAnchor.constraint(equalTo:centerXAnchor),
+            codeTetxView.bottomAnchor.constraint(equalTo: checkCodeButton.topAnchor, constant: -50)
+        ])
     }
     
 }

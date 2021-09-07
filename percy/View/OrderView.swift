@@ -78,8 +78,8 @@ class OrderView: UIView {
         setupView()
     }
     
-    func setupView() {
-       
+    private func setupView() {
+        
         addSubview(tableView)
         addSubview(totalLabel)
         addSubview(sumLabel)
@@ -87,49 +87,37 @@ class OrderView: UIView {
         addSubview(addressTetxField)
         addSubview(commentTetxField)
         
-        tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: addressTetxField.topAnchor,
-                                          constant: -15).isActive = true
-
-        addressTetxField.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                  constant: 12).isActive = true
-        addressTetxField.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                   constant: -12).isActive = true
-        addressTetxField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-        addressTetxField.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor,
-                                                 constant: -15).isActive = true
-        
-        commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                                  constant: 12).isActive = true
-        commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                                   constant: -12).isActive = true
-        commentTetxField.bottomAnchor.constraint(equalTo: totalLabel.topAnchor,
-                                                 constant: -15).isActive = true
-        commentTetxField.heightAnchor.constraint(equalToConstant: 34).isActive = true
-        
-        orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor,
-                                            constant: -10).isActive = true
-        orderButton.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                             constant: 5).isActive = true
-        orderButton.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                              constant: -5).isActive = true
-        orderButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        
-        totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor,
-                                           constant: -15).isActive = true
-        totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor,
-                                            constant: 12).isActive = true
-        totalLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        totalLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor,
-                                         constant: -15).isActive = true
-        sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor,
-                                           constant: -12).isActive = true
-        sumLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        sumLabel.heightAnchor.constraint(equalToConstant: 31).isActive = true
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: addressTetxField.topAnchor, constant: -15),
+            
+            addressTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            addressTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            addressTetxField.heightAnchor.constraint(equalToConstant: 34),
+            addressTetxField.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor, constant: -15),
+            
+            commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            commentTetxField.bottomAnchor.constraint(equalTo: totalLabel.topAnchor, constant: -15),
+            commentTetxField.heightAnchor.constraint(equalToConstant: 34),
+            
+            orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            orderButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            orderButton.heightAnchor.constraint(equalToConstant: 52),
+            
+            totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15),
+            totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            totalLabel.widthAnchor.constraint(equalToConstant: 150),
+            totalLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15),
+            sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            sumLabel.widthAnchor.constraint(equalToConstant: 100),
+            sumLabel.heightAnchor.constraint(equalToConstant: 31)
+        ])
     }
     
 }

@@ -53,27 +53,28 @@ class AuthView: UIView {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
         
         addSubview(justLabel)
         addSubview(getCodeButton)
         addSubview(phoneTetxField)
         
-        justLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        justLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20).isActive = true
-        justLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        justLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20) .isActive = true
-        
-        getCodeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        getCodeButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        getCodeButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        getCodeButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        phoneTetxField.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        phoneTetxField.widthAnchor.constraint(equalToConstant: 250).isActive = true
-        phoneTetxField.centerXAnchor.constraint(equalTo:centerXAnchor).isActive = true
-        phoneTetxField.bottomAnchor.constraint(equalTo: getCodeButton.topAnchor,
-                                               constant: -50).isActive = true
+        NSLayoutConstraint.activate([
+            justLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            justLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
+            justLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            justLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            
+            getCodeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            getCodeButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            getCodeButton.heightAnchor.constraint(equalToConstant: 50),
+            getCodeButton.widthAnchor.constraint(equalToConstant: 200),
+            
+            phoneTetxField.heightAnchor.constraint(equalToConstant: 52),
+            phoneTetxField.widthAnchor.constraint(equalToConstant: 250),
+            phoneTetxField.centerXAnchor.constraint(equalTo:centerXAnchor),
+            phoneTetxField.bottomAnchor.constraint(equalTo: getCodeButton.topAnchor, constant: -50)
+        ])
     }
     
 }

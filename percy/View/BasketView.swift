@@ -62,44 +62,34 @@ class BasketView: UIView {
         setupView()
     }
     
-    func setupView() {
+    private func setupView() {
        
         addSubview(tableView)
         addSubview(totalLabel)
         addSubview(sumLabel)
         addSubview(orderButton)
         
-        tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: totalLabel.topAnchor, constant: -5).isActive = true
-//        tableView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        
-        orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        orderButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5).isActive = true
-        orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5).isActive = true
-        orderButton.heightAnchor.constraint(equalToConstant: 52).isActive = true
-        
-        totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15).isActive = true
-        totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        totalLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        totalLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-        sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15).isActive = true
-        sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-        sumLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        sumLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
-//        orderButton.addTarget(self, action: #selector(authtorization), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: totalLabel.topAnchor, constant: -5),
+            
+            orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            orderButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            orderButton.heightAnchor.constraint(equalToConstant: 52),
+            
+            totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15),
+            totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            totalLabel.widthAnchor.constraint(equalToConstant: 150),
+            totalLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15),
+            sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            sumLabel.widthAnchor.constraint(equalToConstant: 100),
+            sumLabel.heightAnchor.constraint(equalToConstant: 30)
+        ])
     }
     
-//    @objc func authtorization() {
-//        if Auth.auth().currentUser?.uid == nil {
-//            let vc = AuthNavViewController()
-//
-//
-//
-//        }
-//    }
-
 }

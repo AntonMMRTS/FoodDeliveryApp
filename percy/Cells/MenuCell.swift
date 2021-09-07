@@ -33,7 +33,7 @@ class MenuCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let definitionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -43,7 +43,7 @@ class MenuCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let priceLabel: UILabel = {
         let label = UILabel()
         label.layer.cornerRadius = 10
@@ -55,7 +55,7 @@ class MenuCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
+    
     private let orderButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
@@ -67,7 +67,7 @@ class MenuCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -78,6 +78,9 @@ class MenuCell: UICollectionViewCell {
     }
     
     private func configure() {
+        
+        orderButton.addTarget(self, action: #selector(buttonFunction), for: .touchUpInside)
+        
         contentView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         contentView.layer.cornerRadius = 15
         
@@ -87,51 +90,48 @@ class MenuCell: UICollectionViewCell {
         contentView.addSubview(priceLabel)
         contentView.addSubview(orderButton)
         
-        productImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor)
-            .isActive = true
-        productImage.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor)
-            .isActive = true
-        productImage.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 10)
-            .isActive = true
-        productImage.heightAnchor.constraint(equalToConstant: contentView.frame.width).isActive = true
-
-        nameLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 5).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
-                                           constant: 5).isActive = true
-       nameLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor,
-                                           constant: -5).isActive = true
-        nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20).isActive = true
-        
-        definitionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10)
-            .isActive = true
-        definitionLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
-                                                 constant: 5).isActive = true
-       definitionLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor,
-                                                 constant: -5).isActive = true
-        definitionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 16).isActive = true
-        
-        priceLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
-                                            constant: 5).isActive = true
-        priceLabel.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor,
-                                           constant: -10).isActive = true
-        priceLabel.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        priceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
-        orderButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor,
-                                              constant: -10).isActive = true
-        orderButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        orderButton.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor,
-                                            constant: -7).isActive = true
-        orderButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        orderButton.topAnchor.constraint(greaterThanOrEqualTo: definitionLabel.bottomAnchor,
-                                         constant: 5).isActive = true
-        
-        orderButton.addTarget(self, action: #selector(buttonFunction), for: .touchUpInside)
+        NSLayoutConstraint.activate([
+            productImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            productImage.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
+            productImage.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor,
+                                              constant: 10),
+            productImage.heightAnchor.constraint(equalToConstant: contentView.frame.width),
+            
+            nameLabel.topAnchor.constraint(equalTo: productImage.bottomAnchor, constant: 5),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
+                                               constant: 5),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor,
+                                                constant: -5),
+            nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
+            
+            definitionLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 10),
+            definitionLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
+                                                     constant: 5),
+            definitionLabel.trailingAnchor.constraint(equalTo:contentView.safeAreaLayoutGuide.trailingAnchor,
+                                                      constant: -5),
+            definitionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 16),
+            
+            priceLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor,
+                                                constant: 5),
+            priceLabel.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor,
+                                               constant: -10),
+            priceLabel.widthAnchor.constraint(equalToConstant: 60),
+            priceLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            orderButton.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor,
+                                                  constant: -10),
+            orderButton.widthAnchor.constraint(equalToConstant: 100),
+            orderButton.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor,
+                                                constant: -7),
+            orderButton.heightAnchor.constraint(equalToConstant: 32),
+            orderButton.topAnchor.constraint(greaterThanOrEqualTo: definitionLabel.bottomAnchor,
+                                             constant: 5),
+        ])
     }
     
     @objc private func buttonFunction() {
         databaseManager.addNewProduct(product: product)
         closure?()
     }
-
+    
 }
