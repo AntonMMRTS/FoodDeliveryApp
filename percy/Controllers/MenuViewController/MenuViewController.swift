@@ -1,4 +1,5 @@
 import UIKit
+import SDWebImage
 
 class MenuViewController: UIViewController {
 
@@ -29,7 +30,7 @@ class MenuViewController: UIViewController {
         
         signinButton()
         
-//        fetchMenu(index: indexCounter)
+        fetchMenu(index: indexCounter)
 //        getMenu()
         
         menuView.categoryCollectionView.dataSource = self
@@ -38,6 +39,12 @@ class MenuViewController: UIViewController {
         menuView.menuCollectionView.dataSource = self
         menuView.menuCollectionView.delegate = self
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        menuView.menuCollectionView.reloadData()
+//        print(menu.products.first?.products.count)
+//    }
 
     private func navigationItemSettings() {
  
@@ -100,11 +107,27 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
 
             cell.product = product
             
+//            if let url = URL(string: product.productURL) {
+//                cell.productImage.sd_imageTransition = .fade
+//                cell.productImage.sd_imageTransition?.duration = 0.5
+//                cell.productImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
+//                    
+//                        
+//                        
+//                    
+////                    cell.product.image = uiImage!.jpegData(compressionQuality: 1)!
+//                }
+//                
+//            } else {
+//                print("url didnt work \(product.productURL)")
+//            }
+            
+            
             let databaseManager: DatabaseManagerProtocol = RealmManager()
             cell.closure = {
                 self.tabBarController?.tabBar.items?.last?.badgeValue = "\(databaseManager.obtainProducts().count)"
             }
-           
+            
             return cell
         }
     }

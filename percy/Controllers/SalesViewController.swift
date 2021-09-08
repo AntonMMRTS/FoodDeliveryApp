@@ -23,25 +23,12 @@ class SalesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        firebaseManager.getSalesWithoutImages(tableView: tableView) { (newSales) in
+        firebaseManager.getSales(tableView: tableView) { (newSales) in
             self.sales = newSales
             self.tableView.reloadData()
-            print(self.sales.first?.image)
         }
         
         configure()
-       
-//        firebaseManager.getSales(tableView: tableView) { [weak self] newSales in
-//            self?.sales = newSales
-//            self?.tableView.reloadData()
-//        }
-       
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-        print(self.sales.first?.image)
     }
     
     private func configure() {
@@ -72,9 +59,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: SaleCell.identifier,
                                                  for: indexPath) as! SaleCell
         cell.sale = sales[indexPath.row]
-//        guard let url = URL(string: sales[indexPath.row].saleURL) else { return UITableViewCell() }
-//        cell.saleImage.sd_setImage(with: url, completed: nil)
-//        tableView.reloadData()
+
         return cell
     }
     

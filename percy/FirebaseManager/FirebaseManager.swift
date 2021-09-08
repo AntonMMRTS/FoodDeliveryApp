@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import SDWebImage
 
 class FirebaseManager {
     
@@ -9,23 +10,23 @@ class FirebaseManager {
     
     func getSubMenu(category: String, name: String, collectionView: UICollectionView, completion: @escaping (ProductCategory) -> Void) {
 //        let time = CFAbsoluteTimeGetCurrent()
-        self.getData(collection: category) { [weak self] newProducts in
+        self.getData(collection: category, collectionView: collectionView) { [weak self] newProducts in
             let newCategory = ProductCategory(name: name, products: newProducts)
             
-            for i in newProducts {
-                i.image = UIImage(named: "default")!.jpegData(compressionQuality: 1)!
-                self?.imageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
-                    i.image = newImage.jpegData(compressionQuality: 1)!
-                    collectionView.reloadData()
-//                    print(time - CFAbsoluteTimeGetCurrent())
-//                    print(i.imageName)
-                }
-            }
+//            for i in newProducts {
+//                i.image = UIImage(named: "default")!.jpegData(compressionQuality: 1)!
+//                self?.imageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
+//                    i.image = newImage.jpegData(compressionQuality: 1)!
+//                    collectionView.reloadData()
+////                    print(time - CFAbsoluteTimeGetCurrent())
+////                    print(i.imageName)
+//                }
+//            }
             completion(newCategory)
         }
     }
 
-    private func getData(collection: String, completion: @escaping ([Product]) -> Void) {
+    private func getData(collection: String, collectionView: UICollectionView, completion: @escaping ([Product]) -> Void) {
         
         var newProducts: [Product] = []
         
@@ -56,7 +57,20 @@ class FirebaseManager {
                     newProduct.energyValue = energyValue
                     newProduct.category = category
                     
+                    
+                    let storage = Storage.storage()
+                    let reference = storage.reference()
+                    let pathRef = reference.child(category)
+                    
+                    let fileRef = pathRef.child(imageName + ".jpg")
+                    fileRef.downloadURL { (url, error) in
+                        guard error == nil else { return }
+                        guard let url = url else { return }
+                        newProduct.productURL = "\(url)"
+                    }
+                    
                     newProducts.append(newProduct)
+                    collectionView.reloadData()
                 }
             }
             completion(newProducts)

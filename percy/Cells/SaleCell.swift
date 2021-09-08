@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SDWebImage
 
 class SaleCell: UITableViewCell {
     
@@ -14,17 +13,7 @@ class SaleCell: UITableViewCell {
     
     public var sale: Sale! {
         didSet {
-//            self.saleImage.image = sale.image
-            if let url = URL(string: sale.saleURL) {
-                self.saleImage.sd_imageTransition = .fade
-                self.saleImage.sd_imageTransition?.duration = 0.2
-            self.saleImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
-                guard uiImage != nil else { return }
-                self.sale.image = uiImage!
-            }
-            } else {
-                print("url didnt work \(sale.saleURL)")
-            }
+            self.saleImage.image = sale.imageView.image
             self.nameLabel.text = sale.shortDefinition
         }
     }
@@ -58,7 +47,6 @@ class SaleCell: UITableViewCell {
         contentView.addSubview(saleImage)
         contentView.backgroundColor = .black
         
-        saleImage.image = UIImage(named: "default")
         saleImage.contentMode = .scaleAspectFit
         saleImage.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         
@@ -71,6 +59,11 @@ class SaleCell: UITableViewCell {
         nameLabel.topAnchor.constraint(equalTo: saleImage.bottomAnchor).isActive = true
         nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 33).isActive = true
         nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -30).isActive = true
+    }
+    
+    override func prepareForReuse() {
+        saleImage.sd_cancelCurrentImageLoad()
+        saleImage.image = UIImage(named: "default")
     }
     
 }

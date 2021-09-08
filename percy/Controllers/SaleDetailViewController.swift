@@ -19,13 +19,11 @@ class SaleDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-//        saleView.setupLayout()
         currentSaleSetup()
     }
     
     private func currentSaleSetup() {
-        saleView.saleImage.image = sale.image
+        saleView.saleImage.image = sale.imageView.image
         saleView.nameLabel.text = sale.shortDefinition
         saleView.definitionLabel.text = sale.longDefinition
     }
