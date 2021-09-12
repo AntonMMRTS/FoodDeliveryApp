@@ -60,6 +60,7 @@ class SaleCell: UITableViewCell {
         contentView.addSubview(saleImage)
         contentView.backgroundColor = .black
         
+        saleImage.image = UIImage(named: "default")
         saleImage.contentMode = .scaleAspectFit
         saleImage.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         

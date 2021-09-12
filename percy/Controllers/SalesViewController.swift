@@ -67,7 +67,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = SaleDetailViewController()
         
         vc.sale = sales[indexPath.row]
-//        navigationController?.pushViewController(vc, animated: true)
+        
         present(vc, animated: true, completion: nil)
     }
     

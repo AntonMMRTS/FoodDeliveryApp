@@ -31,8 +31,7 @@ class MenuViewController: UIViewController {
         signinButton()
         
         fetchMenu(index: indexCounter)
-//        getMenu()
-        
+
         menuView.categoryCollectionView.dataSource = self
         menuView.categoryCollectionView.delegate = self
         
@@ -40,16 +39,9 @@ class MenuViewController: UIViewController {
         menuView.menuCollectionView.delegate = self
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        menuView.menuCollectionView.reloadData()
-//        print(menu.products.first?.products.count)
-//    }
-
     private func navigationItemSettings() {
  
         let imageView = UIImageView(image: UIImage(named: "percy"))
-//        imageView.frame = CGRect(x: 0, y: 0, width: 112, height: 24)
         imageView.contentMode = .scaleAspectFill
         
         navigationItem.titleView = imageView
@@ -94,7 +86,6 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             let categoryName = menu.products[indexPath.item].name
             
-
             cell.setupCell(category: categoryName)
             
             return cell
@@ -106,23 +97,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             let product = group.products[indexPath.item]
 
             cell.product = product
-            
-//            if let url = URL(string: product.productURL) {
-//                cell.productImage.sd_imageTransition = .fade
-//                cell.productImage.sd_imageTransition?.duration = 0.5
-//                cell.productImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
-//                    
-//                        
-//                        
-//                    
-////                    cell.product.image = uiImage!.jpegData(compressionQuality: 1)!
-//                }
-//                
-//            } else {
-//                print("url didnt work \(product.productURL)")
-//            }
-            
-            
+
             let databaseManager: DatabaseManagerProtocol = RealmManager()
             cell.closure = {
                 self.tabBarController?.tabBar.items?.last?.badgeValue = "\(databaseManager.obtainProducts().count)"
@@ -165,7 +140,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == menuView.categoryCollectionView {
             let categoryName = menu.products[indexPath.row].name
            
-            
             let width = categoryName.widthOfString(
                 usingFont: UIFont(name: "HelveticaNeue-Medium", size: 23) ??  UIFont.systemFont(ofSize: 23))
             

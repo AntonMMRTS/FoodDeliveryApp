@@ -12,16 +12,7 @@ class FirebaseManager {
 //        let time = CFAbsoluteTimeGetCurrent()
         self.getData(collection: category, collectionView: collectionView) { [weak self] newProducts in
             let newCategory = ProductCategory(name: name, products: newProducts)
-            
-//            for i in newProducts {
-//                i.image = UIImage(named: "default")!.jpegData(compressionQuality: 1)!
-//                self?.imageManager.getImage(picName: i.imageName, categorie: i.category) { (newImage) in
-//                    i.image = newImage.jpegData(compressionQuality: 1)!
-//                    collectionView.reloadData()
 ////                    print(time - CFAbsoluteTimeGetCurrent())
-////                    print(i.imageName)
-//                }
-//            }
             completion(newCategory)
         }
     }
@@ -56,7 +47,6 @@ class FirebaseManager {
                     newProduct.halories = halories
                     newProduct.energyValue = energyValue
                     newProduct.category = category
-                    
                     
                     let storage = Storage.storage()
                     let reference = storage.reference()
