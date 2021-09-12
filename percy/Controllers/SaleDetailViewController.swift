@@ -19,8 +19,6 @@ class SaleDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-//        saleView.setupLayout()
         currentSaleSetup()
     }
     

@@ -5,8 +5,3 @@ struct ProductCategory {
     var products: [Product]
 }
 
-struct Groups {
-    var category: String
-    var nameCategory: String
-    var products: [Product]
-}

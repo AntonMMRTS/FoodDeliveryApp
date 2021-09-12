@@ -8,9 +8,9 @@
 import UIKit
 
 class Sale {
-
     var image = UIImage()
     var shortDefinition: String = ""
     var longDefinition: String = ""
     var imageName = ""
+    var saleURL: String = ""
 }

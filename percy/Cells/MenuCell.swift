@@ -1,14 +1,33 @@
 import UIKit
+import SDWebImage
 
 class MenuCell: UICollectionViewCell {
+    
+    override func prepareForReuse() {
+        productImage.sd_cancelCurrentImageLoad()
+        productImage.image  = UIImage(named: "default")
+    }
     
     static let identifier = "MenuCell"
     
     var closure: (() -> Void)?
+    var closure2: (() -> Void)?
     
     var product: Product! {
         didSet {
-            self.productImage.image = UIImage(data: product.image) 
+            if let url = URL(string: product.productURL) {
+                self.productImage.sd_imageTransition = .fade
+                self.productImage.sd_imageTransition?.duration = 0.5
+                self.productImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
+                    
+                    guard uiImage != nil else { return }
+                    self.product.image = uiImage!.jpegData(compressionQuality: 1)!
+                }
+                
+            } else {
+                print("url didnt work \(product.productURL)")
+            }
+            
             self.nameLabel.text = product.name
             self.definitionLabel.text = product.definition
             self.priceLabel.text = "\(product.price) ₽"
@@ -17,13 +36,14 @@ class MenuCell: UICollectionViewCell {
     
     private let databaseManager: DatabaseManagerProtocol = RealmManager()
     
-    private let productImage: UIImageView = {
+    let productImage: UIImageView = {
         let image = UIImageView()
+        image.image  = UIImage(named: "default")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    private let nameLabel: UILabel = {
+     let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.text = "Anton"
@@ -33,6 +53,7 @@ class MenuCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+
     
     private let definitionLabel: UILabel = {
         let label = UILabel()
@@ -43,6 +64,7 @@ class MenuCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+
     
     private let priceLabel: UILabel = {
         let label = UILabel()
@@ -83,6 +105,8 @@ class MenuCell: UICollectionViewCell {
         
         contentView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
         contentView.layer.cornerRadius = 15
+        
+        productImage.image = UIImage(named: "default")
         
         contentView.addSubview(productImage)
         contentView.addSubview(nameLabel)

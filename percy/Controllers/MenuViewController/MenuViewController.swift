@@ -1,4 +1,5 @@
 import UIKit
+import SDWebImage
 
 class MenuViewController: UIViewController {
 
@@ -30,19 +31,17 @@ class MenuViewController: UIViewController {
         signinButton()
         
         fetchMenu(index: indexCounter)
-//        getMenu()
-        
+
         menuView.categoryCollectionView.dataSource = self
         menuView.categoryCollectionView.delegate = self
         
         menuView.menuCollectionView.dataSource = self
         menuView.menuCollectionView.delegate = self
     }
-
+    
     private func navigationItemSettings() {
  
         let imageView = UIImageView(image: UIImage(named: "percy"))
-//        imageView.frame = CGRect(x: 0, y: 0, width: 112, height: 24)
         imageView.contentMode = .scaleAspectFill
         
         navigationItem.titleView = imageView
@@ -87,7 +86,6 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             
             let categoryName = menu.products[indexPath.item].name
             
-
             cell.setupCell(category: categoryName)
             
             return cell
@@ -99,12 +97,12 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             let product = group.products[indexPath.item]
 
             cell.product = product
-            
+
             let databaseManager: DatabaseManagerProtocol = RealmManager()
             cell.closure = {
                 self.tabBarController?.tabBar.items?.last?.badgeValue = "\(databaseManager.obtainProducts().count)"
             }
-           
+            
             return cell
         }
     }
@@ -142,7 +140,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
         if collectionView == menuView.categoryCollectionView {
             let categoryName = menu.products[indexPath.row].name
            
-            
             let width = categoryName.widthOfString(
                 usingFont: UIFont(name: "HelveticaNeue-Medium", size: 23) ??  UIFont.systemFont(ofSize: 23))
             

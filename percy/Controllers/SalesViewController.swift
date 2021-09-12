@@ -23,12 +23,12 @@ class SalesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configure()
-       
-        firebaseManager.getSales(tableView: tableView) { [weak self] newSales in
-            self?.sales = newSales
-            self?.tableView.reloadData()
+        firebaseManager.getSales(tableView: tableView) { (newSales) in
+            self.sales = newSales
+            self.tableView.reloadData()
         }
+        
+        configure()
     }
     
     private func configure() {
@@ -59,7 +59,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: SaleCell.identifier,
                                                  for: indexPath) as! SaleCell
         cell.sale = sales[indexPath.row]
-        
+
         return cell
     }
     
@@ -67,7 +67,7 @@ extension SalesViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = SaleDetailViewController()
         
         vc.sale = sales[indexPath.row]
-//        navigationController?.pushViewController(vc, animated: true)
+        
         present(vc, animated: true, completion: nil)
     }
     
