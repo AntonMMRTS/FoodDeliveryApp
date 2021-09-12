@@ -44,15 +44,16 @@ class FirebaseSaleManager {
                         guard let url = url else { return }
                         newSale.saleURL = "\(url)"
                         
-                        newSale.imageView.sd_imageTransition = .fade
-                        newSale.imageView.sd_imageTransition?.duration = 0.5
-                        newSale.imageView.sd_setImage(with: URL(string: newSale.saleURL),
-                                                      placeholderImage: UIImage(named: "default"),
-                                                      options: [],
-                                                      completed: nil)
-                        tableView.reloadData()
+//                        newSale.imageView.sd_imageTransition = .fade
+//                        newSale.imageView.sd_imageTransition?.duration = 0.5
+//                        newSale.imageView.sd_setImage(with: URL(string: newSale.saleURL),
+//                                                      placeholderImage: UIImage(named: "default"),
+//                                                      options: [],
+//                                                      completed: nil)
+//                        tableView.reloadData()
                     }
                     allSales.append(newSale)
+                    tableView.reloadData()
                 }
             }
             completion(allSales)

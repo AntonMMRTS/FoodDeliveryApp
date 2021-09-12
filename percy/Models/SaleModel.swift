@@ -8,9 +8,10 @@
 import UIKit
 
 class Sale {
-    var imageView = UIImageView(image: UIImage(named: "default"))
+//    var imageView = UIImageView(image: UIImage(named: "default"))
     var shortDefinition: String = ""
     var longDefinition: String = ""
     var imageName = ""
     var saleURL: String = ""
+   
 }

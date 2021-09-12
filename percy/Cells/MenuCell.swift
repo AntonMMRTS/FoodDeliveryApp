@@ -15,8 +15,6 @@ class MenuCell: UICollectionViewCell {
     
     var product: Product! {
         didSet {
-//            self.productImage.image = UIImage(data: product.image)
-            
             if let url = URL(string: product.productURL) {
                 self.productImage.sd_imageTransition = .fade
                 self.productImage.sd_imageTransition?.duration = 0.5

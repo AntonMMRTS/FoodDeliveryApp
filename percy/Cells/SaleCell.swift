@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SaleCell: UITableViewCell {
     
@@ -13,7 +14,18 @@ class SaleCell: UITableViewCell {
     
     public var sale: Sale! {
         didSet {
-            self.saleImage.image = sale.imageView.image
+//            self.saleImage.image = sale.imageView.image
+            if let url = URL(string: sale.saleURL) {
+                self.saleImage.sd_imageTransition = .fade
+                self.saleImage.sd_imageTransition?.duration = 0.5
+                self.saleImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
+                    
+                    self.product.image = uiImage!.jpegData(compressionQuality: 1)!
+                }
+                
+            } else {
+                print("url didnt work \(product.productURL)")
+            }
             self.nameLabel.text = sale.shortDefinition
         }
     }
