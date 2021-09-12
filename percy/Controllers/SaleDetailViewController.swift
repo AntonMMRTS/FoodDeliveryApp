@@ -23,7 +23,7 @@ class SaleDetailViewController: UIViewController {
     }
     
     private func currentSaleSetup() {
-        saleView.saleImage.image = sale.imageView.image
+        saleView.saleImage.image = sale.image
         saleView.nameLabel.text = sale.shortDefinition
         saleView.definitionLabel.text = sale.longDefinition
     }

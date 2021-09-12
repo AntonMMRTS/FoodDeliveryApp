@@ -50,10 +50,10 @@ class FirebaseSaleManager {
 //                                                      placeholderImage: UIImage(named: "default"),
 //                                                      options: [],
 //                                                      completed: nil)
-//                        tableView.reloadData()
+                        tableView.reloadData()
                     }
                     allSales.append(newSale)
-                    tableView.reloadData()
+//                    tableView.reloadData()
                 }
             }
             completion(allSales)

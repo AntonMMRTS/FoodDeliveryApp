@@ -20,11 +20,12 @@ class SaleCell: UITableViewCell {
                 self.saleImage.sd_imageTransition?.duration = 0.5
                 self.saleImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
                     
-                    self.product.image = uiImage!.jpegData(compressionQuality: 1)!
+                    guard uiImage != nil else { return }
+                    self.sale.image = uiImage!
                 }
                 
             } else {
-                print("url didnt work \(product.productURL)")
+                print("url didnt work \(sale.saleURL)")
             }
             self.nameLabel.text = sale.shortDefinition
         }
