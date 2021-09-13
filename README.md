@@ -12,38 +12,42 @@ Almost every viewController has UICollectionView or UITableView.
 
 ### The home screen of the application is the MenuViewController:
 
-![Screenshot 2021-03-05 at 11 12 52](https://user-images.githubusercontent.com/79893831/133057523-e760dbee-f749-4b6d-af0d-a4f9f98647cb.png)
+![Screenshot 2021-03-05 at 11 12 52](https://user-images.githubusercontent.com/79893831/133105293-6bf373b8-bc4e-43ad-a58e-0dd29e184407.png)
 
 * Image is uploaded via SDWebImage.
 * By clicking on the red button  we add good to the basket.
 * On the top part of screen there is list of categories (Pizza, Pasta, Lasagna etc..)
 * By clicking on the goods cell we open ProductDetailViewController which contain detail information about good (price, weight, energy value) etc
-![Screenshot 2021-03-05 at 11 12 52](https://user-images.githubusercontent.com/79893831/133063401-4ef09f1e-4057-4e92-b839-a7868e31b551.png)
+
+![Screenshot 2021-03-05 at 11 12 52](https://user-images.githubusercontent.com/79893831/133106134-9d33119d-52ed-4547-b292-bd31c683245e.png)
 
 ### Sales screen:
 
-![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 16 54 28](https://user-images.githubusercontent.com/79893831/133063792-8fd0c857-1300-409e-b8d1-1404740f9780.png)
-
 * SalesViewController give us information about all current sales.
+
+![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 16 54 28](https://user-images.githubusercontent.com/79893831/133107590-b9459be2-dc76-410f-b723-b0ae4fbc636e.png)
 
 
 ### MyOrders screen:
 
 * OrdersViewController has information about all user orders
 
-![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 16 57 48](https://user-images.githubusercontent.com/79893831/133064686-4209f3a8-f3ea-4050-bf4d-47ed566215b4.png)
+![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 16 57 48](https://user-images.githubusercontent.com/79893831/133108301-4662e67a-0bc4-499a-bebb-af9c297a424e.png)
 
 
 ### Basket Screen: 
 
-![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 17 02 49](https://user-images.githubusercontent.com/79893831/133065099-31dba57f-e91f-46cd-8e2c-40182e3c695b.png)
-
 * Here we can see all goods which we want to order, also we can decrement or increment amount of goods.
+
+![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 17 02 49](https://user-images.githubusercontent.com/79893831/133108631-d035da3c-b57f-4d96-9c26-5481698f6d56.png)
+
 * If we did not auth we must auth with phone number
-![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 17 09 55](https://user-images.githubusercontent.com/79893831/133066501-31c87010-f93a-4dfe-a866-5a2c9f6e4156.png)
+
+![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 17 09 55](https://user-images.githubusercontent.com/79893831/133108922-9f9cff5d-4263-464b-b88d-2d3933343660.png)
 
 
 ### Order screen:
 
 * After auth we can continue order goods, here we should enter adress, comments and other order details
-![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 17 17 17](https://user-images.githubusercontent.com/79893831/133066996-efeb4563-fba0-49c4-8f60-2bd9a1d5d046.png)
+
+![Simulator Screen Shot - iPhone 11 - 2021-09-13 at 17 17 17](https://user-images.githubusercontent.com/79893831/133109270-fb9cc37a-3e32-4885-aee9-6ed0fcf7608d.png)
