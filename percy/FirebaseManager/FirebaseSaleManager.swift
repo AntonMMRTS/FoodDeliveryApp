@@ -50,7 +50,9 @@ class FirebaseSaleManager {
                     allSales.append(newSale)
                 }
             }
-            completion(allSales)
+            DispatchQueue.main.async {
+                completion(allSales)
+            }
         }
     }
 }

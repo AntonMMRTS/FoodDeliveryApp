@@ -9,11 +9,13 @@ class FirebaseManager {
     private let imageManager = StorageManager()
     
     func getSubMenu(category: String, name: String, collectionView: UICollectionView, completion: @escaping (ProductCategory) -> Void) {
-//        let time = CFAbsoluteTimeGetCurrent()
+        //        let time = CFAbsoluteTimeGetCurrent()
         self.getData(collection: category, collectionView: collectionView) { newProducts in
             let newCategory = ProductCategory(name: name, products: newProducts)
-////                    print(time - CFAbsoluteTimeGetCurrent())
-            completion(newCategory)
+            ////                    print(time - CFAbsoluteTimeGetCurrent())
+            DispatchQueue.main.async {
+                completion(newCategory)
+            }
         }
     }
 
@@ -63,7 +65,9 @@ class FirebaseManager {
                     collectionView.reloadData()
                 }
             }
-            completion(newProducts)
+            DispatchQueue.main.async {
+                completion(newProducts)
+            }
         }
     }
 
