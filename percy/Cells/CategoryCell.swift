@@ -4,7 +4,7 @@ class CategoryCell: UICollectionViewCell {
     
     static let identifier = "CategoryCell"
     
-    private let categoryFoodLabel: UILabel = {
+    let categoryFoodLabel: UILabel = {
         let categoryFoodLabel = UILabel()
         categoryFoodLabel.textColor = .white
         categoryFoodLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 23)
@@ -26,6 +26,8 @@ class CategoryCell: UICollectionViewCell {
     func setupCell(category: String) {
         categoryFoodLabel.text = category
     }
+    
+    
     
     private func addConstraints() {
         

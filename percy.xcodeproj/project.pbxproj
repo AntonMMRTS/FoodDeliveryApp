@@ -30,7 +30,6 @@
 		F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */; };
 		F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */; };
 		F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */; };
-		F33EEBBA26EF98EB00332C28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F33EEBB926EF98EB00332C28 /* README.md */; };
 		F340526B26CCE261003A09A3 /* MyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340526A26CCE261003A09A3 /* MyOrderModel.swift */; };
 		F340526E26CCE4D5003A09A3 /* MyOrderRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */; };
 		F340527126CCF11B003A09A3 /* MyOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340527026CCF11B003A09A3 /* MyOrdersView.swift */; };
@@ -88,7 +87,6 @@
 		F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F33DD3A026B2FBF000CFEF56 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StatusBar+NavigationBar.swift"; sourceTree = "<group>"; };
-		F33EEBB926EF98EB00332C28 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		F340526A26CCE261003A09A3 /* MyOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderModel.swift; sourceTree = "<group>"; };
 		F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderRealmManager.swift; sourceTree = "<group>"; };
 		F340527026CCF11B003A09A3 /* MyOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersView.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 		F33DD36E26B2FAAB00CFEF56 = {
 			isa = PBXGroup;
 			children = (
-				F33EEBB926EF98EB00332C28 /* README.md */,
 				F33DD37926B2FAAB00CFEF56 /* percy */,
 				F33DD37826B2FAAB00CFEF56 /* Products */,
 				2AB1A675F41EDD836E36D73A /* Pods */,
@@ -382,7 +379,6 @@
 			files = (
 				F33DD38726B2FAAC00CFEF56 /* LaunchScreen.storyboard in Resources */,
 				F365B4C526B3995C008C9DED /* GoogleService-Info.plist in Resources */,
-				F33EEBBA26EF98EB00332C28 /* README.md in Resources */,
 				F33DD38426B2FAAC00CFEF56 /* Assets.xcassets in Resources */,
 				F33DD38226B2FAAB00CFEF56 /* Main.storyboard in Resources */,
 			);

@@ -3,6 +3,7 @@ import SDWebImage
 
 class MenuViewController: UIViewController {
 
+    // MARK:- Public properties
     var menu: Menu!
     
     let categoryNames = ["soup" : "Супы", "pizza" : "Пицца", "hot" : "Горячее", "lasagna" : "Лазанья", "pasta" : "Паста", "salad" : "Салаты"]
@@ -17,6 +18,7 @@ class MenuViewController: UIViewController {
     
     let firebaseManager = FirebaseManager()
     
+    // MARK: - Inicializations
     override func loadView() {
        self.view = menuView
     }
@@ -39,6 +41,7 @@ class MenuViewController: UIViewController {
         menuView.menuCollectionView.delegate = self
     }
     
+    // MARK: - Private methods
     private func navigationItemSettings() {
  
         let imageView = UIImageView(image: UIImage(named: "percy"))
@@ -64,6 +67,7 @@ class MenuViewController: UIViewController {
     
 }
 
+// MARK: - extensions UICollectionViewDataSource, UICollectionViewDelegate
 extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,6 +89,14 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
                                                           for: indexPath) as! CategoryCell
             
             let categoryName = menu.products[indexPath.item].name
+            
+            if selectedGroupIndex == indexPath.item {
+                cell.categoryFoodLabel.font = UIFont(name: "HelveticaNeue-BoldItalic", size: 25)
+                cell.categoryFoodLabel.alpha = 1
+            } else {
+                cell.categoryFoodLabel.font = UIFont(name: "HelveticaNeue-MediumItalic", size: 23)
+                cell.categoryFoodLabel.alpha = 0.8
+            }
             
             cell.setupCell(category: categoryName)
             
@@ -111,6 +123,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
         if collectionView == menuView.categoryCollectionView {
         
             self.selectedGroupIndex = indexPath.item
+            menuView.categoryCollectionView.reloadData()
             
             // при переходи скролим с первой картинки
 //            menuView.menuCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
@@ -132,6 +145,7 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 }
 
+// MARK: - extensions UICollectionViewDelegateFlowLayout
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
     // задаем размеры нашей ячейки
