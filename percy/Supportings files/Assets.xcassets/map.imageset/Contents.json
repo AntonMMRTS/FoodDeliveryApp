@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "17-170237_8-map-pointer-icon-images-blue-google-google-maps-pin-drop.png.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

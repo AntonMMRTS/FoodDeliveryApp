@@ -61,13 +61,26 @@ class OrderDetailsViewController: UIViewController {
         orderView.tableView.delegate = self
         orderView.tableView.dataSource = self
         
-        orderView.addressTetxField.delegate = self
+//        orderView.addressTetxField.delegate = self
         orderView.commentTetxField.delegate = self
+        setupAddress()
     }
 
     private func doOrder() {
         orderView.orderButton.addTarget(self, action: #selector(addOrder), for: .touchUpInside)
     }
+    
+    private func setupAddress() {
+        orderView.addressButton.addTarget(self, action: #selector(showMap), for: .touchUpInside)
+    }
+    
+    @objc private func showMap() {
+        let vc = AddressViewController()
+//        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
 
 }
 

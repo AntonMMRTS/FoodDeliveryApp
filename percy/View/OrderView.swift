@@ -18,13 +18,27 @@ class OrderView: UIView {
         return tableView
     }()
 
-    let addressTetxField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .white
-        textField.font = UIFont(name: "Helvetica Neue", size: 17)
-        textField.placeholder = "Введите адресс"
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        return textField
+//    let addressTetxField: UITextField = {
+//        let textField = UITextField()
+//        textField.backgroundColor = .white
+//        textField.font = UIFont(name: "Helvetica Neue", size: 17)
+//        textField.placeholder = "Введите адресс"
+//        textField.translatesAutoresizingMaskIntoConstraints = false
+//        return textField
+//    }()
+    
+    var addressButton: UIButton = {
+        let button = UIButton(type: .system)
+//        button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
+        button.backgroundColor = .white
+        button.setTitleColor(.systemGray4, for: .normal)
+//        button.layer.cornerRadius = 15
+//        button.setTitleColor(.black, for: .selected)
+        button.contentHorizontalAlignment = .left
+        button.setTitle("Введите адрес", for: .normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     let commentTetxField: UITextField = {
@@ -84,19 +98,19 @@ class OrderView: UIView {
         addSubview(totalLabel)
         addSubview(sumLabel)
         addSubview(orderButton)
-        addSubview(addressTetxField)
+        addSubview(addressButton)
         addSubview(commentTetxField)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: addressTetxField.topAnchor, constant: -15),
+            tableView.bottomAnchor.constraint(equalTo: addressButton.topAnchor, constant: -15),
             
-            addressTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            addressTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            addressTetxField.heightAnchor.constraint(equalToConstant: 34),
-            addressTetxField.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor, constant: -15),
+            addressButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            addressButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            addressButton.heightAnchor.constraint(equalToConstant: 34),
+            addressButton.bottomAnchor.constraint(equalTo: commentTetxField.topAnchor, constant: -15),
             
             commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),

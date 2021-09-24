@@ -26,7 +26,7 @@ extension OrderDetailsViewController {
 //            .document(currentUser!.phoneNumber!)
 //            .collection("orders")
 //            .document(formatter.string(from: Date()))
-        dbDestination.setData(["date" : formatter.string(from: Date()), "sum" : totalSum!, "adress" : orderView.addressTetxField.text!])
+//        dbDestination.setData(["date" : formatter.string(from: Date()), "sum" : totalSum!, "adress" : orderView.addressTetxField.text!])
 
         for product in products {
 //            self.db.collection("users")
@@ -49,7 +49,7 @@ extension OrderDetailsViewController {
         db.collection("orders")
             .document(currentUser!.phoneNumber!)
             .setData([
-                        "adress" : orderView.addressTetxField.text!,
+//                        "adress" : orderView.addressTetxField.text!,
                         "comment" : orderView.commentTetxField.text!,
                         "persons" : 2,
                         "sum" : totalSum!,
