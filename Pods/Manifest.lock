@@ -5,20 +5,24 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - YandexMapsMobile (4.0.0-full)
 
 DEPENDENCIES:
   - FlagPhoneNumber
   - SDWebImage
+  - YandexMapsMobile (= 4.0.0-full)
 
 SPEC REPOS:
   trunk:
     - FlagPhoneNumber
     - SDWebImage
+    - YandexMapsMobile
 
 SPEC CHECKSUMS:
   FlagPhoneNumber: 3712455b95f66cb0f2016fef7d9e34cddf8c7f9a
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  YandexMapsMobile: 0f3d8c92fad685dc33d07f83eed4eb0166089743
 
-PODFILE CHECKSUM: 6f5295888d679c3d70e667d142bc99668a741e0d
+PODFILE CHECKSUM: 8d009a2d9f10139cbd56a2bfa9c83871262505b2
 
 COCOAPODS: 1.8.4

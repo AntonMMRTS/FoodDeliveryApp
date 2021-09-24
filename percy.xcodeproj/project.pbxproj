@@ -62,6 +62,8 @@
 		F3D9DDEE26C0F5110079D9A0 /* SaleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */; };
 		F3D9DDF126C109980079D9A0 /* SaleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D9DDF026C109980079D9A0 /* SaleCell.swift */; };
 		F3F6933D26FAF6BE0067D267 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F6933C26FAF6BE0067D267 /* AddressViewController.swift */; };
+		F3FA169926FD705400377242 /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FA169826FD705400377242 /* SuggestViewController.swift */; };
+		F3FA169C26FD70E600377242 /* SuggestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FA169B26FD70E600377242 /* SuggestCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +121,8 @@
 		F3D9DDED26C0F5110079D9A0 /* SaleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleModel.swift; sourceTree = "<group>"; };
 		F3D9DDF026C109980079D9A0 /* SaleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleCell.swift; sourceTree = "<group>"; };
 		F3F6933C26FAF6BE0067D267 /* AddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		F3FA169826FD705400377242 /* SuggestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
+		F3FA169B26FD70E600377242 /* SuggestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
 				F3B2AFE726CBF4B300F502A4 /* OrderDetailsViewController */,
 				F3F6933C26FAF6BE0067D267 /* AddressViewController.swift */,
+				F3FA169826FD705400377242 /* SuggestViewController.swift */,
 				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
 				F3664CD726C4D86500B997ED /* SMSViewController.swift */,
 				F30A1BBB26D5F1AD008300CD /* AdminViewController.swift */,
@@ -230,6 +235,7 @@
 				F35335CB26C626FF007E55E1 /* OrderCell.swift */,
 				F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */,
 				F30A1BC426D5FD2E008300CD /* AdminOrderCell.swift */,
+				F3FA169B26FD70E600377242 /* SuggestCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -322,6 +328,7 @@
 				F33DD37426B2FAAB00CFEF56 /* Frameworks */,
 				F33DD37526B2FAAB00CFEF56 /* Resources */,
 				2AE740299D9AF349AAACEE01 /* [CP] Embed Pods Frameworks */,
+				B6BD19E7715202628F293D1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -407,6 +414,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B6BD19E7715202628F293D1D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BE494A3DBA1B559E50E12787 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -443,6 +467,7 @@
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
 				F30A1BC926D5FE06008300CD /* AdminOrderManager.swift in Sources */,
+				F3FA169C26FD70E600377242 /* SuggestCell.swift in Sources */,
 				F3B2AFE226CBF1B900F502A4 /* Extension+keyboardSubscription.swift in Sources */,
 				F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */,
 				F340527426CCF5ED003A09A3 /* MyOrdersCell.swift in Sources */,
@@ -473,6 +498,7 @@
 				F3D9DDEE26C0F5110079D9A0 /* SaleModel.swift in Sources */,
 				F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */,
 				F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */,
+				F3FA169926FD705400377242 /* SuggestViewController.swift in Sources */,
 				F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */,
 				F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */,
 				F3B2AFE526CBF2E900F502A4 /* Extension+addOrder.swift in Sources */,
