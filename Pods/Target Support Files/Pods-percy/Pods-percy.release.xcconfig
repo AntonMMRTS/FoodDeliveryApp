@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlagPhoneNumber" "${PODS_CONFIGURATION_BUILD_DIR}/FloatingPanel" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlagPhoneNumber" "${PODS_CONFIGURATION_BUILD_DIR}/FloatingPanel" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage" "${PODS_ROOT}/YandexMapsMobile"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FlagPhoneNumber/FlagPhoneNumber.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/FloatingPanel/FloatingPanel.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "FlagPhoneNumber" -framework "FloatingPanel" -framework "ImageIO" -framework "SDWebImage" -framework "UIKit"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"resolv" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreTelephony" -framework "FlagPhoneNumber" -framework "FloatingPanel" -framework "Foundation" -framework "ImageIO" -framework "OpenGLES" -framework "QuartzCore" -framework "SDWebImage" -framework "Security" -framework "SystemConfiguration" -framework "UIKit" -framework "YandexMapsMobile"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

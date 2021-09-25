@@ -9,4 +9,5 @@ target 'percy' do
 pod "FlagPhoneNumber"
 pod 'SDWebImage'
 pod 'FloatingPanel'
+pod 'YandexMapsMobile', '4.0.0-full'
 end

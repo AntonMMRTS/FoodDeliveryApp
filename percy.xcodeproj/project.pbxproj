@@ -57,6 +57,8 @@
 		F3783CBC26B79A0F00753F4E /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */; };
 		F37A038526FF23860077F469 /* MapPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A038426FF23860077F469 /* MapPanelViewController.swift */; };
 		F37A038826FF24B00077F469 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A038726FF24B00077F469 /* LocationManager.swift */; };
+		F37A03BF26FF41310077F469 /* SearchAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A03BE26FF41310077F469 /* SearchAddressViewController.swift */; };
+		F37A03C926FF434A0077F469 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A03C826FF434A0077F469 /* SearchCell.swift */; };
 		F3B2AFE226CBF1B900F502A4 /* Extension+keyboardSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2AFE126CBF1B900F502A4 /* Extension+keyboardSubscription.swift */; };
 		F3B2AFE526CBF2E900F502A4 /* Extension+addOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */; };
 		F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */; };
@@ -116,6 +118,8 @@
 		F3783CBB26B79A0F00753F4E /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		F37A038426FF23860077F469 /* MapPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPanelViewController.swift; sourceTree = "<group>"; };
 		F37A038726FF24B00077F469 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		F37A03BE26FF41310077F469 /* SearchAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAddressViewController.swift; sourceTree = "<group>"; };
+		F37A03C826FF434A0077F469 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		F3B2AFE126CBF1B900F502A4 /* Extension+keyboardSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+keyboardSubscription.swift"; sourceTree = "<group>"; };
 		F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+addOrder.swift"; sourceTree = "<group>"; };
 		F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				F3B2AFE726CBF4B300F502A4 /* OrderDetailsViewController */,
 				F3F6933C26FAF6BE0067D267 /* AddressViewController.swift */,
 				F37A038426FF23860077F469 /* MapPanelViewController.swift */,
+				F37A03BE26FF41310077F469 /* SearchAddressViewController.swift */,
 				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
 				F3664CD726C4D86500B997ED /* SMSViewController.swift */,
 				F30A1BBB26D5F1AD008300CD /* AdminViewController.swift */,
@@ -235,6 +240,7 @@
 				F35335CB26C626FF007E55E1 /* OrderCell.swift */,
 				F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */,
 				F30A1BC426D5FD2E008300CD /* AdminOrderCell.swift */,
+				F37A03C826FF434A0077F469 /* SearchCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 				F33DD37426B2FAAB00CFEF56 /* Frameworks */,
 				F33DD37526B2FAAB00CFEF56 /* Resources */,
 				2AE740299D9AF349AAACEE01 /* [CP] Embed Pods Frameworks */,
+				C1D571F95B9435CAAF503708 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -435,6 +442,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C1D571F95B9435CAAF503708 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -447,6 +471,7 @@
 				F340526E26CCE4D5003A09A3 /* MyOrderRealmManager.swift in Sources */,
 				F35335CC26C626FF007E55E1 /* OrderCell.swift in Sources */,
 				F35335C926C6268A007E55E1 /* OrderView.swift in Sources */,
+				F37A03BF26FF41310077F469 /* SearchAddressViewController.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
 				F30A1BC926D5FE06008300CD /* AdminOrderManager.swift in Sources */,
@@ -458,6 +483,7 @@
 				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
 				F30A1BC526D5FD2E008300CD /* AdminOrderCell.swift in Sources */,
 				F3D9DDF126C109980079D9A0 /* SaleCell.swift in Sources */,
+				F37A03C926FF434A0077F469 /* SearchCell.swift in Sources */,
 				F3664CDB26C4E15100B997ED /* SMSView.swift in Sources */,
 				F30A1BBF26D5F3C3008300CD /* AdminOrderModel.swift in Sources */,
 				F3533A8D26BA2EE2006D9185 /* Extension + getMenu.swift in Sources */,

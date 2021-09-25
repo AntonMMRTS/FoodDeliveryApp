@@ -52,6 +52,7 @@ class MapPanelViewController: UIViewController {
 //        tableView.delegate = self
 //        tableView.dataSource = self
 //        textField.delegate = self
+        showSearch()
     }
     
     var locations = [Location]()
@@ -67,6 +68,15 @@ class MapPanelViewController: UIViewController {
 //                                 width: view.frame.size.width,
 //                                 height: view.frame.size.height - tableY)
         
+    }
+    
+    @objc func showSearchController() {
+        let vc = SearchAddressViewController()
+        present(vc, animated: true)
+    }
+    
+    func showSearch() {
+        addressButton.addTarget(self, action: #selector(showSearchController), for: .touchUpInside)
     }
     
     
