@@ -7,21 +7,25 @@
 
 import UIKit
 import MapKit
+import FloatingPanel
+import CoreLocation
 
-class AddressViewController: UIViewController {
+class AddressViewController: UIViewController, SearchViewControllerDelegate {
     
     var previousLocation: CLLocation?
     
-    private var addressLabel: UILabel = {
-       let label = UILabel()
-        
-        label.textAlignment = .center
-        label.text = "Krasnoyarsk"
-        label.backgroundColor = .white
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
+    let panel = FloatingPanelController()
+    
+//    private var addressLabel: UILabel = {
+//       let label = UILabel()
+//
+//        label.textAlignment = .center
+//        label.text = "Krasnoyarsk"
+//        label.backgroundColor = .white
+//        label.textColor = .black
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
     
     private let mapView: MKMapView = {
         let mapView = MKMapView()
@@ -37,15 +41,25 @@ class AddressViewController: UIViewController {
     }()
     
     let locationManager = CLLocationManager()
+    let searchVC = MapPanelViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = false
         view.addSubview(mapView)
         mapView.addSubview(imageView)
-        view.addSubview(addressLabel)
+//        view.addSubview(addressLabel)
         locationManager.delegate = self
         mapView.delegate = self
+        
+        mapView.isRotateEnabled = false
+        
+       
+        searchVC.delegate = self
+        
+        panel.set(contentViewController: searchVC)
+        panel.addPanel(toParent: self)
+        panel.layout = MyFloatingPanelLayout()
     }
     
     override func viewDidLayoutSubviews() {
@@ -63,10 +77,10 @@ class AddressViewController: UIViewController {
         imageView.clipsToBounds = true
         
         
-        addressLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-        addressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-        addressLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        addressLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+//        addressLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+//        addressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+//        addressLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
+//        addressLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         
 //        mapView.showsUserLocation = true
     }
@@ -74,6 +88,23 @@ class AddressViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationEnabled()
+    }
+    
+    func searchViewController(_ vc: MapPanelViewController, didSelectLocationWith coordinates: CLLocationCoordinate2D?) {
+        guard let coordinates = coordinates else { return }
+        
+        panel.move(to: .tip, animated: true)
+        
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinates
+        mapView.addAnnotation(pin)
+        
+        mapView.setRegion(MKCoordinateRegion(center: coordinates,
+                                             span: MKCoordinateSpan(latitudeDelta: 0.025,
+                                                                    longitudeDelta: 0.025)),
+                          animated: true)
     }
     
     func checkLocationEnabled() {
@@ -188,13 +219,28 @@ extension AddressViewController: MKMapViewDelegate {
                 
                 if streetName != nil && buildNumber != nil {
                     print(city, subCity, ourRegion, subRegion)
-                    self.addressLabel.text = "\(streetName!) \(buildNumber!)"
-                } else if streetName != nil {
-                    self.addressLabel.text = "\(streetName!)"
-                } else {
-                    self.addressLabel.text = ""
+                    self.searchVC.addressButton.setTitle("\(streetName!) \(buildNumber!) \(city!)", for: .normal)
                 }
+//                    self.addressLabel.text = "\(streetName!) \(buildNumber!) \(city!)"
+//                } else if streetName != nil {
+//                    self.addressLabel.text = "\(streetName!)"
+//                } else {
+//                    self.addressLabel.text = ""
+//                }
             }
         }
+    }
+}
+
+
+class MyFloatingPanelLayout: FloatingPanelLayout {
+    let position: FloatingPanelPosition = .bottom
+    let initialState: FloatingPanelState = .tip
+    var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
+        return [
+            .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
+            .half: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea),
+            .tip: FloatingPanelLayoutAnchor(absoluteInset: 104.0, edge: .bottom, referenceGuide: .safeArea),
+        ]
     }
 }
