@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import FloatingPanel
 import CoreLocation
+import YandexMapsMobile
 
 class AddressViewController: UIViewController, SearchViewControllerDelegate {
     
@@ -40,11 +41,15 @@ class AddressViewController: UIViewController, SearchViewControllerDelegate {
         return image
     }()
     
+    let mapView2 = YMKMapView()
+    
     let locationManager = CLLocationManager()
     let searchVC = MapPanelViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        mapView2.mapWindow.map.move(with:
+//            YMKCameraPosition(target: YMKPoint(latitude: 0, longitude: 0), zoom: 14, azimuth: 0, tilt: 0))
         title = "Адрес доставки"
         navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(mapView)
