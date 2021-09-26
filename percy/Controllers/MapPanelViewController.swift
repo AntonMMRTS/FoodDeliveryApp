@@ -72,7 +72,9 @@ class MapPanelViewController: UIViewController {
     }
     
     @objc func showSearchController() {
-        let vc = SearchAddressViewController()
+//        let vc = SearchAddressViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "search") as SearchAddressViewController
         present(vc, animated: true)
     }
     
