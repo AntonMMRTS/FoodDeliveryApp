@@ -227,17 +227,10 @@ extension AddressViewController: MKMapViewDelegate {
                     print(city, subCity, ourRegion, subRegion)
                     self.searchVC.addressButton.setTitle("\(streetName!) \(buildNumber!) \(city!)", for: .normal)
                 }
-//                    self.addressLabel.text = "\(streetName!) \(buildNumber!) \(city!)"
-//                } else if streetName != nil {
-//                    self.addressLabel.text = "\(streetName!)"
-//                } else {
-//                    self.addressLabel.text = ""
-//                }
             }
         }
     }
 }
-
 
 class MyFloatingPanelLayout: FloatingPanelLayout {
     let position: FloatingPanelPosition = .bottom
