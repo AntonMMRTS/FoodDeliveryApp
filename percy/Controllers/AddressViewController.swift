@@ -45,7 +45,8 @@ class AddressViewController: UIViewController, SearchViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = false
+        title = "Адрес доставки"
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.addSubview(mapView)
         mapView.addSubview(imageView)
 //        view.addSubview(addressLabel)

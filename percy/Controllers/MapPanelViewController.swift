@@ -47,6 +47,7 @@ class MapPanelViewController: UIViewController {
         view.backgroundColor = .secondarySystemBackground
         view.addSubview(label)
         view.addSubview(addressButton)
+       
 //        view.addSubview(tableView)
 //        tableView.backgroundColor = .secondarySystemBackground
 //        tableView.delegate = self
