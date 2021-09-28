@@ -9,108 +9,68 @@ import UIKit
 import MapKit
 import FloatingPanel
 import CoreLocation
-import YandexMapsMobile
+//import YandexMapsMobile
 
-class AddressViewController: UIViewController, SearchViewControllerDelegate {
+class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
     
     var previousLocation: CLLocation?
     
-    let panel = FloatingPanelController()
+    var panel: FloatingPanelController!
     
-//    private var addressLabel: UILabel = {
-//       let label = UILabel()
-//
-//        label.textAlignment = .center
-//        label.text = "Krasnoyarsk"
-//        label.backgroundColor = .white
-//        label.textColor = .black
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        return label
-//    }()
-    
-    private let mapView: MKMapView = {
-        let mapView = MKMapView()
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        return mapView
-    }()
-    
-    private let imageView: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "map")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        return image
-    }()
-    
-    let mapView2 = YMKMapView()
+    let addressView = AddressView()
     
     let locationManager = CLLocationManager()
     let searchVC = MapPanelViewController()
+    
+    override func loadView() {
+       self.view = addressView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        mapView2.mapWindow.map.move(with:
-//            YMKCameraPosition(target: YMKPoint(latitude: 0, longitude: 0), zoom: 14, azimuth: 0, tilt: 0))
+
+        view.backgroundColor = .black
         title = "Адрес доставки"
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.addSubview(mapView)
-        mapView.addSubview(imageView)
-//        view.addSubview(addressLabel)
+        
         locationManager.delegate = self
-        mapView.delegate = self
+        addressView.myMapView.delegate = self
         
-        mapView.isRotateEnabled = false
-        
+        addressView.myMapView.isRotateEnabled = false
+
+        searchVC.completion = {
+            self.showSearchMenu()
+        }
        
-        searchVC.delegate = self
-        
+        panel = FloatingPanelController()
         panel.set(contentViewController: searchVC)
         panel.addPanel(toParent: self)
         panel.layout = MyFloatingPanelLayout()
+        panel.move(to: .tip, animated: false)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        mapView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        mapView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -40).isActive = true
-        mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        
-        imageView.centerXAnchor.constraint(equalTo: mapView.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: mapView.centerYAnchor, constant: -20).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        imageView.clipsToBounds = true
-        
-        
-//        addressLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
-//        addressLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
-//        addressLabel.heightAnchor.constraint(equalToConstant: 40).isActive = true
-//        addressLabel.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
-        
-//        mapView.showsUserLocation = true
-    }
-    
+  
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         checkLocationEnabled()
     }
     
-    func searchViewController(_ vc: MapPanelViewController, didSelectLocationWith coordinates: CLLocationCoordinate2D?) {
-        guard let coordinates = coordinates else { return }
-        
-        panel.move(to: .tip, animated: true)
-        
-        mapView.removeAnnotations(mapView.annotations)
-        
-        let pin = MKPointAnnotation()
-        pin.coordinate = coordinates
-        mapView.addAnnotation(pin)
-        
-        mapView.setRegion(MKCoordinateRegion(center: coordinates,
-                                             span: MKCoordinateSpan(latitudeDelta: 0.025,
-                                                                    longitudeDelta: 0.025)),
-                          animated: true)
+    func showSearchMenu() {
+        let vc = SearchViewController()
+        vc.completion = { [weak self] coordinates in
+            
+            self?.addressView.myMapView.removeAnnotations(self?.addressView.myMapView.annotations ?? [])
+            
+            let pin = MKPointAnnotation()
+            pin.coordinate = coordinates
+            self?.addressView.myMapView.addAnnotation(pin)
+            
+            self?.addressView.myMapView.setRegion(MKCoordinateRegion(center: coordinates,
+                                                 span: MKCoordinateSpan(latitudeDelta: 0.025,
+                                                                        longitudeDelta: 0.025)),
+                              animated: true)
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func checkLocationEnabled() {
@@ -166,9 +126,9 @@ class AddressViewController: UIViewController, SearchViewControllerDelegate {
     }
     
     func startTrackingUserLocation() {
-        mapView.showsUserLocation = true
+        addressView.myMapView.showsUserLocation = true
         locationManager.startUpdatingLocation()
-        previousLocation = getCenterLocation(for: mapView)
+        previousLocation = getCenterLocation(for: addressView.myMapView)
     }
     
     func getCenterLocation(for mapView: MKMapView) -> CLLocation {
@@ -188,7 +148,7 @@ extension AddressViewController: CLLocationManagerDelegate {
             let region = MKCoordinateRegion(center: location,
                                             latitudinalMeters: 3000,
                                             longitudinalMeters: 3000)
-            mapView.setRegion(region, animated: true)
+            addressView.myMapView.setRegion(region, animated: true)
         }
     }
 
@@ -217,14 +177,9 @@ extension AddressViewController: MKMapViewDelegate {
             let streetName = placemark.thoroughfare
             let buildNumber = placemark.subThoroughfare
             let city = placemark.locality
-            let subCity = placemark.subLocality
-            let ourRegion = placemark.administrativeArea
-            let subRegion = placemark.subAdministrativeArea
             
             DispatchQueue.main.async {
-                
                 if streetName != nil && buildNumber != nil {
-                    print(city, subCity, ourRegion, subRegion)
                     self.searchVC.addressButton.setTitle("\(streetName!) \(buildNumber!) \(city!)", for: .normal)
                 }
             }
@@ -232,14 +187,4 @@ extension AddressViewController: MKMapViewDelegate {
     }
 }
 
-class MyFloatingPanelLayout: FloatingPanelLayout {
-    let position: FloatingPanelPosition = .bottom
-    let initialState: FloatingPanelState = .tip
-    var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
-        return [
-            .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
-            .half: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea),
-            .tip: FloatingPanelLayoutAnchor(absoluteInset: 104.0, edge: .bottom, referenceGuide: .safeArea),
-        ]
-    }
-}
+
