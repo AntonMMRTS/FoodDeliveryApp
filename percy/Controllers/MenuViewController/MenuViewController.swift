@@ -32,7 +32,7 @@ class MenuViewController: UIViewController {
         
         signinButton()
         
-//        fetchMenu(index: indexCounter)
+        fetchMenu(index: indexCounter)
 
         menuView.categoryCollectionView.dataSource = self
         menuView.categoryCollectionView.delegate = self

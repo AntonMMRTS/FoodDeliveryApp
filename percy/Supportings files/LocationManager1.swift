@@ -14,8 +14,8 @@ struct Location {
     var coordinates: CLLocationCoordinate2D?
 }
 
-class LocationManager: NSObject {
-    static var shared = LocationManager()
+class LocationManager1: NSObject {
+    static var shared = LocationManager1()
     
     public func fundLocations(with query: String, completion: @escaping (([Location]) -> Void)) {
         let geocoder = CLGeocoder()
