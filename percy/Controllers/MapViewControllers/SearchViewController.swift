@@ -103,6 +103,16 @@ extension SearchViewController: UITableViewDataSource {
         
         return cell
     }
+    
+}
+
+extension SearchViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let completion = searchResults[indexPath.row]
+        searchCoordinate(query: completion)
+    }
+    
 }
 
 extension SearchViewController: UITextFieldDelegate {
@@ -112,12 +122,7 @@ extension SearchViewController: UITextFieldDelegate {
         searchCoordinate(query: completion)
         return true
     }
+    
 }
 
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let completion = searchResults[indexPath.row]
-        searchCoordinate(query: completion)
-    }
-}
+

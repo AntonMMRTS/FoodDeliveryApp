@@ -48,24 +48,26 @@ class SearchView: UIView {
     private func setupView() {
         addSubview(tableView)
         addSubview(addressTextField)
-        addSubview(lineView)
+//        addSubview(lineView)
+        addressTextField.setBottomBorder()
         
         NSLayoutConstraint.activate([
             addressTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             addressTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
                                                       constant: 20),
-            addressTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            addressTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
+                                                       constant: -20),
             addressTextField.heightAnchor.constraint(equalToConstant: 45),
             
-            lineView.topAnchor.constraint(equalTo: addressTextField.bottomAnchor),
-            lineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            lineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            lineView.heightAnchor.constraint(equalToConstant: 1),
+//            lineView.topAnchor.constraint(equalTo: addressTextField.bottomAnchor),
+//            lineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+//            lineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+//            lineView.heightAnchor.constraint(equalToConstant: 1),
           
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            tableView.topAnchor.constraint(equalTo: lineView.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: addressTextField.bottomAnchor)
         ])
     }
 

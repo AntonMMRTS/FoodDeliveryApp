@@ -21,6 +21,8 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
     
     private let panelVC = MapPanelViewController()
     
+    var activeTextField: UITextField!
+    
     override func loadView() {
         self.view = addressView
     }
@@ -32,13 +34,28 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
             self.showSearchMenu()
         }
         
+        panelVC.completionTextfield = { textfield in
+            self.activeTextField = textfield
+        }
+        
+        initializeHideKeyboard()
         configure()
         floatingPanelSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addKeyboardSubscription()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         mapManager.checkLocationEnabled(mapView: addressView.myMapView, vc: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cancelKeyboardSubscription()
     }
     
     private func configure() {
@@ -73,6 +90,7 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
                                                     span: MKCoordinateSpan(latitudeDelta: 0.025,
                                                                            longitudeDelta: 0.025)),
                                                   animated: true)
+            self?.panel.move(to: .full, animated: false)
         }
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -120,12 +138,37 @@ extension AddressViewController: MKMapViewDelegate {
             
             DispatchQueue.main.async {
                 if streetName != nil && buildNumber != nil {
-                    self?.panelVC.addressButton.setTitle("\(streetName!) \(buildNumber!) \(city!)",
-                                                         for: .normal)
+                    self?.panelVC.mapPanelView.addressButton.setTitle("\(streetName!), \(buildNumber!), \(city!)",
+                                                                      for: .normal)
                 }
             }
         }
     }
 }
 
+extension AddressViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+    
+}
 
+extension AddressViewController {
+    
+    private func initializeHideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                 action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+}

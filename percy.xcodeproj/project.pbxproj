@@ -35,6 +35,8 @@
 		F340527126CCF11B003A09A3 /* MyOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340527026CCF11B003A09A3 /* MyOrdersView.swift */; };
 		F340527426CCF5ED003A09A3 /* MyOrdersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */; };
 		F340AD5026C3726800A37E5E /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340AD4F26C3726800A37E5E /* RealmManager.swift */; };
+		F3421DC327043A2A0003961C /* MapPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3421DC227043A2A0003961C /* MapPanelView.swift */; };
+		F3421DC6270445B30003961C /* Textfield+setBottomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3421DC5270445B30003961C /* Textfield+setBottomBorder.swift */; };
 		F343583126C23D0500D02B49 /* SaleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343583026C23D0500D02B49 /* SaleDetailViewController.swift */; };
 		F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F343583326C23D1D00D02B49 /* SaleDetailView.swift */; };
 		F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */; };
@@ -60,9 +62,9 @@
 		F37A038526FF23860077F469 /* MapPanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A038426FF23860077F469 /* MapPanelViewController.swift */; };
 		F37A038826FF24B00077F469 /* LocationManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A038726FF24B00077F469 /* LocationManager1.swift */; };
 		F37A03BF26FF41310077F469 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A03BE26FF41310077F469 /* SearchViewController.swift */; };
-		F37A03C926FF434A0077F469 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37A03C826FF434A0077F469 /* SearchCell.swift */; };
 		F39C44012702A8DD0075D1DA /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C44002702A8DD0075D1DA /* AddressView.swift */; };
 		F39C44042702AE010075D1DA /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C44032702AE010075D1DA /* MapManager.swift */; };
+		F39C4409270367EB0075D1DA /* Extension+keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C4408270367EB0075D1DA /* Extension+keyboard.swift */; };
 		F3B2AFE226CBF1B900F502A4 /* Extension+keyboardSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2AFE126CBF1B900F502A4 /* Extension+keyboardSubscription.swift */; };
 		F3B2AFE526CBF2E900F502A4 /* Extension+addOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */; };
 		F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */; };
@@ -101,6 +103,8 @@
 		F340527026CCF11B003A09A3 /* MyOrdersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersView.swift; sourceTree = "<group>"; };
 		F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersCell.swift; sourceTree = "<group>"; };
 		F340AD4F26C3726800A37E5E /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		F3421DC227043A2A0003961C /* MapPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPanelView.swift; sourceTree = "<group>"; };
+		F3421DC5270445B30003961C /* Textfield+setBottomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Textfield+setBottomBorder.swift"; sourceTree = "<group>"; };
 		F343583026C23D0500D02B49 /* SaleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailViewController.swift; sourceTree = "<group>"; };
 		F343583326C23D1D00D02B49 /* SaleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDetailView.swift; sourceTree = "<group>"; };
 		F34DF95A26B8E4AE00F3AD1C /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
@@ -125,9 +129,9 @@
 		F37A038426FF23860077F469 /* MapPanelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPanelViewController.swift; sourceTree = "<group>"; };
 		F37A038726FF24B00077F469 /* LocationManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager1.swift; sourceTree = "<group>"; };
 		F37A03BE26FF41310077F469 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		F37A03C826FF434A0077F469 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		F39C44002702A8DD0075D1DA /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
 		F39C44032702AE010075D1DA /* MapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
+		F39C4408270367EB0075D1DA /* Extension+keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+keyboard.swift"; sourceTree = "<group>"; };
 		F3B2AFE126CBF1B900F502A4 /* Extension+keyboardSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+keyboardSubscription.swift"; sourceTree = "<group>"; };
 		F3B2AFE426CBF2E900F502A4 /* Extension+addOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+addOrder.swift"; sourceTree = "<group>"; };
 		F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketView.swift; sourceTree = "<group>"; };
@@ -203,13 +207,14 @@
 		F33DD37926B2FAAB00CFEF56 /* percy */ = {
 			isa = PBXGroup;
 			children = (
-				F340AD4E26C3724C00A37E5E /* Database */,
 				F365B4B726B38EC2008C9DED /* Models */,
 				F34DF95D26B8EA2A00F3AD1C /* View */,
 				F33DD39026B2FB1100CFEF56 /* Controllers */,
 				F33DD39E26B2FBCC00CFEF56 /* Cells */,
 				F33DD3A326B2FBF800CFEF56 /* Extensions */,
 				F32A33B826B3E14E007BD253 /* FirebaseManager */,
+				F3421DC9270451030003961C /* MapManager */,
+				F340AD4E26C3724C00A37E5E /* DatabaseManager */,
 				F33DD3A826B2FCC500CFEF56 /* Supportings files */,
 				F33DD38026B2FAAB00CFEF56 /* Main.storyboard */,
 				F365B4C426B3995C008C9DED /* GoogleService-Info.plist */,
@@ -228,7 +233,7 @@
 				F33DD39526B2FB4B00CFEF56 /* OrdersViewController.swift */,
 				F33DD39826B2FB5E00CFEF56 /* BasketViewController.swift */,
 				F3B2AFE726CBF4B300F502A4 /* OrderDetailsViewController */,
-				F35213112702A796005541F2 /* MapViewController */,
+				F35213112702A796005541F2 /* MapViewControllers */,
 				F3664CCA26C4BDCD00B997ED /* AuthViewController.swift */,
 				F3664CD726C4D86500B997ED /* SMSViewController.swift */,
 				F30A1BBB26D5F1AD008300CD /* AdminViewController.swift */,
@@ -246,7 +251,6 @@
 				F35335CB26C626FF007E55E1 /* OrderCell.swift */,
 				F340527326CCF5ED003A09A3 /* MyOrdersCell.swift */,
 				F30A1BC426D5FD2E008300CD /* AdminOrderCell.swift */,
-				F37A03C826FF434A0077F469 /* SearchCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -255,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				F33DD3A026B2FBF000CFEF56 /* String.swift */,
+				F3421DC5270445B30003961C /* Textfield+setBottomBorder.swift */,
 				F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */,
 			);
 			path = Extensions;
@@ -272,13 +277,31 @@
 			path = "Supportings files";
 			sourceTree = "<group>";
 		};
-		F340AD4E26C3724C00A37E5E /* Database */ = {
+		F340AD4E26C3724C00A37E5E /* DatabaseManager */ = {
 			isa = PBXGroup;
 			children = (
 				F340AD4F26C3726800A37E5E /* RealmManager.swift */,
 				F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */,
 			);
-			path = Database;
+			path = DatabaseManager;
+			sourceTree = "<group>";
+		};
+		F3421DC9270451030003961C /* MapManager */ = {
+			isa = PBXGroup;
+			children = (
+				F39C44032702AE010075D1DA /* MapManager.swift */,
+			);
+			path = MapManager;
+			sourceTree = "<group>";
+		};
+		F3421DCD2704526C0003961C /* AddressViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F3F6933C26FAF6BE0067D267 /* AddressViewController.swift */,
+				F39C4408270367EB0075D1DA /* Extension+keyboard.swift */,
+				F35213122702A7D7005541F2 /* MyFloatingPanelLayout.swift */,
+			);
+			path = AddressViewController;
 			sourceTree = "<group>";
 		};
 		F34DF95D26B8EA2A00F3AD1C /* View */ = {
@@ -288,6 +311,7 @@
 				F3D2FDB526C38BB4005FD8E1 /* BasketView.swift */,
 				F39C44002702A8DD0075D1DA /* AddressView.swift */,
 				F352130E27029B36005541F2 /* SearchView.swift */,
+				F3421DC227043A2A0003961C /* MapPanelView.swift */,
 				F35335C826C6268A007E55E1 /* OrderView.swift */,
 				F340527026CCF11B003A09A3 /* MyOrdersView.swift */,
 				F3664CCE26C4C49F00B997ED /* AuthView.swift */,
@@ -298,16 +322,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F35213112702A796005541F2 /* MapViewController */ = {
+		F35213112702A796005541F2 /* MapViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				F3F6933C26FAF6BE0067D267 /* AddressViewController.swift */,
-				F39C44032702AE010075D1DA /* MapManager.swift */,
-				F35213122702A7D7005541F2 /* MyFloatingPanelLayout.swift */,
+				F3421DCD2704526C0003961C /* AddressViewController */,
 				F37A038426FF23860077F469 /* MapPanelViewController.swift */,
 				F37A03BE26FF41310077F469 /* SearchViewController.swift */,
 			);
-			path = MapViewController;
+			path = MapViewControllers;
 			sourceTree = "<group>";
 		};
 		F365B4B726B38EC2008C9DED /* Models */ = {
@@ -494,6 +516,7 @@
 				F37A03BF26FF41310077F469 /* SearchViewController.swift in Sources */,
 				F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */,
 				F33DD39926B2FB5E00CFEF56 /* BasketViewController.swift in Sources */,
+				F3421DC327043A2A0003961C /* MapPanelView.swift in Sources */,
 				F30A1BC926D5FE06008300CD /* AdminOrderManager.swift in Sources */,
 				F3B2AFE226CBF1B900F502A4 /* Extension+keyboardSubscription.swift in Sources */,
 				F34DF95B26B8E4AE00F3AD1C /* ProductDetailView.swift in Sources */,
@@ -504,7 +527,6 @@
 				F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */,
 				F30A1BC526D5FD2E008300CD /* AdminOrderCell.swift in Sources */,
 				F3D9DDF126C109980079D9A0 /* SaleCell.swift in Sources */,
-				F37A03C926FF434A0077F469 /* SearchCell.swift in Sources */,
 				F3664CDB26C4E15100B997ED /* SMSView.swift in Sources */,
 				F30A1BBF26D5F3C3008300CD /* AdminOrderModel.swift in Sources */,
 				F3533A8D26BA2EE2006D9185 /* Extension + getMenu.swift in Sources */,
@@ -514,6 +536,7 @@
 				F30A1BC226D5F776008300CD /* FirebaseSaleManager.swift in Sources */,
 				F3D2FDB626C38BB4005FD8E1 /* BasketView.swift in Sources */,
 				F33DD37F26B2FAAB00CFEF56 /* MenuViewController.swift in Sources */,
+				F3421DC6270445B30003961C /* Textfield+setBottomBorder.swift in Sources */,
 				F340526B26CCE261003A09A3 /* MyOrderModel.swift in Sources */,
 				F33DD39C26B2FBBC00CFEF56 /* CategoryCell.swift in Sources */,
 				F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */,
@@ -534,6 +557,7 @@
 				F3664CCB26C4BDCD00B997ED /* AuthViewController.swift in Sources */,
 				F3B2AFE526CBF2E900F502A4 /* Extension+addOrder.swift in Sources */,
 				F3D2FDB926C39265005FD8E1 /* BasketCell.swift in Sources */,
+				F39C4409270367EB0075D1DA /* Extension+keyboard.swift in Sources */,
 				F343583426C23D1D00D02B49 /* SaleDetailView.swift in Sources */,
 				F3664CD826C4D86500B997ED /* SMSViewController.swift in Sources */,
 				F33DD39326B2FB3900CFEF56 /* SalesViewController.swift in Sources */,

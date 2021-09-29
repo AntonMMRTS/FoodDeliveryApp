@@ -1,13 +1,13 @@
 //
-//  Extension+textfieldMoveUp.swift
+//  Extension+keyboard.swift
 //  percy
 //
-//  Created by Антон Усов on 17.08.2021.
+//  Created by Антон Усов on 28.09.2021.
 //
 
 import UIKit
 
-extension OrderDetailsViewController {
+extension AddressViewController {
     
     func addKeyboardSubscription() {
         NotificationCenter.default.addObserver(self, selector: #selector(showkb), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -54,3 +54,4 @@ extension OrderDetailsViewController {
     }
     
 }
+
