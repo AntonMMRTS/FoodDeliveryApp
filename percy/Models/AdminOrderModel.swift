@@ -7,7 +7,7 @@
 
 import Foundation
 
-class AdminOrder {
+struct AdminOrder {
     var order: [MiniOrder] = []
     var address: String = ""
     var comment: String = ""
