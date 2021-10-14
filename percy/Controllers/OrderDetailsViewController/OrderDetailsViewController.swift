@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
 class OrderDetailsViewController: UIViewController {
     
     var products: [Product]!
@@ -39,6 +40,11 @@ class OrderDetailsViewController: UIViewController {
         initializeHideKeyboard()
       
         doOrder()
+        
+        setupAddress()
+        
+        orderView.payButton.addTarget(self, action: #selector(alertPay), for: .touchUpInside)
+        orderView.whenButton.addTarget(self, action: #selector(alertTime), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,17 +59,14 @@ class OrderDetailsViewController: UIViewController {
 
     private func configure() {
         view.backgroundColor = .black
-        title = "Ваш заказ"
+        navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 
         orderView.sumLabel.text = "\(totalSum!) ₽"
         
-        orderView.tableView.delegate = self
-        orderView.tableView.dataSource = self
-        
-//        orderView.addressTetxField.delegate = self
         orderView.commentTetxField.delegate = self
-        setupAddress()
     }
 
     private func doOrder() {
@@ -71,36 +74,52 @@ class OrderDetailsViewController: UIViewController {
     }
     
     private func setupAddress() {
-        orderView.addressButton.addTarget(self, action: #selector(showMap), for: .touchUpInside)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(OrderDetailsViewController.showMap(recognizer:)))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        orderView.addressLabel.isUserInteractionEnabled = true
+        
+        orderView.addressLabel.addGestureRecognizer(tap)
     }
     
-    @objc private func showMap() {
+    @objc private func showMap(recognizer: UITapGestureRecognizer) {
         let vc = AddressViewController()
-//        present(vc, animated: true)
+        vc.completion = { [weak self] address in
+            self?.orderView.addressLabel.textAlignment = .left
+            self?.orderView.addressLabel.text = address
+        }
+        print("Anton")
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    @objc private func alertPay() {
+        let alert = UIAlertController(title: "Способ оплаты", message: nil, preferredStyle: .actionSheet)
+        let actionCardOnline = UIAlertAction(title: "Картой онлайн", style: .default, handler: nil)
+        let actionCardOffline = UIAlertAction(title: "Картой при получении", style: .default, handler: nil)
+        let actionApplePay = UIAlertAction(title: "Apple Pay", style: .default, handler: nil)
+        let actionCash = UIAlertAction(title: "Наличными", style: .default, handler: nil)
+        
+        alert.addAction(actionCardOnline)
+        alert.addAction(actionCardOffline)
+        alert.addAction(actionApplePay)
+        alert.addAction(actionCash)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
+    @objc private func alertTime() {
+        let alert = UIAlertController(title: "Время доставки", message: nil, preferredStyle: .actionSheet)
+        let actionCardOnline = UIAlertAction(title: "Как можно быстрее", style: .default, handler: nil)
+        let actionCardOffline = UIAlertAction(title: "Ко времени", style: .default, handler: nil)
+        
+        alert.addAction(actionCardOnline)
+        alert.addAction(actionCardOffline)
+        
+        present(alert, animated: true, completion: nil)
+    }
 
 }
 
-extension OrderDetailsViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        products.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OrderCell.identifier, for: indexPath) as! OrderCell
-        let product = products[indexPath.row]
-        cell.product = product
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }
-    
-}
 
 extension OrderDetailsViewController {
     

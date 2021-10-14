@@ -20,6 +20,8 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
     
     private let panelVC = MapPanelViewController()
     
+    var completion: ((String) -> Void)?
+    
     var activeTextField: UITextField!
     
     override func loadView() {
@@ -28,6 +30,11 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        panelVC.completionAddress = { [weak self] address in
+            self?.completion?(address)
+//            print(address)
+        }
         
         panelVC.completion = {
             self.showSearchMenu()
@@ -137,7 +144,7 @@ extension AddressViewController: MKMapViewDelegate {
             
             DispatchQueue.main.async {
                 if streetName != nil && buildNumber != nil {
-                    self?.panelVC.mapPanelView.addressButton.setTitle("\(streetName!), \(buildNumber!), \(city!)",
+                    self?.panelVC.mapPanelView.addressButton.setTitle("\(city!), \(streetName!), \(buildNumber!)",
                                                                       for: .normal)
                 }
             }

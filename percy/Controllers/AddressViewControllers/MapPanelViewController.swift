@@ -4,7 +4,6 @@
 //
 //  Created by Антон Усов on 30.09.2021.
 //
-
 import UIKit
 
 
@@ -13,6 +12,8 @@ class MapPanelViewController: UIViewController {
     private var locations = [Location]()
     
     var completionTextfield: ((UITextField) -> Void)?
+    
+    var completionAddress: ((String) -> Void)?
     
     var completion: (() -> Void)?
     
@@ -34,6 +35,7 @@ class MapPanelViewController: UIViewController {
         mapPanelView.flatTextField.delegate = self
         
         showSearchVC()
+        setAddress()
     }
     
     override func viewDidLayoutSubviews() {
@@ -47,6 +49,24 @@ class MapPanelViewController: UIViewController {
     
     @objc private func showSearchController() {
         completion?()
+    }
+    
+    private func setAddress() {
+        mapPanelView.saveButton.addTarget(self, action: #selector(saveAddress), for: .touchUpInside)
+    }
+    
+    @objc private func saveAddress() {
+        guard let address = mapPanelView.addressButton.titleLabel?.text else { return }
+        
+        guard let flat = mapPanelView.flatTextField.text, !flat.isEmpty else {
+            completionAddress?(address)
+            navigationController?.popViewController(animated: true)
+            return
+        }
+        
+        let fullAddress = "\(address), кв.\(flat)"
+        completionAddress?(fullAddress)
+        navigationController?.popViewController(animated: true)
     }
 
 }

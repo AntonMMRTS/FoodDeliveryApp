@@ -31,7 +31,7 @@ class AdminOrderManager {
                     let totalPrice = order["sum"] as! Int
                     let deliveryTime = order["time"] as! String
                     
-                    let newOrder = AdminOrder()
+                    var newOrder = AdminOrder()
                     
                     newOrder.address = address
                     newOrder.comment = comment

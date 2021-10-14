@@ -7,9 +7,10 @@
 
 import UIKit
 
+
 class MapPanelView: UIView, UITextFieldDelegate {
     
-     private let addressLabel: UILabel = {
+    let addressLabel: UILabel = {
         let label = UILabel()
         label.text = "Адрес"
         label.textAlignment = .left
@@ -145,6 +146,18 @@ class MapPanelView: UIView, UITextFieldDelegate {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    
+    var saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor(red: 214/255, green: 1/255, blue: 0/255, alpha: 1)
+        button.setTitleColor(.white, for: .normal)
+        button.layer.cornerRadius = 15
+        button.setTitleColor(.black, for: .selected)
+        button.setTitle("Сохранить", for: .normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 27)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -164,6 +177,7 @@ class MapPanelView: UIView, UITextFieldDelegate {
         addSubview(flatTextField)
         addSubview(intercomTextField)
         addSubview(commentsTextField)
+        addSubview(saveButton)
         
         addSubview(porchLabel)
         addSubview(floorLabel)
@@ -256,7 +270,13 @@ class MapPanelView: UIView, UITextFieldDelegate {
                                                        constant: 20),
             commentsTextField.trailingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             commentsTextField.heightAnchor.constraint(equalToConstant: 35),
-            commentsTextField.topAnchor.constraint(equalTo: porchTextField.bottomAnchor, constant: 35)
+            commentsTextField.topAnchor.constraint(equalTo: porchTextField.bottomAnchor, constant: 35),
+            
+            saveButton.leadingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.leadingAnchor,
+                                                       constant: 20),
+            saveButton.trailingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            saveButton.heightAnchor.constraint(equalToConstant: 52),
+            saveButton.topAnchor.constraint(equalTo: commentsTextField.bottomAnchor, constant: 15)
         ])
     }
     
