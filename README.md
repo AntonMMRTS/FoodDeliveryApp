@@ -52,4 +52,8 @@ Almost every viewController has UICollectionView or UITableView.
 
 * After auth we can continue order goods, here we should enter address, comments and other order details
 
-<img width="150" src="https://user-images.githubusercontent.com/79893831/133109270-fb9cc37a-3e32-4885-aee9-6ed0fcf7608d.png">
+<img width="150" src="https://user-images.githubusercontent.com/79893831/137239494-c6b95292-3bb8-4bc8-a0c9-79483d909187.png">
+
+* For determine address use map. You can specify current location or enter another address using autocomplete.
+
+<img width="150" src="https://user-images.githubusercontent.com/79893831/137240376-34db3db6-05ff-45cb-a21e-30a4b8877ba5.png"> <img width="150" src="https://user-images.githubusercontent.com/79893831/137240448-51d24e8c-b03f-4a93-8c5b-9803a48d38d8.png">
