@@ -3,11 +3,6 @@ import SDWebImage
 
 class MenuCell: UICollectionViewCell {
     
-    override func prepareForReuse() {
-        productImage.sd_cancelCurrentImageLoad()
-        productImage.image  = UIImage(named: "default")
-    }
-    
     static let identifier = "MenuCell"
     
     var closure: (() -> Void)?
@@ -23,7 +18,6 @@ class MenuCell: UICollectionViewCell {
                     guard uiImage != nil else { return }
                     self.product.image = uiImage!.jpegData(compressionQuality: 1)!
                 }
-                
             } else {
                 print("url didnt work \(product.productURL)")
             }
@@ -36,24 +30,22 @@ class MenuCell: UICollectionViewCell {
     
     private let databaseManager: DatabaseManagerProtocol = RealmManager()
     
-    let productImage: UIImageView = {
+    private let productImage: UIImageView = {
         let image = UIImageView()
         image.image  = UIImage(named: "default")
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-     let nameLabel: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.text = "Anton"
         label.textColor = .white
         label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
     
     private let definitionLabel: UILabel = {
         let label = UILabel()
@@ -64,7 +56,6 @@ class MenuCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
     
     private let priceLabel: UILabel = {
         let label = UILabel()
@@ -99,21 +90,17 @@ class MenuCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure() {
-        
-        orderButton.addTarget(self, action: #selector(buttonFunction), for: .touchUpInside)
-        
-        contentView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
-        contentView.layer.cornerRadius = 15
-        
-        productImage.image = UIImage(named: "default")
-        
-        contentView.addSubview(productImage)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(definitionLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(orderButton)
-        
+    override func prepareForReuse() {
+        productImage.sd_cancelCurrentImageLoad()
+        productImage.image  = UIImage(named: "default")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
+    private func  autolayoutSetup() {
         NSLayoutConstraint.activate([
             productImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             productImage.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor),
@@ -151,6 +138,22 @@ class MenuCell: UICollectionViewCell {
             orderButton.topAnchor.constraint(greaterThanOrEqualTo: definitionLabel.bottomAnchor,
                                              constant: 5),
         ])
+    }
+    
+    private func configure() {
+        
+        orderButton.addTarget(self, action: #selector(buttonFunction), for: .touchUpInside)
+        
+        contentView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
+        contentView.layer.cornerRadius = 15
+        
+        productImage.image = UIImage(named: "default")
+        
+        contentView.addSubview(productImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(definitionLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(orderButton)
     }
     
     @objc private func buttonFunction() {

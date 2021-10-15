@@ -1,6 +1,7 @@
 import Foundation
 import RealmSwift
 
+
 protocol DatabaseManagerProtocol {
     
     func addNewProduct (product: Product)
@@ -21,8 +22,15 @@ class RealmManager: DatabaseManagerProtocol {
     fileprivate lazy var realm = try! Realm(configuration: .defaultConfiguration)
     
     func addNewProduct (product: Product) {
+        let newProduct = Product()
+        
+        newProduct.name = product.name
+        newProduct.price = product.price
+        newProduct.image = product.image
+        newProduct.quantity = product.quantity
+        
         try! realm.write {
-            realm.add(product)
+            realm.add(newProduct)
         }
     }
     

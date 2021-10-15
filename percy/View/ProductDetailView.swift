@@ -112,26 +112,12 @@ class ProductDetailView: UIView {
         configure()
     }
     
-    private func configure() {
-        
-        scrollView = UIScrollView()
-        scrollView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(scrollView)
-        
-        scrollView.addSubview(nameLabel)
-        scrollView.addSubview(productImage)
-        scrollView.addSubview(priceLabel)
-        scrollView.addSubview(orderButton)
-        scrollView.addSubview(weightLabel)
-        scrollView.addSubview(compositionLabel)
-        scrollView.addSubview(definitionLabel)
-        scrollView.addSubview(energyLabel)
-        scrollView.addSubview(energyValueLabel)
-        scrollView.addSubview(bguLabel)
-        scrollView.addSubview(bguValueLabel)
-        
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
@@ -194,5 +180,25 @@ class ProductDetailView: UIView {
             bguValueLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50)
         ])
     }
-
+    
+    private func configure() {
+        
+        scrollView = UIScrollView()
+        scrollView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(scrollView)
+        
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(productImage)
+        scrollView.addSubview(priceLabel)
+        scrollView.addSubview(orderButton)
+        scrollView.addSubview(weightLabel)
+        scrollView.addSubview(compositionLabel)
+        scrollView.addSubview(definitionLabel)
+        scrollView.addSubview(energyLabel)
+        scrollView.addSubview(energyValueLabel)
+        scrollView.addSubview(bguLabel)
+        scrollView.addSubview(bguValueLabel)
+    }
 }

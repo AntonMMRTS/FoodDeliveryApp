@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct AdminOrder {
     var order: [MiniOrder] = []
     var address: String = ""
@@ -17,7 +18,7 @@ struct AdminOrder {
     var deliveryTime: String = ""
 }
 
-class MiniOrder {
+struct MiniOrder {
     var amount = 1
     var name = ""
 }

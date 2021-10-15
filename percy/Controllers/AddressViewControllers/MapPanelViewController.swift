@@ -6,11 +6,8 @@
 //
 import UIKit
 
-
 class MapPanelViewController: UIViewController {
-    
-    private var locations = [Location]()
-    
+
     var completionTextfield: ((UITextField) -> Void)?
     
     var completionAddress: ((String) -> Void)?
@@ -40,7 +37,7 @@ class MapPanelViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        mapPanelView.setupLayout(vc: self)
+        mapPanelView.autolayoutSetup(vc: self)
     }
 
     private func showSearchVC() {

@@ -29,7 +29,7 @@ class FirebaseSaleManager {
                     let longDefinition = sale["longDefinition"] as! String
                     let imageName = sale["imageName"] as! String
                     
-                    let newSale = Sale()
+                    var newSale = Sale()
                     newSale.longDefinition = longDefinition
                     newSale.shortDefinition = shortDefinition
                     newSale.imageName = imageName

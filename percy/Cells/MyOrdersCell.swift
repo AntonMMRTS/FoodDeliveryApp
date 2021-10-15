@@ -50,6 +50,7 @@ class MyOrdersCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
+        autolayoutSetup()
     }
     
     required init?(coder: NSCoder) {
@@ -80,17 +81,7 @@ class MyOrdersCell: UITableViewCell {
         productsLabel.text = allProducts
     }
     
-    private func setup() {
-        contentView.backgroundColor = .black
-        
-        contentView.addSubview(dateLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(productsLabel)
-        contentView.addSubview(imageLabel)
-        
-        imageLabel.layer.cornerRadius = 13
-        imageLabel.clipsToBounds = true
-        
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             imageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             imageLabel.widthAnchor.constraint(equalToConstant: 26),
@@ -113,6 +104,18 @@ class MyOrdersCell: UITableViewCell {
             productsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             productsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ])
+    }
+    
+    private func setup() {
+        contentView.backgroundColor = .black
+        
+        contentView.addSubview(dateLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(productsLabel)
+        contentView.addSubview(imageLabel)
+        
+        imageLabel.layer.cornerRadius = 13
+        imageLabel.clipsToBounds = true
     }
     
 }

@@ -12,13 +12,13 @@ class SaleCell: UITableViewCell {
     
     static let identifier = "SaleCell"
     
-    public var sale: Sale! {
+    var sale: Sale! {
         didSet {
             if let url = URL(string: sale.saleURL) {
                 self.saleImage.sd_imageTransition = .fade
                 self.saleImage.sd_imageTransition?.duration = 0.5
-                self.saleImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"), options: []) { (uiImage, error, cashe, url) in
-                    
+                self.saleImage.sd_setImage(with: url, placeholderImage: UIImage(named: "default"),
+                                           options: []) { (uiImage, error, cashe, url) in
                     guard uiImage != nil else { return }
                     self.sale.image = uiImage!
                 }
@@ -30,7 +30,7 @@ class SaleCell: UITableViewCell {
         }
     }
     
-    var saleImage: UIImageView = {
+    private var saleImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -47,22 +47,20 @@ class SaleCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupLayout()
+        config()
+        autolayoutSetup()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupLayout() {
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(saleImage)
-        contentView.backgroundColor = .black
-        
+    override func prepareForReuse() {
+        saleImage.sd_cancelCurrentImageLoad()
         saleImage.image = UIImage(named: "default")
-        saleImage.contentMode = .scaleAspectFit
-        saleImage.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
-        
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             saleImage.topAnchor.constraint(equalTo: contentView.topAnchor),
             saleImage.widthAnchor.constraint(equalTo: contentView.widthAnchor),
@@ -76,9 +74,14 @@ class SaleCell: UITableViewCell {
         ])
     }
     
-    override func prepareForReuse() {
-        saleImage.sd_cancelCurrentImageLoad()
+    private func config() {
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(saleImage)
+        contentView.backgroundColor = .black
+        
         saleImage.image = UIImage(named: "default")
+        saleImage.contentMode = .scaleAspectFit
+        saleImage.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
     }
     
 }

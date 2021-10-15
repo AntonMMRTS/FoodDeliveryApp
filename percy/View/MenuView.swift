@@ -24,6 +24,11 @@ class MenuView: UIView {
         setupCategoryCollectionView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     private func setupCategoryCollectionView() {
 
         let layout = UICollectionViewFlowLayout()
@@ -47,7 +52,9 @@ class MenuView: UIView {
 
         addSubview(categoryCollectionView)
         addSubview(menuCollectionView)
-        
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
         categoryCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
         categoryCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),

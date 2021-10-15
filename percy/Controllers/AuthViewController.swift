@@ -23,11 +23,8 @@ class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getSMSAction()
         setupConfig()
-        
-//        authView.setupView()
         navigationControllerSetup()
     }
     

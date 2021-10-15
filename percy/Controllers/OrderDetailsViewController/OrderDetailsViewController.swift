@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-
 class OrderDetailsViewController: UIViewController {
     
     var products: [Product]!
@@ -59,6 +58,7 @@ class OrderDetailsViewController: UIViewController {
 
     private func configure() {
         view.backgroundColor = .black
+        
         navigationItem.largeTitleDisplayMode = .never
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -77,6 +77,7 @@ class OrderDetailsViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(OrderDetailsViewController.showMap(recognizer:)))
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
+        
         orderView.addressLabel.isUserInteractionEnabled = true
         
         orderView.addressLabel.addGestureRecognizer(tap)
@@ -84,11 +85,12 @@ class OrderDetailsViewController: UIViewController {
     
     @objc private func showMap(recognizer: UITapGestureRecognizer) {
         let vc = AddressViewController()
+        
         vc.completion = { [weak self] address in
             self?.orderView.addressLabel.textAlignment = .left
             self?.orderView.addressLabel.text = address
         }
-        print("Anton")
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     

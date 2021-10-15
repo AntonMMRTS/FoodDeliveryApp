@@ -3,7 +3,9 @@ import UIKit
 class ProductDetailViewController: UIViewController {
     
     var product: Product!
-    var customView = ProductDetailView()
+    
+    private var customView = ProductDetailView()
+    
     private let databaseManager: DatabaseManagerProtocol = RealmManager()
     
     override func loadView() {

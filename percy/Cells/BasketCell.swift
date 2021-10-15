@@ -22,7 +22,7 @@ class BasketCell: UITableViewCell {
         }
     }
     
-    var guantity = 1 {
+    private var guantity = 1 {
         didSet {
             sumLabel.text = "\(guantity)"
             priceLabel.text = "\(guantity * product.price) ₽"
@@ -96,16 +96,6 @@ class BasketCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-
-        contentView.backgroundColor = .black
-        
-        contentView.addSubview(productImage)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(sumLabel)
-        contentView.addSubview(minusButton)
-        contentView.addSubview(plusButton)
-        
         setup()
     }
     
@@ -113,29 +103,12 @@ class BasketCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc private func increaseQuantity() {
-        databaseManager.updateProductStart()
-        guantity += 1
-        product.quantity = guantity
-        databaseManager.updateProductEnd()
-        closure?()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
     }
     
-    @objc private func decreaseQuantity() {
-        if guantity > 1 {
-            databaseManager.updateProductStart()
-            guantity -= 1
-            product.quantity = guantity
-            databaseManager.updateProductEnd()
-            closure?()
-        }
-    }
-
-    private func setup() {
-        
-        plusButton.addTarget(self, action: #selector(increaseQuantity), for: .touchUpInside)
-        minusButton.addTarget(self, action: #selector(decreaseQuantity), for: .touchUpInside)
-        
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             productImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             productImage.widthAnchor.constraint(equalToConstant: 90),
@@ -167,6 +140,38 @@ class BasketCell: UITableViewCell {
             minusButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             minusButton.trailingAnchor.constraint(equalTo: sumLabel.leadingAnchor, constant: -5)
         ])
+    }
+
+    private func setup() {
+        contentView.backgroundColor = .black
+        
+        contentView.addSubview(productImage)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(sumLabel)
+        contentView.addSubview(minusButton)
+        contentView.addSubview(plusButton)
+        
+        plusButton.addTarget(self, action: #selector(increaseQuantity), for: .touchUpInside)
+        minusButton.addTarget(self, action: #selector(decreaseQuantity), for: .touchUpInside)
+    }
+    
+    @objc private func increaseQuantity() {
+        databaseManager.updateProductStart()
+        guantity += 1
+        product.quantity = guantity
+        databaseManager.updateProductEnd()
+        closure?()
+    }
+    
+    @objc private func decreaseQuantity() {
+        if guantity > 1 {
+            databaseManager.updateProductStart()
+            guantity -= 1
+            product.quantity = guantity
+            databaseManager.updateProductEnd()
+            closure?()
+        }
     }
 
 }

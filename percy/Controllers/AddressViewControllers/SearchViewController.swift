@@ -11,12 +11,12 @@ import MapKit
 
 class SearchViewController: UIViewController {
     
+    var completion: ((CLLocationCoordinate2D) -> Void)?
+    
     private let searchView = SearchView()
     
     private var searchCompleter = MKLocalSearchCompleter()
     private var searchResults = [MKLocalSearchCompletion]()
-    
-    var completion: ((CLLocationCoordinate2D) -> Void)?
     
     override func loadView() {
        self.view = searchView

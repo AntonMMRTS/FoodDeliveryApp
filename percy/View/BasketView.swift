@@ -62,13 +62,19 @@ class BasketView: UIView {
         setupView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     private func setupView() {
-       
         addSubview(tableView)
         addSubview(totalLabel)
         addSubview(sumLabel)
         addSubview(orderButton)
-        
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),

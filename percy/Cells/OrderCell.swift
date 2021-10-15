@@ -56,13 +56,12 @@ class OrderCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setup() {
-        contentView.backgroundColor = .black
-        
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(quantityLabel)
-        
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             nameLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 20),
@@ -80,6 +79,13 @@ class OrderCell: UITableViewCell {
             quantityLabel.leadingAnchor.constraint(greaterThanOrEqualTo: nameLabel.trailingAnchor,
                                                    constant: 10)
         ])
+    }
+    
+    private func setup() {
+        contentView.backgroundColor = .black
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(quantityLabel)
     }
     
 }

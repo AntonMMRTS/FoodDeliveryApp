@@ -8,7 +8,7 @@
 import UIKit
 
 class SMSView: UIView {
-    
+  
     let codeTetxView: UITextView = {
         let textView = UITextView()
         textView.keyboardType = .phonePad
@@ -52,12 +52,18 @@ class SMSView: UIView {
         setupView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     private func setupView() {
-        
         addSubview(justLabel)
         addSubview(checkCodeButton)
         addSubview(codeTetxView)
-        
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             justLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             justLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),

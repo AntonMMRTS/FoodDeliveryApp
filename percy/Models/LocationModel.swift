@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+
 struct Location {
     var title: String
     var coordinates: CLLocationCoordinate2D?

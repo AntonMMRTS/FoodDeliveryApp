@@ -7,7 +7,8 @@
 
 import UIKit
 
-class Sale {
+
+struct Sale {
     var image = UIImage()
     var shortDefinition: String = ""
     var longDefinition: String = ""

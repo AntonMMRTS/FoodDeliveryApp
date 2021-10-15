@@ -9,13 +9,6 @@ import UIKit
 
 class SearchView: UIView {
     
-    private let lineView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .darkGray
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     let addressTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .black
@@ -34,6 +27,13 @@ class SearchView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
+    
+    private let lineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .darkGray
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -45,12 +45,18 @@ class SearchView: UIView {
         setupView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     private func setupView() {
         addSubview(tableView)
         addSubview(addressTextField)
-//        addSubview(lineView)
         addressTextField.setBottomBorder()
-        
+    }
+
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             addressTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             addressTextField.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
@@ -59,18 +65,13 @@ class SearchView: UIView {
                                                        constant: -20),
             addressTextField.heightAnchor.constraint(equalToConstant: 45),
             
-//            lineView.topAnchor.constraint(equalTo: addressTextField.bottomAnchor),
-//            lineView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-//            lineView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-//            lineView.heightAnchor.constraint(equalToConstant: 1),
-          
             tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             tableView.topAnchor.constraint(equalTo: addressTextField.bottomAnchor)
         ])
     }
-
+    
 }
 
 

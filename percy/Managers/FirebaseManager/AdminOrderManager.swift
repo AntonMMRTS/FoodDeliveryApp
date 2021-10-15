@@ -66,7 +66,7 @@ class AdminOrderManager {
                     let amount = i["amount"] as! Int
                     let name = i["name"] as! String
                     
-                    let newMiniOrder = MiniOrder()
+                    var newMiniOrder = MiniOrder()
                     
                     newMiniOrder.amount = amount
                     newMiniOrder.name = name

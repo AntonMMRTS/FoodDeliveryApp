@@ -24,13 +24,8 @@ class SMSViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationControllerSetup()
-        
         checkCode()
-        
-//        smsView.setupView()
-        
         setupConfig()
     }
     
@@ -91,7 +86,7 @@ class SMSViewController: UIViewController {
 }
 
 extension SMSViewController: UITextViewDelegate {
-    // ограничим количество символов
+ 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let currentCharacterCount = textView.text?.count ?? 0
         if range.length + range.location > currentCharacterCount {
@@ -101,7 +96,6 @@ extension SMSViewController: UITextViewDelegate {
         return newLength <= 6
     }
     
-    // блокируем кнопку
     func textViewDidChange(_ textView: UITextView) {
         if textView.text?.count == 6 {
             smsView.checkCodeButton.alpha = 1

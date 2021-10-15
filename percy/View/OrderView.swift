@@ -8,74 +8,7 @@
 import UIKit
 import FirebaseAuth
 
-
 class OrderView: UIView {
-    
-    private var delivery = true
-    
-    private var deliveryButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Доставка", for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 31)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private var notDeliveryButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1), for: .normal)
-        button.setTitle("Самовывоз", for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 31)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let whereLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Куда"
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let whenLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Когда"
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let payLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Оплата"
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let personsAmountLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Количество персон"
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private var totalLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Итого:"
-        label.numberOfLines = 0
-        label.textColor = .white
-        label.font = UIFont(name: "HelveticaNeue-Bold", size: 27)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     var whenButton: UIButton = {
         let button = UIButton()
@@ -146,6 +79,72 @@ class OrderView: UIView {
         return label
     }()
     
+    private var delivery = true
+    
+    private var deliveryButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Доставка", for: .normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 31)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private var notDeliveryButton: UIButton = {
+        let button = UIButton()
+        button.setTitleColor(UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1), for: .normal)
+        button.setTitle("Самовывоз", for: .normal)
+        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 31)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    private let whereLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Куда"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let whenLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Когда"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let payLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Оплата"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let personsAmountLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Количество персон"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var totalLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Итого:"
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 27)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -154,6 +153,11 @@ class OrderView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
     }
     
     @objc private func chooseDelivery() {
@@ -206,6 +210,10 @@ class OrderView: UIView {
         addSubview(orderButton)
         addSubview(commentTetxField)
         
+        commentTetxField.setBottomBorder()
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             deliveryButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             deliveryButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
@@ -273,8 +281,6 @@ class OrderView: UIView {
             sumLabel.widthAnchor.constraint(equalToConstant: 100),
             sumLabel.heightAnchor.constraint(equalToConstant: 31)
         ])
-        
-        commentTetxField.setBottomBorder()
     }
     
 }

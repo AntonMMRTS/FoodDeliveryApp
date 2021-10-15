@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class MapPanelView: UIView, UITextFieldDelegate {
     
     let addressLabel: UILabel = {
@@ -15,65 +14,6 @@ class MapPanelView: UIView, UITextFieldDelegate {
         label.text = "Адрес"
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.backgroundColor = .black
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let porchLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Подьезд"
-        label.isHidden = true
-        label.textAlignment = .center
-        label.font = UIFont(name: "HelveticaNeue", size: 13)
-        label.backgroundColor = .black
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let floorLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Этаж"
-        label.isHidden = true
-        label.textAlignment = .center
-        label.font = UIFont(name: "HelveticaNeue", size: 13)
-        label.backgroundColor = .black
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let flatLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Кв./Офис"
-        label.isHidden = true
-        label.textAlignment = .center
-        label.font = UIFont(name: "HelveticaNeue", size: 13)
-        label.backgroundColor = .black
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let intercomLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Домофон"
-        label.isHidden = true
-        label.textAlignment = .center
-        label.font = UIFont(name: "HelveticaNeue", size: 13)
-        label.backgroundColor = .black
-        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    private let commentsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Примечание к заказу"
-        label.isHidden = true
-        label.font = UIFont(name: "HelveticaNeue", size: 13)
         label.backgroundColor = .black
         label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -158,6 +98,65 @@ class MapPanelView: UIView, UITextFieldDelegate {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private let porchLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Подьезд"
+        label.isHidden = true
+        label.textAlignment = .center
+        label.font = UIFont(name: "HelveticaNeue", size: 13)
+        label.backgroundColor = .black
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let floorLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Этаж"
+        label.isHidden = true
+        label.textAlignment = .center
+        label.font = UIFont(name: "HelveticaNeue", size: 13)
+        label.backgroundColor = .black
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let flatLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Кв./Офис"
+        label.isHidden = true
+        label.textAlignment = .center
+        label.font = UIFont(name: "HelveticaNeue", size: 13)
+        label.backgroundColor = .black
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let intercomLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Домофон"
+        label.isHidden = true
+        label.textAlignment = .center
+        label.font = UIFont(name: "HelveticaNeue", size: 13)
+        label.backgroundColor = .black
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let commentsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Примечание к заказу"
+        label.isHidden = true
+        label.font = UIFont(name: "HelveticaNeue", size: 13)
+        label.backgroundColor = .black
+        label.textColor = UIColor(red: 105/255, green: 104/255, blue: 110/255, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -169,36 +168,7 @@ class MapPanelView: UIView, UITextFieldDelegate {
         setupView()
     }
     
-    func setupView() {
-        addSubview(addressLabel)
-        addSubview(addressButton)
-        addSubview(porchTextField)
-        addSubview(floorTextField)
-        addSubview(flatTextField)
-        addSubview(intercomTextField)
-        addSubview(commentsTextField)
-        addSubview(saveButton)
-        
-        addSubview(porchLabel)
-        addSubview(floorLabel)
-        addSubview(flatLabel)
-        addSubview(intercomLabel)
-        addSubview(commentsLabel)
-        
-        commentsTextField.setBottomBorder()
-        porchTextField.setBottomBorder()
-        floorTextField.setBottomBorder()
-        flatTextField.setBottomBorder()
-        intercomTextField.setBottomBorder()
-        
-        porchAnimate()
-        floorAnimate()
-        flatAnimate()
-        intercomAnimate()
-        commentsAnimate()
-    }
-    
-    func setupLayout(vc: UIViewController) {
+    func autolayoutSetup(vc: UIViewController) {
         NSLayoutConstraint.activate([
             addressLabel.topAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.topAnchor, constant: 10),
             addressLabel.leadingAnchor.constraint(equalTo: vc.view.safeAreaLayoutGuide.leadingAnchor,
@@ -278,6 +248,35 @@ class MapPanelView: UIView, UITextFieldDelegate {
             saveButton.heightAnchor.constraint(equalToConstant: 52),
             saveButton.topAnchor.constraint(equalTo: commentsTextField.bottomAnchor, constant: 15)
         ])
+    }
+    
+    private func setupView() {
+        addSubview(addressLabel)
+        addSubview(addressButton)
+        addSubview(porchTextField)
+        addSubview(floorTextField)
+        addSubview(flatTextField)
+        addSubview(intercomTextField)
+        addSubview(commentsTextField)
+        addSubview(saveButton)
+        
+        addSubview(porchLabel)
+        addSubview(floorLabel)
+        addSubview(flatLabel)
+        addSubview(intercomLabel)
+        addSubview(commentsLabel)
+        
+        commentsTextField.setBottomBorder()
+        porchTextField.setBottomBorder()
+        floorTextField.setBottomBorder()
+        flatTextField.setBottomBorder()
+        intercomTextField.setBottomBorder()
+        
+        porchAnimate()
+        floorAnimate()
+        flatAnimate()
+        intercomAnimate()
+        commentsAnimate()
     }
     
     private func porchAnimate() {

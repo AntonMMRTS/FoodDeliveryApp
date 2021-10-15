@@ -53,12 +53,18 @@ class AuthView: UIView {
         setupView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     private func setupView() {
-        
         addSubview(justLabel)
         addSubview(getCodeButton)
         addSubview(phoneTetxField)
-        
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             justLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             justLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),

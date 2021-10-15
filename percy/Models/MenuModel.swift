@@ -1,7 +1,6 @@
 import UIKit
 
-class Menu {
 
+struct Menu {
     var products = [ProductCategory]()
-
 }

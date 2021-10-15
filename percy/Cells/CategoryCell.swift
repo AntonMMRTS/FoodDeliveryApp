@@ -16,21 +16,22 @@ class CategoryCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(categoryFoodLabel)
-        addConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     func setupCell(category: String) {
         categoryFoodLabel.text = category
     }
     
-    
-    
-    private func addConstraints() {
-        
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             categoryFoodLabel.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             categoryFoodLabel.trailingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.trailingAnchor, constant: 10),

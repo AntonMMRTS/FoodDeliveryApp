@@ -33,10 +33,18 @@ class AddressView: UIView {
         setupView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     private func setupView() {
         addSubview(myMapView)
         myMapView.addSubview(imageView)
-        
+        imageView.clipsToBounds = true
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             myMapView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             myMapView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
@@ -48,7 +56,5 @@ class AddressView: UIView {
             imageView.widthAnchor.constraint(equalToConstant: 40),
             imageView.heightAnchor.constraint(equalToConstant: 40)
         ])
-        
-        imageView.clipsToBounds = true
     }
 }

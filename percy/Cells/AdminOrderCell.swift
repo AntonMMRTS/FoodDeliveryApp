@@ -56,6 +56,11 @@ class AdminOrderCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
     func configure(order: AdminOrder) {
         
         var allProducts = ""
@@ -73,18 +78,7 @@ class AdminOrderCell: UITableViewCell {
         productsLabel.text = allProducts
     }
     
-    private func setup() {
-        
-        contentView.backgroundColor = .black
-        
-        imageLabel.layer.cornerRadius = 13
-        imageLabel.clipsToBounds = true
-        
-        contentView.addSubview(addressLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(productsLabel)
-        contentView.addSubview(imageLabel)
-        
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             imageLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             imageLabel.widthAnchor.constraint(equalToConstant: 26),
@@ -107,6 +101,18 @@ class AdminOrderCell: UITableViewCell {
             productsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             productsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -15)
         ])
+    }
+    
+    private func setup() {
+        contentView.backgroundColor = .black
+        
+        imageLabel.layer.cornerRadius = 13
+        imageLabel.clipsToBounds = true
+        
+        contentView.addSubview(addressLabel)
+        contentView.addSubview(priceLabel)
+        contentView.addSubview(productsLabel)
+        contentView.addSubview(imageLabel)
     }
     
 }

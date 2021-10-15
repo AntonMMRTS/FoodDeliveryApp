@@ -32,26 +32,20 @@ class SaleDetailView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupLayout()
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupLayout()
+        setupView()
     }
     
-    private func setupLayout() {
-        
-        scrollView = UIScrollView()
-        scrollView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(scrollView)
-        
-        scrollView.addSubview(nameLabel)
-        scrollView.addSubview(saleImage)
-        scrollView.addSubview(definitionLabel)
-        
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        autolayoutSetup()
+    }
+    
+    private func autolayoutSetup() {
         NSLayoutConstraint.activate([
             scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
@@ -74,6 +68,18 @@ class SaleDetailView: UIView {
             definitionLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 21),
             definitionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50)
         ])
+    }
+    
+    private func setupView() {
+        scrollView = UIScrollView()
+        scrollView.backgroundColor = UIColor(red: 36/255, green: 36/255, blue: 38/255, alpha: 1)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(scrollView)
+        
+        scrollView.addSubview(nameLabel)
+        scrollView.addSubview(saleImage)
+        scrollView.addSubview(definitionLabel)
     }
     
 }

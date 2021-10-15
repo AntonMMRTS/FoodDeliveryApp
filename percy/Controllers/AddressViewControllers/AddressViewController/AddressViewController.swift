@@ -9,8 +9,11 @@ import MapKit
 import FloatingPanel
 import CoreLocation
 
-
 class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
+  
+    var completion: ((String) -> Void)?
+    
+    var activeTextField: UITextField!
     
     private let mapManager = MapManager()
     
@@ -19,10 +22,6 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
     private let addressView = AddressView()
     
     private let panelVC = MapPanelViewController()
-    
-    var completion: ((String) -> Void)?
-    
-    var activeTextField: UITextField!
     
     override func loadView() {
         self.view = addressView
@@ -33,7 +32,6 @@ class AddressViewController: UIViewController, FloatingPanelControllerDelegate {
         
         panelVC.completionAddress = { [weak self] address in
             self?.completion?(address)
-//            print(address)
         }
         
         panelVC.completion = {

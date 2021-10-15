@@ -121,14 +121,9 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == menuView.categoryCollectionView {
-        
+            
             self.selectedGroupIndex = indexPath.item
             menuView.categoryCollectionView.reloadData()
-            
-            // при переходи скролим с первой картинки
-//            menuView.menuCollectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
-//                                             at: .left,
-//                                             animated: false)
             
             menuView.menuCollectionView.reloadData()
         } else {
@@ -136,10 +131,6 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
             let newProduct = menu.products[selectedGroupIndex].products[indexPath.item]
             vc.product = newProduct
             navigationController?.pushViewController(vc, animated: true)
-            
-//            collectionView.scrollToItem(at: IndexPath(item: 0, section: 0),
-//                                        at: .left,
-//                                        animated: false)
         }
     }
 
@@ -148,12 +139,11 @@ extension MenuViewController: UICollectionViewDataSource, UICollectionViewDelega
 // MARK: - extensions UICollectionViewDelegateFlowLayout
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
-    // задаем размеры нашей ячейки
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == menuView.categoryCollectionView {
             let categoryName = menu.products[indexPath.row].name
-           
+            
             let width = categoryName.widthOfString(
                 usingFont: UIFont(name: "HelveticaNeue-Medium", size: 23) ??  UIFont.systemFont(ofSize: 23))
             
@@ -164,15 +154,5 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
                           height: (UIScreen.main.bounds.width/2 - 10) * 7 / 4)
         }
     }
-    
-    // уберем отступ между ячейками
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 5
-//    }
-    
-    // делаем отступы между ячейками, не нарушая центровки
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-//    }
     
 }
