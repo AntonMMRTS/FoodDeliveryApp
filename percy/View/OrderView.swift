@@ -10,27 +10,24 @@ import FirebaseAuth
 
 class OrderView: UIView {
     
-    var whenButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .white
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
-        button.contentHorizontalAlignment = .right
-        button.setTitle("Как можно быстрее", for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    var timeDeliveryLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = "Как можно быстрее"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
-    var payButton: UIButton = {
-        let button = UIButton()
-        button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .black
-        button.contentHorizontalAlignment = .right
-        button.setTitle("Картой онлайн", for: .normal)
-        button.titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
+    var kindOfPayLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = "Картой онлайн"
+        label.font = UIFont(name: "HelveticaNeue-Bold", size: 17)
+        label.textColor = .white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     let commentTetxField: UITextField = {
@@ -77,6 +74,18 @@ class OrderView: UIView {
         label.textAlignment = .right
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    let timeView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let paymentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private var delivery = true
@@ -200,15 +209,20 @@ class OrderView: UIView {
         addSubview(notDeliveryButton)
         addSubview(whereLabel)
         addSubview(addressLabel)
-        addSubview(whenLabel)
-        addSubview(whenButton)
-        addSubview(payLabel)
-        addSubview(payButton)
+        
         addSubview(personsAmountLabel)
         addSubview(totalLabel)
         addSubview(sumLabel)
         addSubview(orderButton)
         addSubview(commentTetxField)
+        addSubview(timeView)
+        addSubview(paymentView)
+        
+        paymentView.addSubview(payLabel)
+        paymentView.addSubview(kindOfPayLabel)
+        
+        timeView.addSubview(timeDeliveryLabel)
+        timeView.addSubview(whenLabel)
         
         commentTetxField.setBottomBorder()
     }
@@ -235,47 +249,59 @@ class OrderView: UIView {
             addressLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
             addressLabel.topAnchor.constraint(equalTo: whereLabel.bottomAnchor, constant: 12),
             
-            whenLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            whenLabel.widthAnchor.constraint(equalToConstant: 70),
-            whenLabel.heightAnchor.constraint(equalToConstant: 17),
-            whenLabel.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 40),
+            timeView.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 40),
+            timeView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            timeView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            timeView.heightAnchor.constraint(equalToConstant: 25),
             
-            whenButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            whenButton.widthAnchor.constraint(equalToConstant: 180),
-            whenButton.heightAnchor.constraint(equalToConstant: 17),
-            whenButton.topAnchor.constraint(equalTo: addressLabel.bottomAnchor, constant: 40),
+            whenLabel.leadingAnchor.constraint(equalTo: timeView.leadingAnchor, constant: 20),
+            whenLabel.widthAnchor.constraint(equalToConstant: 70),
+            whenLabel.heightAnchor.constraint(equalToConstant: 25),
+            whenLabel.topAnchor.constraint(equalTo: timeView.topAnchor),
+
+            timeDeliveryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
+                                                        constant: -20),
+            timeDeliveryLabel.widthAnchor.constraint(equalToConstant: 180),
+            timeDeliveryLabel.heightAnchor.constraint(equalToConstant: 25),
+            timeDeliveryLabel.topAnchor.constraint(equalTo: timeView.topAnchor),
+            
+            paymentView.topAnchor.constraint(equalTo: timeView.bottomAnchor, constant: 40),
+            paymentView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            paymentView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            paymentView.heightAnchor.constraint(equalToConstant: 25),
             
             payLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             payLabel.widthAnchor.constraint(equalToConstant: 70),
-            payLabel.heightAnchor.constraint(equalToConstant: 17),
-            payLabel.topAnchor.constraint(equalTo: whenButton.bottomAnchor, constant: 40),
-            
-            payButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            payButton.widthAnchor.constraint(equalToConstant: 180),
-            payButton.heightAnchor.constraint(equalToConstant: 17),
-            payButton.topAnchor.constraint(equalTo: whenButton.bottomAnchor, constant: 40),
-            
+            payLabel.heightAnchor.constraint(equalToConstant: 25),
+            payLabel.topAnchor.constraint(equalTo: paymentView.topAnchor),
+
+            kindOfPayLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,
+                                                     constant: -20),
+            kindOfPayLabel.widthAnchor.constraint(equalToConstant: 220),
+            kindOfPayLabel.heightAnchor.constraint(equalToConstant: 25),
+            kindOfPayLabel.topAnchor.constraint(equalTo: paymentView.topAnchor),
+
             personsAmountLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,
                                                         constant: 20),
             personsAmountLabel.widthAnchor.constraint(equalToConstant: 180),
             personsAmountLabel.heightAnchor.constraint(equalToConstant: 17),
             personsAmountLabel.topAnchor.constraint(equalTo: payLabel.bottomAnchor, constant: 40),
-            
+
             commentTetxField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             commentTetxField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             commentTetxField.topAnchor.constraint(equalTo: personsAmountLabel.topAnchor, constant: 45),
             commentTetxField.heightAnchor.constraint(equalToConstant: 34),
-            
+
             orderButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             orderButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             orderButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
             orderButton.heightAnchor.constraint(equalToConstant: 52),
-            
+
             totalLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15),
             totalLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             totalLabel.widthAnchor.constraint(equalToConstant: 150),
             totalLabel.heightAnchor.constraint(equalToConstant: 30),
-            
+
             sumLabel.bottomAnchor.constraint(equalTo: orderButton.topAnchor, constant: -15),
             sumLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             sumLabel.widthAnchor.constraint(equalToConstant: 100),

@@ -26,10 +26,10 @@
 		F33DD39C26B2FBBC00CFEF56 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD39B26B2FBBC00CFEF56 /* CategoryCell.swift */; };
 		F33DD3A126B2FBF000CFEF56 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD3A026B2FBF000CFEF56 /* String.swift */; };
 		F33DD3A626B2FC1300CFEF56 /* StatusBar+NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F33DD3A526B2FC1300CFEF56 /* StatusBar+NavigationBar.swift */; };
-		F33DD3AD26B3025A00CFEF56 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AC26B3025A00CFEF56 /* FirebaseStorage */; };
-		F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */; };
-		F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */; };
-		F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */; };
+		F33DD3AD26B3025A00CFEF56 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AC26B3025A00CFEF56 /* SwiftPackageProductDependency */; };
+		F33DD3AF26B3025A00CFEF56 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3AE26B3025A00CFEF56 /* SwiftPackageProductDependency */; };
+		F33DD3B126B3025A00CFEF56 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B026B3025A00CFEF56 /* SwiftPackageProductDependency */; };
+		F33DD3B326B3025A00CFEF56 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F33DD3B226B3025A00CFEF56 /* SwiftPackageProductDependency */; };
 		F340526B26CCE261003A09A3 /* MyOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340526A26CCE261003A09A3 /* MyOrderModel.swift */; };
 		F340526E26CCE4D5003A09A3 /* MyOrderRealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340526D26CCE4D5003A09A3 /* MyOrderRealmManager.swift */; };
 		F340527126CCF11B003A09A3 /* MyOrdersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F340527026CCF11B003A09A3 /* MyOrdersView.swift */; };
@@ -53,7 +53,7 @@
 		F35335C926C6268A007E55E1 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35335C826C6268A007E55E1 /* OrderView.swift */; };
 		F35335CC26C626FF007E55E1 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35335CB26C626FF007E55E1 /* OrderCell.swift */; };
 		F3533A8D26BA2EE2006D9185 /* Extension + fetchMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3533A8C26BA2EE2006D9185 /* Extension + fetchMenu.swift */; };
-		F365B4B226B38E87008C9DED /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F365B4B126B38E87008C9DED /* RealmSwift */; };
+		F365B4B226B38E87008C9DED /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = F365B4B126B38E87008C9DED /* SwiftPackageProductDependency */; };
 		F365B4B526B38EBE008C9DED /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B426B38EBE008C9DED /* MenuModel.swift */; };
 		F365B4BA26B38F6D008C9DED /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4B926B38F6D008C9DED /* FirebaseManager.swift */; };
 		F365B4BD26B394F2008C9DED /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F365B4BC26B394F2008C9DED /* ProductModel.swift */; };
@@ -150,11 +150,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F33DD3AD26B3025A00CFEF56 /* FirebaseStorage in Frameworks */,
-				F33DD3AF26B3025A00CFEF56 /* FirebaseAuth in Frameworks */,
-				F33DD3B326B3025A00CFEF56 /* FirebaseDatabase in Frameworks */,
-				F365B4B226B38E87008C9DED /* RealmSwift in Frameworks */,
-				F33DD3B126B3025A00CFEF56 /* FirebaseFirestore in Frameworks */,
+				F33DD3AD26B3025A00CFEF56 /* BuildFile in Frameworks */,
+				F33DD3AF26B3025A00CFEF56 /* BuildFile in Frameworks */,
+				F33DD3B326B3025A00CFEF56 /* BuildFile in Frameworks */,
+				F365B4B226B38E87008C9DED /* BuildFile in Frameworks */,
+				F33DD3B126B3025A00CFEF56 /* BuildFile in Frameworks */,
 				5B9E63DD896303B7AF3EABB7 /* Pods_percy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +390,6 @@
 				F33DD37426B2FAAB00CFEF56 /* Frameworks */,
 				F33DD37526B2FAAB00CFEF56 /* Resources */,
 				2AE740299D9AF349AAACEE01 /* [CP] Embed Pods Frameworks */,
-				B6BD19E7715202628F293D1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -398,11 +397,11 @@
 			);
 			name = percy;
 			packageProductDependencies = (
-				F33DD3AC26B3025A00CFEF56 /* FirebaseStorage */,
-				F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */,
-				F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */,
-				F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */,
-				F365B4B126B38E87008C9DED /* RealmSwift */,
+				F33DD3AC26B3025A00CFEF56 /* SwiftPackageProductDependency */,
+				F33DD3AE26B3025A00CFEF56 /* SwiftPackageProductDependency */,
+				F33DD3B026B3025A00CFEF56 /* SwiftPackageProductDependency */,
+				F33DD3B226B3025A00CFEF56 /* SwiftPackageProductDependency */,
+				F365B4B126B38E87008C9DED /* SwiftPackageProductDependency */,
 			);
 			productName = percy;
 			productReference = F33DD37726B2FAAB00CFEF56 /* percy.app */;
@@ -432,8 +431,8 @@
 			);
 			mainGroup = F33DD36E26B2FAAB00CFEF56;
 			packageReferences = (
-				F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				F365B4B026B38E87008C9DED /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				F33DD3AB26B3025A00CFEF56 /* RemoteSwiftPackageReference */,
+				F365B4B026B38E87008C9DED /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = F33DD37826B2FAAB00CFEF56 /* Products */;
 			projectDirPath = "";
@@ -474,23 +473,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6BD19E7715202628F293D1D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-percy/Pods-percy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE494A3DBA1B559E50E12787 /* [CP] Check Pods Manifest.lock */ = {
@@ -784,7 +766,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		F33DD3AB26B3025A00CFEF56 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
 			requirement = {
@@ -792,7 +774,7 @@
 				minimumVersion = 8.4.0;
 			};
 		};
-		F365B4B026B38E87008C9DED /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+		F365B4B026B38E87008C9DED /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-cocoa.git";
 			requirement = {
@@ -803,29 +785,29 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F33DD3AC26B3025A00CFEF56 /* FirebaseStorage */ = {
+		F33DD3AC26B3025A00CFEF56 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F33DD3AB26B3025A00CFEF56 /* RemoteSwiftPackageReference */;
 			productName = FirebaseStorage;
 		};
-		F33DD3AE26B3025A00CFEF56 /* FirebaseAuth */ = {
+		F33DD3AE26B3025A00CFEF56 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F33DD3AB26B3025A00CFEF56 /* RemoteSwiftPackageReference */;
 			productName = FirebaseAuth;
 		};
-		F33DD3B026B3025A00CFEF56 /* FirebaseFirestore */ = {
+		F33DD3B026B3025A00CFEF56 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F33DD3AB26B3025A00CFEF56 /* RemoteSwiftPackageReference */;
 			productName = FirebaseFirestore;
 		};
-		F33DD3B226B3025A00CFEF56 /* FirebaseDatabase */ = {
+		F33DD3B226B3025A00CFEF56 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F33DD3AB26B3025A00CFEF56 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = F33DD3AB26B3025A00CFEF56 /* RemoteSwiftPackageReference */;
 			productName = FirebaseDatabase;
 		};
-		F365B4B126B38E87008C9DED /* RealmSwift */ = {
+		F365B4B126B38E87008C9DED /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F365B4B026B38E87008C9DED /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			package = F365B4B026B38E87008C9DED /* RemoteSwiftPackageReference */;
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */

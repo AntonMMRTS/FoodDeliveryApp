@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "marker.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Снимок экрана 2021-07-14 в 15.45 1-1.jpg",
+      "filename" : "marker@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "marker@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

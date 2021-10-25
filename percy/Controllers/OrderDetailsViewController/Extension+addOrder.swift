@@ -22,21 +22,14 @@ extension OrderDetailsViewController {
             .collection("orders")
             .document(formatter.string(from: Date()))
         
-//        self.db.collection("users")
-//            .document(currentUser!.phoneNumber!)
-//            .collection("orders")
-//            .document(formatter.string(from: Date()))
 //        dbDestination.setData(["date" : formatter.string(from: Date()), "sum" : totalSum!, "adress" : orderView.addressTetxField.text!])
 
         for product in products {
-//            self.db.collection("users")
-//                .document(currentUser!.phoneNumber!)
-//                .collection("orders")
-//                .document(formatter.string(from: Date()))
+
             dbDestination.collection("order")
                 .document(product.name + " \(product.quantity) шт")
                 .setData(["name" : product.name, "amount" : product.quantity])
-//
+
             db.collection("orders")
                 .document(currentUser!.phoneNumber!)
                 .collection("order")

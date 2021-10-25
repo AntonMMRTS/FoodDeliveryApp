@@ -1,7 +1,6 @@
 import Foundation
 import RealmSwift
 
-
 protocol DatabaseManagerProtocol {
     
     func addNewProduct (product: Product)

@@ -42,8 +42,8 @@ class OrderDetailsViewController: UIViewController {
         
         setupAddress()
         
-        orderView.payButton.addTarget(self, action: #selector(alertPay), for: .touchUpInside)
-        orderView.whenButton.addTarget(self, action: #selector(alertTime), for: .touchUpInside)
+        chooseDeliveryTime()
+        choosePayment()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,10 +77,30 @@ class OrderDetailsViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(OrderDetailsViewController.showMap(recognizer:)))
         tap.numberOfTapsRequired = 1
         tap.numberOfTouchesRequired = 1
-        
+
         orderView.addressLabel.isUserInteractionEnabled = true
         
         orderView.addressLabel.addGestureRecognizer(tap)
+    }
+    
+    private func chooseDeliveryTime() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(alertTime))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        
+        orderView.timeView.isUserInteractionEnabled = true
+        
+        orderView.timeView.addGestureRecognizer(tap)
+    }
+    
+    private func choosePayment() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(alertPay))
+        tap.numberOfTapsRequired = 1
+        tap.numberOfTouchesRequired = 1
+        
+        orderView.paymentView.isUserInteractionEnabled = true
+        
+        orderView.paymentView.addGestureRecognizer(tap)
     }
     
     @objc private func showMap(recognizer: UITapGestureRecognizer) {
@@ -96,10 +116,22 @@ class OrderDetailsViewController: UIViewController {
     
     @objc private func alertPay() {
         let alert = UIAlertController(title: "Способ оплаты", message: nil, preferredStyle: .actionSheet)
-        let actionCardOnline = UIAlertAction(title: "Картой онлайн", style: .default, handler: nil)
-        let actionCardOffline = UIAlertAction(title: "Картой при получении", style: .default, handler: nil)
-        let actionApplePay = UIAlertAction(title: "Apple Pay", style: .default, handler: nil)
-        let actionCash = UIAlertAction(title: "Наличными", style: .default, handler: nil)
+        
+        let actionCardOnline = UIAlertAction(title: "Картой онлайн", style: .default) { _ in
+            self.orderView.kindOfPayLabel.text = "Картой онлайн"
+        }
+        
+        let actionCardOffline = UIAlertAction(title: "Картой при получении", style: .default) { _ in
+            self.orderView.kindOfPayLabel.text = "Картой при получении"
+        }
+        
+        let actionApplePay = UIAlertAction(title: "Apple Pay", style: .default) { _ in
+            self.orderView.kindOfPayLabel.text = "Apple Pay"
+        }
+        
+        let actionCash = UIAlertAction(title: "Наличными", style: .default) { _ in
+            self.orderView.kindOfPayLabel.text = "Наличными"
+        }
         
         alert.addAction(actionCardOnline)
         alert.addAction(actionCardOffline)
@@ -111,15 +143,35 @@ class OrderDetailsViewController: UIViewController {
     
     @objc private func alertTime() {
         let alert = UIAlertController(title: "Время доставки", message: nil, preferredStyle: .actionSheet)
-        let actionCardOnline = UIAlertAction(title: "Как можно быстрее", style: .default, handler: nil)
-        let actionCardOffline = UIAlertAction(title: "Ко времени", style: .default, handler: nil)
+        
+        let actionCardOnline = UIAlertAction(title: "Как можно быстрее", style: .default) { _ in
+            self.orderView.timeDeliveryLabel.text = "Как можно быстрее"
+        }
+        
+        let actionCardOffline = UIAlertAction(title: "Ко времени", style: .default) { _ in
+            
+            let alert = UIAlertController(title: "", message: nil, preferredStyle: .actionSheet)
+            let datePicker = UIDatePicker()
+            datePicker.preferredDatePickerStyle = .wheels
+            datePicker.datePickerMode = .time
+            alert.view.addSubview(datePicker)
+            alert.view.heightAnchor.constraint(equalToConstant: 300).isActive = true
+            
+            let actionDate = UIAlertAction(title: "OK", style: .default) { _ in
+                let formatter = DateFormatter()
+                formatter.dateFormat = "MMM d, H:mm"
+                self.orderView.timeDeliveryLabel.text  = formatter.string(from: datePicker.date)
+            }
+            alert.addAction(actionDate)
+            self.present(alert, animated: true, completion: nil)
+        }
         
         alert.addAction(actionCardOnline)
         alert.addAction(actionCardOffline)
         
         present(alert, animated: true, completion: nil)
     }
-
+    
 }
 
 
